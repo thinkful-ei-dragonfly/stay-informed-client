@@ -5,8 +5,8 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
-import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
-import LearningRoute from '../../routes/LearningRoute/LearningRoute'
+import UserRoute from '../../routes/UserRoute/UserRoute'
+import Search from '../../routes/Search/Search'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
 
@@ -25,17 +25,13 @@ export default class App extends Component {
         <Header />
         <main>
           {hasError && (
-            <p>There was an error! Oh no!</p>
+            <p>There was an error!</p>
           )}
           <Switch>
-            <PrivateRoute
+            <Route
               exact
               path={'/'}
-              component={DashboardRoute}
-            />
-            <PrivateRoute
-              path={'/learn'}
-              component={LearningRoute}
+              component={Search}
             />
             <PublicOnlyRoute
               path={'/register'}
@@ -44,6 +40,10 @@ export default class App extends Component {
             <PublicOnlyRoute
               path={'/login'}
               component={LoginRoute}
+            />
+            <PrivateRoute
+              path={'/user/:userId'}
+              component={UserRoute}
             />
             <Route
               component={NotFoundRoute}

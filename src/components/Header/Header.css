@@ -3,15 +3,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   font-family: 'Titillium Web', sans-serif;
 }
 
 header a {
   margin: 0 5px;
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
 }
 
 header a:hover {

@@ -1,7 +1,5 @@
 body {
   min-width: 320px;
-  background-image: url('../../media/words.jpg');
-  background-size: cover;
   min-height: 100vh;
 }
 
@@ -11,9 +9,7 @@ body {
   width: 80%;
   margin-left: 10%;
   border-radius: 20px;
-  background-color:rgba(255,255,255,.8);
   color: #02111B;
-  box-shadow: 0 5px 20px rgba(0,0,0, .8); 
   padding: 20px;
 }
 

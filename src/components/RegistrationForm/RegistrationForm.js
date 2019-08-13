@@ -16,16 +16,18 @@ class RegistrationForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { name, username, password } = ev.target
+    const { name, username, password, address } = ev.target
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
       password: password.value,
+      address: address.value,
     })
       .then(user => {
         name.value = ''
         username.value = ''
         password.value = ''
+        address.value = ''
         this.props.onRegistrationSuccess()
       })
       .catch(res => {
@@ -65,6 +67,16 @@ class RegistrationForm extends Component {
           <Input
             id='registration-username-input'
             name='username'
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor='registration-address-input'>
+            Enter your address<Required />
+          </Label>
+          <Input
+            id='registration-address-input'
+            name='address'
             required
           />
         </div>
