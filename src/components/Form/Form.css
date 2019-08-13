@@ -1,0 +1,13 @@
+.Input {
+  display: block;
+  height: 35px;
+  width: 98%;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 1%;
+}
+
+.Label {
+
+}

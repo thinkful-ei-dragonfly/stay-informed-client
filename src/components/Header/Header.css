@@ -1,0 +1,23 @@
+header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+header a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 25px;
+}
