@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../../components/Form/Form'
 import UserContext from '../../contexts/UserContext'
 import Button from '../../components/Button/Button'
+import RepresentativeService from '../../services/representatives-service'
 import './Search.css'
 
 class Search extends Component {
@@ -21,6 +22,7 @@ class Search extends Component {
     const { street, city, state, zip } = ev.target
     const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`
     if (this.context.user) {
+
       this.context.setUser({
         ...this.context.user,
         address
@@ -30,6 +32,13 @@ class Search extends Component {
         address
       })
     }
+
+    // This is the initial request to the backend.
+    // The backend will make requests to Civics, ProPublica, and openSecrets and the response will include ALL of that stuf.
+    RepresentativeService.getReps(this.context.user.address)
+      .then(res => {
+        debugger;
+      })
   }
 
   componentDidMount() {
@@ -37,6 +46,19 @@ class Search extends Component {
   }
 
   render() {
+    // Idea: If there's a current user, we should pre-populate these fields with the this.context.user.address
+    // We would split the string at ',' and then set the defaultValue={street}
+    // For next time
+    let streetDefault = ''
+    let cityDefault = ''
+    let stateDefault = ''
+    let zipDefault = ''
+    if (this.context.user.address) {
+      streetDefault = this.context.user.address.split(',')[0].trim()
+      cityDefault = this.context.user.address.split(',')[1].trim()
+      stateDefault = this.context.user.address.split(',')[2].trim()
+      zipDefault = this.context.user.address.split(',')[3].trim()
+    }
     const { error } = this.state
     return (
       <form
@@ -55,6 +77,7 @@ class Search extends Component {
             ref={this.firstInput}
             id='search-street-input'
             name='street'
+            placeholder={streetDefault}
             required
           />
         </section>
@@ -65,6 +88,7 @@ class Search extends Component {
           <Input
             id='search-city-input'
             name='city'
+            placeholder={cityDefault}
             required
           />
         </section>
@@ -75,6 +99,7 @@ class Search extends Component {
           <Input
             id='search-state-input'
             name='state'
+            placeholder={stateDefault}
             required
           />
         </section>
@@ -85,6 +110,7 @@ class Search extends Component {
           <Input
             id='search-zip-input'
             name='zip'
+            placeholder={zipDefault}
             required
           />
         </section>

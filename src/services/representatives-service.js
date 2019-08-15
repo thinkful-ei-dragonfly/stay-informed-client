@@ -1,13 +1,15 @@
 import config from '../config'
 
 const RepresentativeService = {
-  getReps(address) {
+  getReps(addressInput) {
     return fetch(`${config.API_ENDPOINT}/representatives`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(address)
+      body: JSON.stringify({
+        address: addressInput
+      })
     })
     .then(res =>
       (!res.ok)
@@ -18,3 +20,6 @@ const RepresentativeService = {
 }
 
 export default RepresentativeService
+
+// This could be imported into both the Search.js component, as well as the Dashboard.js component
+// For the dashboard, we could run this fetch on componentdidmount() or something
