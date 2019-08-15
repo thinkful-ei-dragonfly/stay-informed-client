@@ -7,6 +7,7 @@ import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import UserRoute from '../../routes/UserRoute/UserRoute'
 import Search from '../../routes/Search/Search'
+import Dashboard from '../Dashboard/Dashboard'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
 
@@ -30,8 +31,18 @@ export default class App extends Component {
           <Switch>
             <Route
               exact
-              path={'/'}
+              path={'/dashboard'}
+              component={Dashboard}
+              />
+            <Route
+              exact
+              path={'/search'}
               component={Search}
+              />
+
+            <Route
+              path={'/dashboard'}
+              component={Dashboard}
             />
             <PublicOnlyRoute
               path={'/register'}
