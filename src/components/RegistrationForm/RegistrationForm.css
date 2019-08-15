@@ -18,7 +18,10 @@
   float: left;
 }
 
-
 .RegistrationForm a {
   display: block;
+}
+
+.searchNow {
+  padding-top: 30px;
 }
