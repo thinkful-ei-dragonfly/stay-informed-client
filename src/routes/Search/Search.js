@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../../components/Form/Form'
 import UserContext from '../../contexts/UserContext'
 import Button from '../../components/Button/Button'
@@ -37,7 +36,8 @@ class Search extends Component {
     // The backend will make requests to Civics, ProPublica, and openSecrets and the response will include ALL of that stuf.
     RepresentativeService.getReps(this.context.user.address)
       .then(res => {
-        debugger;
+        this.context.setUserState(res.state.toUpperCase())
+        this.context.setUserDistrict(res.district)
       })
   }
 

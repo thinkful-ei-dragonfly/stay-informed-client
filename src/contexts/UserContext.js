@@ -6,6 +6,8 @@ import IdleService from '../services/idle-service'
 const UserContext = React.createContext({
   user: {},
   error: null,
+  state: null,
+  district: null,
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -18,7 +20,11 @@ export default UserContext
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, error: null }
+    const state = {
+      user: {},
+      state: null,
+      district: null,
+      error: null }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -59,6 +65,14 @@ export class UserProvider extends Component {
 
   setUser = user => {
     this.setState({ user })
+  }
+
+  setUserState = state => {
+    this.setState({ state })
+  }
+
+  setUserDistrict = district => {
+    this.setState({ district })
   }
 
   processLogin = authToken => {
@@ -109,9 +123,13 @@ export class UserProvider extends Component {
     const value = {
       user: this.state.user,
       error: this.state.error,
+      state: this.state.state,
+      district: this.state.district,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
+      setUserState: this.setUserState,
+      setUserDistrict: this.setUserDistrict,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
     }
