@@ -1,4 +1,19 @@
 .SearchForm {
-  width: 200px;
+  width: 400px;
   margin: auto;
+}
+
+.SearchFormCity {
+  width: 200px;
+  float: left;
+}
+
+.SearchFormState {
+  width: 50px;
+  float: left;
+}
+
+.SearchFormZip {
+  width: 150px;
+  float: left;
 }
