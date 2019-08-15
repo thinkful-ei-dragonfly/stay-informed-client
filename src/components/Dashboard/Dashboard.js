@@ -5,12 +5,11 @@ import UserContext from '../../contexts/UserContext'
 
 export default class Dashboard extends React.Component {
   static contextType = UserContext
-  state = {
 
-  }
 
   componentDidMount() {
-
+    // If the login form is successful, we need to store the user in context
+    // if there's a user in context, do a request to /api/representatives for reps & state / district
   }
 
   render() {

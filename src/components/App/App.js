@@ -31,14 +31,14 @@ export default class App extends Component {
           <Switch>
             <Route
               exact
-              path={'/'}
+              path={'/dashboard'}
               component={Dashboard}
               />
-              <Route
-                exact
-                path={'/search'}
-                component={Search}
-                />
+            <Route
+              exact
+              path={'/search'}
+              component={Search}
+              />
 
             <Route
               path={'/dashboard'}
