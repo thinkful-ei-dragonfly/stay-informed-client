@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../../components/Form/Form'
 import UserContext from '../../contexts/UserContext'
+import TokenService from '../../services/TokenService'
 import Button from '../../components/Button/Button'
 import './Search.css'
 
@@ -20,9 +21,16 @@ class Search extends Component {
     ev.preventDefault()
     const { street, city, state, zip } = ev.target
     const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`
-    const user = {
-      username: 'anon',
-      address,
+    if (this.context.user) {
+      this.context.setUser({
+        ...this.context.user,
+        address
+      })
+    } else {
+      this.context.setUser({
+        username: 'anon',
+        address
+      })
     }
     this.context.user = user
   }
