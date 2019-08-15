@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../../components/Form/Form'
 import UserContext from '../../contexts/UserContext'
-import TokenService from '../../services/TokenService'
 import Button from '../../components/Button/Button'
 import './Search.css'
 
@@ -28,11 +27,9 @@ class Search extends Component {
       })
     } else {
       this.context.setUser({
-        username: 'anon',
         address
       })
     }
-    this.context.user = user
   }
 
   componentDidMount() {
