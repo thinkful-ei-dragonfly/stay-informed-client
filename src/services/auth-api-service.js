@@ -31,7 +31,7 @@ const AuthApiService = {
           : res.json()
       )
   },
-  
+
   refreshToken() {
     return fetch(`${config.API_ENDPOINT}/auth/token`, {
       method: 'PUT',

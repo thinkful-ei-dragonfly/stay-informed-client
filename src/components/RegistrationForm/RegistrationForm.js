@@ -4,8 +4,10 @@ import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
 import './RegistrationForm.css'
+import UserContext from '../../contexts/UserContext';
 
 class RegistrationForm extends Component {
+  static contextType = UserContext
   static defaultProps = {
     onRegistrationSuccess: () => { }
   }
@@ -18,6 +20,8 @@ class RegistrationForm extends Component {
     ev.preventDefault()
     const { name, username, password, street, city, state, zip } = ev.target
     const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`
+    let loginUsername
+
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
@@ -25,18 +29,31 @@ class RegistrationForm extends Component {
       address,
     })
       .then(user => {
-        name.value = ''
-        username.value = ''
-        password.value = ''
-        street.value = ''
-        city.value = ''
-        state.value = ''
-        zip.value = ''
-        this.props.onRegistrationSuccess(user)
+        loginUsername = user.username
+      })
+      .then(response => {
+        AuthApiService.postLogin({
+          username: loginUsername,
+          password: password.value,
+        })
+          .then(res => {
+            name.value = ''
+            username.value = ''
+            password.value = ''
+            street.value = ''
+            city.value = ''
+            state.value = ''
+            zip.value = ''
+            this.context.processLogin(res.authToken)
+          })
+          .catch(res => {
+            this.setState({ error: res.error })
+          })
       })
       .catch(res => {
         this.setState({ error: res.error })
       })
+
   }
 
   componentDidMount() {
