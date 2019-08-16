@@ -35,7 +35,7 @@ export default class App extends Component {
               path={'/dashboard'}
               component={Dashboard}
               />
-            <PublicOnlyRoute
+            <Route
               path={'/search'}
               component={Search}
               />
