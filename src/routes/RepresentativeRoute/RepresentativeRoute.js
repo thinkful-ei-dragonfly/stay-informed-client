@@ -25,7 +25,6 @@ export default class RepresentativeRoute extends React.Component {
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
       topIndustries = currentRep.topIndustries
-      debugger;
     }
     return (
       <div className="representativePage">
