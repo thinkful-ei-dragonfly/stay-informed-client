@@ -17,6 +17,7 @@ export default class RepresentativeRoute extends React.Component {
     let contribs = ''
     let topContribs
     let topIndustries
+    let currentRepImg = ''
 
     if (this.context.representatives) {
       const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
@@ -26,6 +27,11 @@ export default class RepresentativeRoute extends React.Component {
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
       topIndustries = currentRep.topIndustries
+      if (currentRep.photoUrl) {
+        currentRepImg = (
+          <img src={currentRep.photoUrl} alt={name} />
+        )
+      }
       debugger;
     }
     return (
@@ -40,7 +46,7 @@ export default class RepresentativeRoute extends React.Component {
 
         </aside>
         <div className='representativeImage'>
-          {/* Image would go here */}
+          {currentRepImg}
         </div>
 
       </div>

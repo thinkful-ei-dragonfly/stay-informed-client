@@ -2,7 +2,6 @@ import React from 'react'
 import UserContext from '../../contexts/UserContext'
 import RepresentativeService from '../../services/representatives-service'
 import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js'
-import TotalContributions from '../TotalContributions/TotalContributions'
 export default class Dashboard extends React.Component {
 
   static defaultProps = {
