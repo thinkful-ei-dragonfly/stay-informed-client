@@ -10,6 +10,7 @@ import Search from '../../routes/Search/Search'
 import Dashboard from '../Dashboard/Dashboard'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
+import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -42,6 +43,10 @@ export default class App extends Component {
             <Route
               path={'/dashboard'}
               component={Dashboard}
+            />
+            <Route
+              path={'/representatives/:repId'}
+              component={RepresentativeRoute}
             />
             <PublicOnlyRoute
               path={'/register'}

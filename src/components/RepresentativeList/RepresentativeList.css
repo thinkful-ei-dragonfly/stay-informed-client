@@ -1,0 +1,39 @@
+#rep-pane {
+ 
+}
+
+.headshot {
+  /* display: relative; */
+  /* float: left; */
+  width: 200px;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.representative {
+  padding: 20px;
+}
+
+.go-details {
+  margin-top: 20px;
+  width: 250px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(221, 221, 221, .5);
+  border: 1px solid gray;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 5%;
+}
+
+.go-details:hover {
+  background-color: rgba(97, 163, 204, 0.4);
+}

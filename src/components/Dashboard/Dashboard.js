@@ -1,12 +1,18 @@
 import React from 'react'
 import UserContext from '../../contexts/UserContext'
 import RepresentativeService from '../../services/representatives-service'
-// import RepresentativeList from ''
-// waiting on Rob's code
+import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js' 
 
 export default class Dashboard extends React.Component {
+  
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  }
+  
   static contextType = UserContext
-
 
   componentDidMount() {
     if (this.context.user.address) {
@@ -22,15 +28,19 @@ export default class Dashboard extends React.Component {
             this.context.setRepresentatives(res.representatives)
           }
         })
-
     }
   }
 
+  handleClickRepDetails = (e, repId) => {
+    e.preventDefault();
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || `/representatives/${repId}`
+    history.push(destination)
+  }
+  
   render() {
     let myData = ''
 
-    let RepresentativeList = ''
-    // Empty string for now, will be updated with Rob's component
     if (this.context.user.address) {
       myData = (
         <aside className='myData'>
@@ -44,7 +54,7 @@ export default class Dashboard extends React.Component {
       <section className='dashboard'>
         <header>Dashboard</header>
         {myData}
-        {RepresentativeList}
+        <RepresentativeList handleClickRepDetails={this.handleClickRepDetails}></RepresentativeList>
       </section>
     )
   }
