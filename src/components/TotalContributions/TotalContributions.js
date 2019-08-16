@@ -1,4 +1,5 @@
 import React from 'react';
+import ContribsChart from './ContribsChart';
 
 function TotalContributions(props){
   let totalDonations = ''
@@ -11,11 +12,10 @@ function TotalContributions(props){
   }
   return (
     <div>
-      <h3>total donations in most recent cycle: ${totalDonations}</h3>
-      <h3>spent in most recent cycle: ${totalSpent}</h3>
-      <h3>Cash that the campaign has on hand: ${totalCash}</h3>
+      <ContribsChart donations={props.contribs.total_donations} spent={props.contribs.spent}/>
     </div>
   )
 }
 
 export default TotalContributions;
+
