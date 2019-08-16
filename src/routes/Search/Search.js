@@ -14,11 +14,8 @@ class Search extends Component {
 };
 
   static contextType = UserContext;
-
   state = { error: null };
-
   firstInput = React.createRef();
-
 
   handleSubmit = ev => {
     ev.preventDefault();

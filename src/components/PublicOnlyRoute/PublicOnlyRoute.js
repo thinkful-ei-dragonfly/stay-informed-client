@@ -11,7 +11,7 @@ export default function PublicOnlyRoute({ component, ...props }) {
         <UserContext.Consumer>
           {userContext =>
             !!userContext.user.id
-              ? <Redirect to={'/'} />
+              ? <Redirect to={'/dashboard'} />
               : <Component {...componentProps} />
           }
         </UserContext.Consumer>
