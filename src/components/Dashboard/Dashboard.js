@@ -54,6 +54,7 @@ export default class Dashboard extends React.Component {
       <section className='dashboard'>
         <header>Dashboard</header>
         {myData}
+        <TotalContributions contribs={{total_donations: 10000, spent: 9000}} />
         <RepresentativeList handleClickRepDetails={this.handleClickRepDetails}></RepresentativeList>
       </section>
     )
