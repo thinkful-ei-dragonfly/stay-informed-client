@@ -4,11 +4,13 @@ import Chart from "react-google-charts";
 
 class ContribsChart extends React.Component {
 
+  donations = parseFloat(this.props.donations);
+  spent = parseFloat(this.props.spent);
 
   data = [
     ["", "$", { role: "style" }],
-    ["Total Donations", this.props.donations, "color: green"],
-    ["Total Spent", this.props.spent, "color: red"],
+    ["Total Donations", this.donations, "color: green"],
+    ["Total Spent", this.spent, "color: red"],
   ];
 
   options={
