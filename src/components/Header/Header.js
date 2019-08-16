@@ -18,6 +18,10 @@ class Header extends Component {
           {this.context.user.name}
         </span>
         <nav>
+          <Link id="search-nav"
+            to='/search'>
+            Search New Address
+          </Link>
           <Link
             onClick={this.handleLogoutClick}
             to='/login'>
