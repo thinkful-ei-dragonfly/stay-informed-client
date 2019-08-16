@@ -5,8 +5,15 @@ import RepresentativeList from '../../components/RepresentativeList/Representati
 // waiting on Rob's code
 
 export default class Dashboard extends React.Component {
+  
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  }
+  
   static contextType = UserContext
-
 
   componentDidMount() {
     if (this.context.user.address) {
@@ -22,10 +29,16 @@ export default class Dashboard extends React.Component {
             this.context.setRepresentatives(res.representatives)
           }
         })
-
     }
   }
 
+  handleClickRepDetails = (e, repId) => {
+    e.preventDefault();
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || `/representatives/${repId}`
+    history.push(destination)
+  }
+  
   render() {
     let myData = ''
 
@@ -43,7 +56,7 @@ export default class Dashboard extends React.Component {
       <section className='dashboard'>
         <header>Dashboard</header>
         {myData}
-        <RepresentativeList></RepresentativeList>
+        <RepresentativeList handleClickRepDetails={this.handleClickRepDetails}></RepresentativeList>
       </section>
     )
   }
