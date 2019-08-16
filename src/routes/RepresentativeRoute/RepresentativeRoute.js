@@ -32,7 +32,6 @@ export default class RepresentativeRoute extends React.Component {
           <img src={currentRep.photoUrl} alt={name} />
         )
       }
-      debugger;
     }
     return (
       <div className="representativePage">
