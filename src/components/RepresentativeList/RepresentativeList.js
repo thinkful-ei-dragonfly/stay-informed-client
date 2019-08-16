@@ -28,7 +28,13 @@ export default class RepresentativeList extends React.Component {
                 }`}
               />
             ) : (
-              ''
+              <img
+                className="headshot"
+                src={'http://media2.giphy.com/gifsu/5zkNlgUl7QodTlg7nT/giphy-glitter.gif'}
+                alt={`professional photographic headshot of ${rep.first_name} ${
+                  rep.last_name
+                }`} 
+              />
             )}
             <h3 className="rep-name">{`${title} ${rep.first_name} ${
               rep.last_name
