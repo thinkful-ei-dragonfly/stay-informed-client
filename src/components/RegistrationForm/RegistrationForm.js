@@ -16,19 +16,23 @@ class RegistrationForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { name, username, password, address } = ev.target
+    const { name, username, password, street, city, state, zip } = ev.target
+    const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
       password: password.value,
-      address: address.value,
+      address,
     })
       .then(user => {
         name.value = ''
         username.value = ''
         password.value = ''
-        address.value = ''
-        this.props.onRegistrationSuccess()
+        street.value = ''
+        city.value = ''
+        state.value = ''
+        zip.value = ''
+        this.props.onRegistrationSuccess(user)
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -42,63 +46,100 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <form
-        className='RegistrationForm'
-        onSubmit={this.handleSubmit}
-      >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div>
-          <Label htmlFor='registration-name-input'>
-            Enter your name<Required />
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-username-input'>
-            Choose a username<Required />
-          </Label>
-          <Input
-            id='registration-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-address-input'>
-            Enter your address<Required />
-          </Label>
-          <Input
-            id='registration-address-input'
-            name='address'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-password-input'>
-            Choose a password<Required />
-          </Label>
-          <Input
-            id='registration-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
-        <footer>
-          <Button type='submit'>
-            Sign up
-          </Button>
-          {' '}
-          <Link to='/login'>Already have an account?</Link>
+      <div>
+        <form
+          className='RegistrationForm'
+          onSubmit={this.handleSubmit}
+        >
+          <div role='alert'>
+            {error && <p>{error}</p>}
+          </div>
+          <section className='RegistrationForm'>
+            <Label htmlFor='registration-name-input'>
+              Enter your name<Required />
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id='registration-name-input'
+              name='name'
+              required
+            />
+          </section>
+          <section>
+            <Label htmlFor='registration-username-input'>
+              Choose a username<Required />
+            </Label>
+            <Input
+              id='registration-username-input'
+              name='username'
+              required
+            />
+          </section>
+          <section className='RegistrationFormStreet'>
+            <Label htmlFor='registration-street'>
+              Street Address<Required />
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id='registration-street-input'
+              name='street'
+              required
+            />
+          </section>
+          <section className='RegistrationFormCity'>
+            <Label htmlFor='registration-city'>
+              City<Required />
+            </Label>
+            <Input
+              id='registration-city-input'
+              name='city'
+              required
+            />
+          </section>
+          <section className='RegistrationFormState'>
+            <Label htmlFor='registration-state'>
+              State<Required />
+            </Label>
+            <Input
+              id='registration-state-input'
+              name='state'
+              required
+            />
+          </section>
+          <section className='RegistrationFormZip'>
+            <Label htmlFor='registration-zip'>
+              Zip Code<Required />
+            </Label>
+            <Input
+              id='registration-zip-input'
+              name='zip'
+              required
+            />
+          </section>
+          <section>
+            <Label htmlFor='registration-password-input'>
+              Choose a password<Required />
+            </Label>
+            <Input
+              id='registration-password-input'
+              name='password'
+              type='password'
+              required
+            />
+          </section>
+          <section>
+            <Button type='submit'>
+              Register for Stay Informed
+            </Button>
+            {' '}
+            <Link to='/login'>Already have an account?</Link>
+          </section>
+        </form>
+        <footer className='searchNow'>
+          <h3>Or Search now:</h3>
+          <Link to='/search'>Search candidates by Address</Link>
         </footer>
-      </form>
+      </div>
     )
   }
 }

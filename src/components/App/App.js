@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from '../Header/Header'
+import AllOtherRoute from '../AllOtherRoute/AllOtherRoute'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import UserRoute from '../../routes/UserRoute/UserRoute'
 import Search from '../../routes/Search/Search'
+import Dashboard from '../Dashboard/Dashboard'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
+import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -28,10 +31,28 @@ export default class App extends Component {
             <p>There was an error!</p>
           )}
           <Switch>
-            <Route
+            <PublicOnlyRoute
               exact
               path={'/'}
+              component={RegistrationRoute}
+            />
+            <Route
+              exact
+              path={'/dashboard'}
+              component={Dashboard}
+              />
+            <AllOtherRoute
+              path={'/search'}
               component={Search}
+              />
+
+            <Route
+              path={'/dashboard'}
+              component={Dashboard}
+            />
+            <Route
+              path={'/representatives/:repId'}
+              component={RepresentativeRoute}
             />
             <PublicOnlyRoute
               path={'/register'}
