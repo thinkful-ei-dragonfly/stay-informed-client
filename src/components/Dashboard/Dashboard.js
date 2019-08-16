@@ -1,7 +1,7 @@
 import React from 'react'
 import UserContext from '../../contexts/UserContext'
 import RepresentativeService from '../../services/representatives-service'
-// import RepresentativeList from ''
+import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js' 
 // waiting on Rob's code
 
 export default class Dashboard extends React.Component {
@@ -29,7 +29,6 @@ export default class Dashboard extends React.Component {
   render() {
     let myData = ''
 
-    let RepresentativeList = ''
     // Empty string for now, will be updated with Rob's component
     if (this.context.user.address) {
       myData = (
@@ -44,7 +43,7 @@ export default class Dashboard extends React.Component {
       <section className='dashboard'>
         <header>Dashboard</header>
         {myData}
-        {RepresentativeList}
+        <RepresentativeList></RepresentativeList>
       </section>
     )
   }
