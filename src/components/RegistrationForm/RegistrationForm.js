@@ -21,7 +21,7 @@ class RegistrationForm extends Component {
     const { name, username, password, street, city, state, zip } = ev.target
     const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`
     let loginUsername
-    let registrationSuccessUser
+
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
@@ -30,7 +30,6 @@ class RegistrationForm extends Component {
     })
       .then(user => {
         loginUsername = user.username
-        registrationSuccessUser = user
       })
       .then(response => {
         AuthApiService.postLogin({
