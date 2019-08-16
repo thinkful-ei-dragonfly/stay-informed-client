@@ -8,9 +8,11 @@ const UserContext = React.createContext({
   error: null,
   state: null,
   district: null,
+  representatives: null,
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
+  setRepresentatives: () => {},
   processLogin: () => {},
   processLogout: () => {},
 })
@@ -24,7 +26,9 @@ export class UserProvider extends Component {
       user: {},
       state: null,
       district: null,
-      error: null }
+      representatives: null,
+      error: null
+    }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -73,6 +77,10 @@ export class UserProvider extends Component {
 
   setUserDistrict = district => {
     this.setState({ district })
+  }
+
+  setRepresentatives = representatives => {
+    this.setState({ representatives })
   }
 
   processLogin = authToken => {
@@ -125,11 +133,13 @@ export class UserProvider extends Component {
       error: this.state.error,
       state: this.state.state,
       district: this.state.district,
+      representatives: this.state.representatives,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
       setUserState: this.setUserState,
       setUserDistrict: this.setUserDistrict,
+      setRepresentatives: this.setRepresentatives,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
     }
