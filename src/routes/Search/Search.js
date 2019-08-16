@@ -53,6 +53,7 @@ class Search extends Component {
     let cityDefault = ''
     let stateDefault = ''
     let zipDefault = ''
+    // const splitAddress = this.context.user.address.split(',');
     if (this.context.user.address) {
       streetDefault = this.context.user.address.split(',')[0].trim()
       cityDefault = this.context.user.address.split(',')[1].trim()
