@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from '../Header/Header'
+import AllOtherRoute from '../AllOtherRoute/AllOtherRoute'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
@@ -30,12 +31,17 @@ export default class App extends Component {
             <p>There was an error!</p>
           )}
           <Switch>
+            <PublicOnlyRoute
+              exact
+              path={'/'}
+              component={RegistrationRoute}
+            />
             <Route
               exact
               path={'/dashboard'}
               component={Dashboard}
               />
-            <PublicOnlyRoute
+            <AllOtherRoute
               path={'/search'}
               component={Search}
               />
