@@ -8,10 +8,10 @@ export default class RepresentativeRoute extends React.Component {
   static contextType = UserContext;
 
   render() {
-    let currRepId = this.props.match.params.repId;
+    // let currRepId = this.props.match.params.repId;
     // TEMP - capture currently rendered rep
     if (this.context.representatives) {
-      const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
+      // const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
       // console.log(`my current rep is ${currentRep.first_name}`)
     }
     return (
