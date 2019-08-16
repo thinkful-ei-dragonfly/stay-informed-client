@@ -1,5 +1,6 @@
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
+import TotalContributions from '../../components/TotalContributions/TotalContributions'
 
 
 export default class RepresentativeRoute extends React.Component {
@@ -13,6 +14,8 @@ export default class RepresentativeRoute extends React.Component {
     let party = ''
     let currentRole = ''
     let contribs = ''
+    let topContribs
+    let topIndustries
 
     if (this.context.representatives) {
       const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
@@ -20,6 +23,8 @@ export default class RepresentativeRoute extends React.Component {
       currentRole = currentRep.roles[0].title
       party = currentRep.current_party
       contribs = currentRep.contributionTotals
+      topContribs = currentRep.topContributors
+      topIndustries = currentRep.topIndustries
       debugger;
     }
     return (
@@ -30,7 +35,7 @@ export default class RepresentativeRoute extends React.Component {
           <h3>{party}</h3>
           {/* FinanceComponent goes here*/}
           {/* FinanceComponent goes here*/}
-          {/* TotalContributions with prop of contribs goes here*/}
+          <TotalContributions contribs={contribs}/>
 
         </aside>
         <div className='representativeImage'>
