@@ -1,17 +1,17 @@
 import React from 'react'
 import UserContext from '../../contexts/UserContext'
 import RepresentativeService from '../../services/representatives-service'
-import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js' 
+import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js'
 import TotalContributions from '../TotalContributions/TotalContributions'
 export default class Dashboard extends React.Component {
-  
+
   static defaultProps = {
     location: {},
     history: {
       push: () => { },
     },
   }
-  
+
   static contextType = UserContext
 
   componentDidMount() {
@@ -37,7 +37,7 @@ export default class Dashboard extends React.Component {
     const destination = (location.state || {}).from || `/representatives/${repId}`
     history.push(destination)
   }
-  
+
   render() {
     let myData = ''
 

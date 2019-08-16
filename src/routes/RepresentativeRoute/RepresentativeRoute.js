@@ -1,6 +1,7 @@
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
+import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
 
 
 export default class RepresentativeRoute extends React.Component {
@@ -25,6 +26,7 @@ export default class RepresentativeRoute extends React.Component {
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
       topIndustries = currentRep.topIndustries
+      debugger;
     }
     return (
       <div className="representativePage">
@@ -32,8 +34,8 @@ export default class RepresentativeRoute extends React.Component {
           <h1>{name}</h1>
           <h2>{currentRole}</h2>
           <h3>{party}</h3>
-          {/* FinanceComponent goes here*/}
-          {/* FinanceComponent goes here*/}
+          <FinancialContributions contributions={topContribs}/>
+          <FinancialContributions contributions={topIndustries}/>
           <TotalContributions contribs={contribs}/>
 
         </aside>
