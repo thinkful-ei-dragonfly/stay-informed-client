@@ -1,3 +1,4 @@
+
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import RepresentativeService from '../../services/representatives-service';
@@ -14,6 +15,7 @@ export default class Dashboard extends React.Component {
   };
 
   static contextType = UserContext;
+
 
   componentDidMount() {
     if (this.context.user.address) {
@@ -35,11 +37,13 @@ export default class Dashboard extends React.Component {
 
   handleClickRepDetails = (e, repId) => {
     e.preventDefault();
+
     const { location, history } = this.props;
     const destination =
       (location.state || {}).from || `/representatives/${repId}`;
     history.push(destination);
   };
+
 
   render() {
     let myData = '';
