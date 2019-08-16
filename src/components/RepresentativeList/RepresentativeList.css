@@ -1,4 +1,6 @@
-#rep-pane
+#rep-pane {
+ 
+}
 
 .headshot {
   /* display: relative; */
@@ -31,8 +33,6 @@ ul {
   cursor: pointer;
   border-radius: 5%;
 }
-
-
 
 .go-details:hover {
   background-color: rgba(97, 163, 204, 0.4);

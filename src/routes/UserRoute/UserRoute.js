@@ -1,7 +1,8 @@
+
 import React, { Component } from 'react';
 import UserContext from '../../contexts/UserContext'
-import {Link} from 'react-router-dom';
-import Button from '../../components/Button/Button';
+// import {Link} from 'react-router-dom';
+// import Button from '../../components/Button/Button';
 
 class UserRoute extends Component {
   state = {
