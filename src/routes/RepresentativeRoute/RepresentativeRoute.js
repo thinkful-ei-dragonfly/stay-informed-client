@@ -9,19 +9,16 @@ export default class RepresentativeRoute extends React.Component {
   static contextType = UserContext;
 
   render() {
-    let currRepId = this.props.match.params.repId;
+    // let currRepId = this.props.match.params.repId;
     // TEMP - capture currently rendered rep
-    let currentRep;
+    // let currentRep;
     if (this.context.representatives) {
-      currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
+      // currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
       // console.log(`my current rep is ${currentRep.first_name}`)
     }
     return (
       <div className="rep">
         This is the Representative Route for my currently clicked representative
-        <div>
-          {currentRep ? <FinancialContributions contributions={currentRep.topContributors}></FinancialContributions> : ''}
-        </div>
       </div>
     );
   }

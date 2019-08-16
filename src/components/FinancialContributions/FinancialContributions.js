@@ -2,53 +2,10 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 export default class FinancialContributions extends Component {
-  
-  topContributors = [ {
-    org_name: 'Elliot Management',
-    total: 108300,
-    pacs: 0,
-    indivs: 108300
-  }, 
-  {
-    org_name: 'XPO Logistics',
-    total: 59300,
-    pacs: 0,
-    indivs: 59300
-  }, 
-  {
-    org_name: 'Live Oak Bank',
-    total: 56750,
-    pacs: 0,
-    indivs: 56750
-  }, 
-  {
-    org_name: 'Susan B Anthony List',
-    total: 54794,
-    pacs: 8694,
-    indivs: 46100
-  }, 
-  {
-    org_name: 'Kleinberg, Kaplan et al',
-    total: 53049,
-    pacs: 0,
-    indivs: 53049
-  }, 
-  {
-    org_name: 'Dont render',
-    total: 108300,
-    pacs: 0,
-    indivs: 108300
-  }, 
-  {
-    org_name: 'Dont render',
-    total: 108300,
-    pacs: 0,
-    indivs: 108300
-  }, 
-  ]
 
   getDataArr() {
     const dataArr = [];
+
     for (let i = 0; i < Math.min(5, this.props.contributions.length); i++) {
       dataArr.push(this.props.contributions[i].total);
     }
@@ -57,13 +14,21 @@ export default class FinancialContributions extends Component {
 
   getLabelArr() {
     const labelArr = [];
+    // determine whether we are charting topContributors vs topIndustries
+    let isIndustryType = this.props.contributions[0].industry_name;
     for (let i = 0; i < Math.min(5, this.props.contributions.length); i++) {
-      labelArr.push(this.props.contributions[i].org_name);
+      if (isIndustryType) {
+        labelArr.push(this.props.contributions[i].industry_name)
+      } else {
+        labelArr.push(this.props.contributions[i].org_name);
+      }
     }
     return labelArr;
   }
 
   render() {
+    // get title for industry vs org contribution chart type
+    let chartTitle = this.props.contributions[0].industry_name ? 'Sector Contributions' : 'Organization Contributions';
     const dataArr = this.getDataArr();
     const labelArr = this.getLabelArr();
     // format chart.js react data
@@ -99,7 +64,7 @@ export default class FinancialContributions extends Component {
     const options = {
       title: {
         display: true,
-        text: '_type_ contributions ($)',
+        text: chartTitle,
         fontSize: 25,
         fontColor: '#000000',
         padding: 20,
