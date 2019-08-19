@@ -5,6 +5,7 @@ import AllOtherRoute from '../AllOtherRoute/AllOtherRoute'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
+import VoterRegistration from '../../routes/VoterRegistration/VoterRegistration'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import UserRoute from '../../routes/UserRoute/UserRoute'
 import Search from '../../routes/Search/Search'
@@ -49,6 +50,10 @@ export default class App extends Component {
             <Route
               path={'/dashboard'}
               component={Dashboard}
+            />
+            <Route
+              path={'/voter-registration'}
+              component={VoterRegistration}
             />
             <Route
               path={'/representatives/:repId'}
