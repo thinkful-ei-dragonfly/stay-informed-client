@@ -12,6 +12,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
 import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
+import VoterRegistrationRoute from '../../routes/VoterRegistrationRoute/VoterRegistrationRoute';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -49,6 +50,10 @@ export default class App extends Component {
             <Route
               path={'/dashboard'}
               component={Dashboard}
+            />
+            <Route
+              path={'/voter-registration'}
+              component={VoterRegistrationRoute}
             />
             <Route
               path={'/representatives/:repId'}
