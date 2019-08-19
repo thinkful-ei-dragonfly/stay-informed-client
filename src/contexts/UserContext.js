@@ -14,7 +14,6 @@ const UserContext = React.createContext({
   clearError: () => {},
   setUser: () => {},
   setRepresentatives: () => {},
-  clearRepresentatives: () => {},
   processLogin: () => {},
   processLogout: () => {},
 })
@@ -90,10 +89,6 @@ export class UserProvider extends Component {
     this.setState({ representatives })
   }
 
-  clearRepresentatives = () => {
-    this.setState({representatives: null})
-  }
-
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
@@ -151,7 +146,6 @@ export class UserProvider extends Component {
       setUserState: this.setUserState,
       setUserDistrict: this.setUserDistrict,
       setRepresentatives: this.setRepresentatives,
-      clearRepresentatives: this.clearRepresentatives,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
     }
