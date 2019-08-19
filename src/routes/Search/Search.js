@@ -35,7 +35,7 @@ class Search extends Component {
     }
 
       this.handleSuccessfulSearch();
-      
+
     ;
   };
 
@@ -49,9 +49,6 @@ class Search extends Component {
   }
 
   render() {
-    // Idea: If there's a current user, we should pre-populate these fields with the this.context.user.address
-    // We would split the string at ',' and then set the defaultValue={street}
-    // For next time
     let streetDefault = '';
     let cityDefault = '';
     let stateDefault = '';

@@ -1,9 +1,7 @@
-
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import RepresentativeService from '../../services/representatives-service';
 import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js';
-import TotalContributions from '../TotalContributions/TotalContributions';
 import Spinner from '../Spinner/Spinner'
 
 export default class Dashboard extends React.Component {
@@ -66,7 +64,7 @@ export default class Dashboard extends React.Component {
     }
     return (
       <div>
-        {this.context.fetching ? (<Spinner/>) :  
+        {this.context.fetching ? (<Spinner/>) :
         (<section className="dashboard">
           <header>Dashboard</header>
           {myData}
