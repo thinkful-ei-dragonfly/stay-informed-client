@@ -5,7 +5,6 @@ import AllOtherRoute from '../AllOtherRoute/AllOtherRoute'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
-import VoterRegistration from '../../routes/VoterRegistration/VoterRegistration'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import UserRoute from '../../routes/UserRoute/UserRoute'
 import Search from '../../routes/Search/Search'
@@ -13,6 +12,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.css'
 import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
+import VoterRegistrationRoute from '../../routes/VoterRegistrationRoute/VoterRegistrationRoute';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -53,7 +53,7 @@ export default class App extends Component {
             />
             <Route
               path={'/voter-registration'}
-              component={VoterRegistration}
+              component={VoterRegistrationRoute}
             />
             <Route
               path={'/representatives/:repId'}

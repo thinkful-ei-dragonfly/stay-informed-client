@@ -35,7 +35,7 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
-        <aside className='reppresentativeInfo'>
+        <aside className='representativeInfo'>
           <h1>{name}</h1>
           <h2>{currentRole}</h2>
           <h3>{party}</h3>

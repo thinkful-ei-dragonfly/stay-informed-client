@@ -3,6 +3,7 @@ import UserContext from '../../contexts/UserContext';
 import RepresentativeService from '../../services/representatives-service';
 import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js';
 import Spinner from '../Spinner/Spinner'
+import { Link } from 'react-router-dom'
 
 export default class Dashboard extends React.Component {
   static defaultProps = {
@@ -55,6 +56,9 @@ export default class Dashboard extends React.Component {
           </p>
           <p>
             <span className="bold">District:</span> {this.context.district}
+          </p>
+          <p>
+          <Link to="/voter-registration">Not registered to vote? Register here.</Link>
           </p>
         </aside>
       );
