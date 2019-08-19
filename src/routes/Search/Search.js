@@ -35,7 +35,11 @@ class Search extends Component {
     }
 
     // This is the initial request to the backend.
-    // The backend will make requests to Civics, ProPublica, and openSecrets and the response will include ALL of that stuf.
+    // The backend will make requests to Civics, ProPublica, 
+    // and openSecrets and the response will include ALL of that stuff.
+    debugger;
+    this.context.clearRepresentatives();
+    debugger;
     RepresentativeService.getReps(this.context.user.address)
 
       .then(res => {
