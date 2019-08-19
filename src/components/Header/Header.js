@@ -13,7 +13,7 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div>
+      <div className='header-controls signed-in'>
         <span>
           {this.context.user.name}
         </span>
@@ -34,20 +34,22 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <nav>
-        <Link to='/login'>Login</Link>
-        {'  |  '}
-        <Link to='/register'>Sign up</Link>
-      </nav>
+      <div className='header-controls signed-out'>
+        <nav>
+          <Link to='/login'>Login</Link>
+          {'  |  '}
+          <Link to='/register'>Sign up</Link>
+        </nav>
+      </div>
     )
   }
 
   render() {
     return (
-      <header>
+      <header className='App-Header'>
         <h1>
           <Link to='/'>
-            Stay Informed
+            <span className='logo-red'>Stay</span><span className='logo-blue'>Informed</span>
           </Link>
         </h1>
         {TokenService.hasAuthToken()

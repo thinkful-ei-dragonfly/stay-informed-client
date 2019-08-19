@@ -34,6 +34,7 @@ class Search extends Component {
       });
     }
 
+<<<<<<< HEAD
     // This is the initial request to the backend.
     // The backend will make requests to Civics, ProPublica, 
     // and openSecrets and the response will include ALL of that stuff.
@@ -54,8 +55,10 @@ class Search extends Component {
         }
 
       })
+=======
+>>>>>>> 202b0b0d538d660e4f7d0cff8880e0a87f3a6bfe
       this.handleSuccessfulSearch();
-      
+
     ;
   };
 
@@ -69,9 +72,6 @@ class Search extends Component {
   }
 
   render() {
-    // Idea: If there's a current user, we should pre-populate these fields with the this.context.user.address
-    // We would split the string at ',' and then set the defaultValue={street}
-    // For next time
     let streetDefault = '';
     let cityDefault = '';
     let stateDefault = '';
