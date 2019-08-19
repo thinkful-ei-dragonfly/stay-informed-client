@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Input, Required, Label } from '../../components/Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../../components/Button/Button';
-import RepresentativeService from '../../services/representatives-service';
 import './Search.css';
 
 class Search extends Component {
