@@ -16,8 +16,11 @@ export default class Dashboard extends React.Component {
 
 
   componentDidMount() {
+
     if (this.context.user.address) {
+
       this.context.setFetching()
+      
       RepresentativeService.getReps(this.context.user.address).then(res => {
         if (res.state) {
           this.context.setUserState(res.state.toUpperCase());

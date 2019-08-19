@@ -34,22 +34,6 @@ class Search extends Component {
       });
     }
 
-    // This is the initial request to the backend.
-    // The backend will make requests to Civics, ProPublica, and openSecrets and the response will include ALL of that stuf.
-    RepresentativeService.getReps(this.context.user.address)
-
-      .then(res => {
-        if (res.state) {
-          this.context.setUserState(res.state.toUpperCase());
-        }
-        if (res.district) {
-          this.context.setUserDistrict(res.district);
-        }
-        if (res.representatives) {
-          this.context.setRepresentatives(res.representatives);
-        }
-
-      })
       this.handleSuccessfulSearch();
 
     ;
