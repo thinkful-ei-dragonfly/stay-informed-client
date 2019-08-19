@@ -19,7 +19,7 @@ export default class Dashboard extends React.Component {
 
     if (this.context.user.address) {
 
-      this.context.setFetching()
+      this.context.setFetching(true)
       
       RepresentativeService.getReps(this.context.user.address).then(res => {
         if (res.state) {
@@ -31,7 +31,7 @@ export default class Dashboard extends React.Component {
         if (res.representatives) {
           this.context.setRepresentatives(res.representatives);
         }
-        this.context.setFetching()
+        this.context.setFetching(false)
       });
     }
   }
