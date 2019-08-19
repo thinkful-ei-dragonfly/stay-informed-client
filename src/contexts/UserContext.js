@@ -69,10 +69,9 @@ export class UserProvider extends Component {
     this.setState({ error: null })
   }
 
-  setFetching = () => {
-    this.setState({fetching: !this.state.fetching})
+  setFetching = (arg) => {
+    this.setState({fetching: arg})
   }
-  
 
   setUser = user => {
     this.setState({ user })
@@ -131,8 +130,6 @@ export class UserProvider extends Component {
         this.setError(err)
       })
   }
-
-
 
   render() {
     const value = {
