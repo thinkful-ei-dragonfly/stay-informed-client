@@ -15,6 +15,7 @@ import RepresentativeRoute from '../../routes/RepresentativeRoute/Representative
 import VoterRegistrationRoute from '../../routes/VoterRegistrationRoute/VoterRegistrationRoute';
 
 export default class App extends Component {
+  
   state = { hasError: false }
 
   static getDerivedStateFromError(error) {
