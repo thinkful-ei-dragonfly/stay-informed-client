@@ -6,7 +6,6 @@ import FinancialContributions from '../../components/FinancialContributions/Fina
 
 export default class RepresentativeRoute extends React.Component {
 
-  // THIS CONTEXT MAY BE TEMP, info likely to be rendered in other components
   static contextType = UserContext;
 
   render() {
