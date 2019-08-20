@@ -16,6 +16,25 @@ const RepresentativeService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
     )
+  },
+
+  getNews(senator1, senator2, representative1) {
+    return fetch(`${config.API_ENDPOINT}/news`, {
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        senator1, 
+        senator2, 
+        representative1
+      })
+    })
+    .then(res => 
+      (!res.ok) 
+        ? res.json().then(e=>Promise.reject(e))
+        : res.json()
+    )
   }
 }
 
