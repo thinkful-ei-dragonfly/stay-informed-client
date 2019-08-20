@@ -12,7 +12,7 @@ class UserRoute extends Component {
   static contextType = UserContext
 
   componentDidMount() {
-    console.log(this.context.address)
+    console.log(this.context.address) // TODO note the log, otherwise doing nothing
   }
 
   render() {
