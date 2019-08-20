@@ -10,7 +10,7 @@ import UserRoute from '../../routes/UserRoute/UserRoute'
 import Search from '../../routes/Search/Search'
 import Dashboard from '../Dashboard/Dashboard'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
-import './App.css'
+import './App.scss'
 import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
 import VoterRegistrationRoute from '../../routes/VoterRegistrationRoute/VoterRegistrationRoute';
 

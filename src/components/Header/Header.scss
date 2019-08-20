@@ -1,0 +1,69 @@
+$blue: #0063C0;
+$red: #E9503E;
+
+.App-Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .Header-Logo {
+    a {
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+
+  nav {
+    .login-link,
+    .register-link {
+      padding: 10px;
+      transition: color .25s ease, background .25s ease;
+      border-radius: 10px;
+    }
+    .login-link {
+      &:hover {
+        background: pink;
+        color: $red;
+      }
+    }
+    .register-link {
+      margin-left: 25px;
+      &:hover {
+        color: $blue;
+        background: lightblue;
+      }
+    }
+
+  }
+
+  .signed-in {
+    display: flex;
+
+    nav {
+      margin-left: 25px;
+      .search-nav,
+      .logout {
+        padding: 10px;
+        transition: color .25s ease, background .25s ease;
+        border-radius: 10px;
+      }
+      .search-nav {
+        &:hover {
+          background: #BCD39C;
+          color: green;
+        }
+      }
+      .logout {
+        margin-left: 25px;
+        &:hover {
+          background: pink;
+          color: $red;
+        }
+      }
+    }
+  }
+}

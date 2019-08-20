@@ -3,7 +3,7 @@ $blue: #0063C0;
 $red: #E9503E;
 $background: #FAFAF8;
 
-// Fonts
+// Fonts / Typography
 @import url('https://fonts.googleapis.com/css?family=Corben&display=swap');
 
 @font-face {
@@ -22,8 +22,17 @@ $background: #FAFAF8;
     font-style: normal;
 }
 
-* {
-  box-sizing: border-box;
+// Resets
+html {  box-sizing: border-box;}
+*,*::before,*::after {  box-sizing: inherit;}
+
+input,
+textarea,
+select,
+button {
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
 }
 
 body {
@@ -34,14 +43,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.05em;
+  font-size: 18px;
 }
 
-:root {
-  --font-size: calc(10px + 1vmin);
-}
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: "Corben", serif;
+}
+
+h3,
+p {
+  font-family: 'JostRegular', 'Futura', sans-serif;
+}
+
+h2.title {
+  font-size: 2em;
+}
+
+h3.subtitle {
+  font-size: 1.5em;
 }
