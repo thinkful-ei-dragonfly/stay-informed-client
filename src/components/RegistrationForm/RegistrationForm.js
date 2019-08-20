@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
-import './RegistrationForm.css'
+import './RegistrationForm.scss'
 import UserContext from '../../contexts/UserContext';
 
 class RegistrationForm extends Component {
@@ -63,7 +63,7 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <div>
+      <>
         <form
           className='RegistrationForm'
           onSubmit={this.handleSubmit}
@@ -71,9 +71,11 @@ class RegistrationForm extends Component {
           <div role='alert'>
             {error && <p>{error}</p>}
           </div>
-          <section className='RegistrationForm'>
-            <Label htmlFor='registration-name-input'>
-              Enter your name<Required />
+          <section className='form-fields'>
+            <Label
+              className='small'
+              htmlFor='registration-name-input'>
+              Name<Required />
             </Label>
             <Input
               ref={this.firstInput}
@@ -82,9 +84,11 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section>
-            <Label htmlFor='registration-username-input'>
-              Choose a username<Required />
+          <section className='form-fields'>
+            <Label
+              className='small'
+              htmlFor='registration-username-input'>
+              Username<Required />
             </Label>
             <Input
               id='registration-username-input'
@@ -92,8 +96,10 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section className='RegistrationFormStreet'>
-            <Label htmlFor='registration-street'>
+          <section className='form-fields' >
+            <Label
+              className='small'
+              htmlFor='registration-street'>
               Street Address<Required />
             </Label>
             <Input
@@ -103,8 +109,10 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section className='RegistrationFormCity'>
-            <Label htmlFor='registration-city'>
+          <section className='form-fields' >
+            <Label
+              className='small'
+              htmlFor='registration-city'>
               City<Required />
             </Label>
             <Input
@@ -113,8 +121,10 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section className='RegistrationFormState'>
-            <Label htmlFor='registration-state'>
+          <section className='form-fields' >
+            <Label
+              className='small'
+              htmlFor='registration-state'>
               State<Required />
             </Label>
             <Input
@@ -123,8 +133,10 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section className='RegistrationFormZip'>
-            <Label htmlFor='registration-zip'>
+          <section className='form-fields' >
+            <Label
+              className='small'
+              htmlFor='registration-zip'>
               Zip Code<Required />
             </Label>
             <Input
@@ -133,9 +145,11 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section>
-            <Label htmlFor='registration-password-input'>
-              Choose a password<Required />
+          <section className='form-fields'>
+            <Label
+              className='small'
+              htmlFor='registration-password-input'>
+              Password<Required />
             </Label>
             <Input
               id='registration-password-input'
@@ -144,19 +158,20 @@ class RegistrationForm extends Component {
               required
             />
           </section>
-          <section>
-            <Button type='submit'>
+          <section className='submit-links'>
+            <Button
+              className='submit'
+              type='submit'>
               Register for Stay Informed
             </Button>
             {' '}
-            <Link to='/login'>Already have an account?</Link>
+            <Link
+              className='login-redirect'
+              to='/login'>Already have an account?</Link>
           </section>
         </form>
-        <footer className='searchNow'>
-          <h3>Or Search now:</h3>
-          <Link to='/search'>Search candidates by Address</Link>
-        </footer>
-      </div>
+
+      </>
     )
   }
 }
