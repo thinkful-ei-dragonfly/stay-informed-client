@@ -1,0 +1,47 @@
+// Variables
+$blue: #0063C0;
+$red: #E9503E;
+$background: #FAFAF8;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Corben&display=swap');
+
+@font-face {
+    font-family: 'JostRegular';
+    src: url('./font/Jost-500-Medium.ttf') format('truetype'),
+         url('./font/Jost-500-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'JostRegularItalic';
+    src: url('./font/Jost-500-MediumItalic.ttf') format('truetype'),
+         url('./font/Jost-500-MediumItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $background;
+  font-family: "JostRegular", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.05em;
+}
+
+:root {
+  --font-size: calc(10px + 1vmin);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Corben", serif;
+}

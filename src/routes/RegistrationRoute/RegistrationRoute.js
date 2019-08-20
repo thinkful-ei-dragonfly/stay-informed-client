@@ -16,7 +16,9 @@ class RegistrationRoute extends Component {
   render() {
     return (
       <section className='container'>
-        <h2>Sign up</h2>
+        <h2>StayInformed is an app that helps you cut the noise and gives you “just the facts” about your local and federal politicians.</h2>
+        <h3>Sign up</h3>
+
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
