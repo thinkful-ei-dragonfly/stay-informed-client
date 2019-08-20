@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders a form.App by default 1`] = `
+<div
+  className="App"
+>
+  <Header />
+  <main>
+    <Switch>
+      <PublicOnlyRoute
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/dashboard"
+      />
+      <AllOtherRoute
+        component={[Function]}
+        path="/search"
+      />
+      <Route
+        component={[Function]}
+        path="/dashboard"
+      />
+      <Route
+        component={[Function]}
+        path="/voter-registration"
+      />
+      <Route
+        component={[Function]}
+        path="/representatives/:repId"
+      />
+      <PublicOnlyRoute
+        component={[Function]}
+        path="/register"
+      />
+      <PublicOnlyRoute
+        component={[Function]}
+        path="/login"
+      />
+      <PrivateRoute
+        component={[Function]}
+        path="/user/:userId"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </main>
+</div>
+`;

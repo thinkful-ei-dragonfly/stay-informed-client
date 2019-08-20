@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner component renders a form.Spinner by default 1`] = `
+<div
+  className="spinner-div"
+>
+  <FontAwesomeIcon
+    border={false}
+    className="loader"
+    fixedWidth={false}
+    flip={null}
+    icon="spinner"
+    inverse={false}
+    listItem={false}
+    mask={null}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+  <p>
+    Please wait while we find your representatives
+  </p>
+</div>
+`;
