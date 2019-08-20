@@ -3,10 +3,8 @@ import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
 
-
 export default class RepresentativeRoute extends React.Component {
 
-  // THIS CONTEXT MAY BE TEMP, info likely to be rendered in other components
   static contextType = UserContext;
 
   render() {
