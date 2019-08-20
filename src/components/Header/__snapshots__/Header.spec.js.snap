@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders a form.Header by default 1`] = `
+<header
+  className="App-Header"
+>
+  <h1>
+    <Link
+      to="/"
+    >
+      <span
+        className="logo-red"
+      >
+        Stay
+      </span>
+      <span
+        className="logo-blue"
+      >
+        Informed
+      </span>
+    </Link>
+  </h1>
+  <div
+    className="header-controls signed-out"
+  >
+    <nav>
+      <Link
+        to="/login"
+      >
+        Login
+      </Link>
+        |  
+      <Link
+        to="/register"
+      >
+        Sign up
+      </Link>
+    </nav>
+  </div>
+</header>
+`;
