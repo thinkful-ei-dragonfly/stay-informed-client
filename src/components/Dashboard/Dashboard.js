@@ -83,13 +83,13 @@ export default class Dashboard extends React.Component {
           <h2 className='subtitle'>My District</h2>
           <div className='myData-text'>
             <p>
-              <span className="bold">State:</span> {this.context.state}
+              <span className="repPage-span">State</span> {this.context.state}
             </p>
             <p>
-              <span className="bold">District:</span> {this.context.district}
+              <span className="repPage-span">District</span> {this.context.district}
             </p>
             <p>
-              <Link to="/voter-registration">
+              <Link to="/voter-registration" className='register-link'>
                 Not registered to vote? Register here.
               </Link>
             </p>
