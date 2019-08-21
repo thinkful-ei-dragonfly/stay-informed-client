@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VoterRegistration component renders a form.VoterRegistration by default 1`] = `
+<div
+  className="reg-vote"
+>
+  <Link
+    className="dash-link"
+    to="/dashboard"
+  >
+    Navigate back to dashboard
+  </Link>
+  <iframe
+    frameBorder="0"
+    height="1500"
+    marginHeight="0"
+    src="https://register.rockthevote.com/?partner=1&source=ovrpage"
+    title="Use this form to register to vote in your local, state, and national elections."
+    width="100%"
+  />
+</div>
+`;

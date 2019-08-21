@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationRoute component renders a form.RegistrationRoute by default 1`] = `
+<section
+  className="container"
+>
+  <h2>
+    Sign up
+  </h2>
+  <RegistrationForm
+    onRegistrationSuccess={[Function]}
+  />
+</section>
+`;

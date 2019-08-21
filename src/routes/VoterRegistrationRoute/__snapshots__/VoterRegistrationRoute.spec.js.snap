@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VoterRegistrationRoute component renders a form.VoterRegistrationRoute by default 1`] = `
+<div
+  className="voter-reg-route"
+>
+  <VoterRegistration />
+</div>
+`;

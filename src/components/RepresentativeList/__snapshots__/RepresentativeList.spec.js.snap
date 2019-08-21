@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepresentativeList component renders a form.RepresentativeList by default 1`] = `
+<div
+  id="rep-pane"
+>
+  <h2>
+    Your Congress Representatives
+  </h2>
+  <ul
+    id="rep-list"
+  />
+</div>
+`;
