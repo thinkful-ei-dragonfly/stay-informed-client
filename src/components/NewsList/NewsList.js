@@ -21,6 +21,7 @@ export default class NewsList extends React.Component {
         <ul>
           {this.displayArticles(this.context.news)}
         </ul>
+        <p>Credit NewsApi.org</p>
       </div>
     )
   }

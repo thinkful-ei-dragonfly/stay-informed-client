@@ -2,6 +2,7 @@ import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
+import Icon from 'react-simple-icons';
 
 export default class RepresentativeRoute extends React.Component {
 
@@ -18,6 +19,8 @@ export default class RepresentativeRoute extends React.Component {
     let currentRepImg = ''
     let phone = ''
     let url = ''
+    let fbUrl = ''
+    let twitterUrl = '' 
 
     if (this.context.representatives) {
       const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
@@ -25,6 +28,8 @@ export default class RepresentativeRoute extends React.Component {
       currentRole = currentRep.roles[0].title
       phone = currentRep.roles[0].phone;
       url = currentRep.url;
+      fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`
+      twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`
       party = currentRep.current_party
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
@@ -41,8 +46,10 @@ export default class RepresentativeRoute extends React.Component {
           <h1>{name}</h1>
           <h2>{currentRole}</h2>
           <h3>{party}</h3>
-          <p>Phone: {phone}</p>
-          <p>Website: <a href={url}>{url}</a></p>
+          {phone && <p>Phone: {phone}</p>}
+          {url && <p>Website: <a href={url}>{url}</a></p>}
+          {twitterUrl && <a href={twitterUrl}><Icon name='twitter'/></a>}
+          {fbUrl && <a href={fbUrl}><Icon name='facebook'/></a>}
           <FinancialContributions contributions={topContribs}/>
           <FinancialContributions contributions={topIndustries}/>
           <TotalContributions contribs={contribs}/>
