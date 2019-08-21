@@ -2,6 +2,7 @@ import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
+import './RepresentativeRoute.scss'
 
 export default class RepresentativeRoute extends React.Component {
 
@@ -33,18 +34,29 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
-        <aside className='representativeInfo'>
-          <h1>{name}</h1>
-          <h2>{currentRole}</h2>
-          <h3>{party}</h3>
-          <FinancialContributions contributions={topContribs}/>
-          <FinancialContributions contributions={topIndustries}/>
-          <TotalContributions contribs={contribs}/>
+        <section className='repPage-section' id='contact-info'>
+          <div className='repPage-section-text'>
+            <h1><span className='repPage-span'>Name</span>{name}</h1>
+            <h2><span className='repPage-span'>Title</span>{currentRole}</h2>
+            <h3><span className='repPage-span'>Party</span>{party}</h3>
+          </div>
+          <div className='repPage-section-other repPage-section-image'>
+            <div className='representativeImage'>
+              {currentRepImg}
+            </div>
+          </div>
+        </section>
 
-        </aside>
-        <div className='representativeImage'>
-          {currentRepImg}
-        </div>
+        <section className='repPage-section'>
+          <FinancialContributions contributions={topContribs}/>
+        </section>
+        <section className='repPage-section'>
+          <FinancialContributions contributions={topIndustries}/>
+        </section>
+        <section className='repPage-section'>
+          <TotalContributions contribs={contribs}/>
+        </section>
+
 
       </div>
     );
