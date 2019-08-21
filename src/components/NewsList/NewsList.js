@@ -14,7 +14,7 @@ export default class NewsList extends React.Component {
   }
 
   componentDidMount() {
-    RepresentativeService.getNews()
+    RepresentativeService.getNews(this.context.representatives[0],this.context.representatives[1],this.context.representatives[2])
       .then(res => res.json())
       .then(news => 
         this.context.setNews(news))
