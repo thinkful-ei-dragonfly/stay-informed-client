@@ -33,7 +33,14 @@
         width: 100%;
       }
     }
-
+    #contributionChart {
+      width: 100%;
+      display: flex;
+      .contributionChart-text-div,
+      canvas {
+        width: 50%;
+      }
+    }
   }
 
 }
