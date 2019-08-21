@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -33,17 +34,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-<<<<<<< HEAD
     "chai": "^4.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-=======
     "canvas": "^2.6.0",
-    "chai": "^4.2.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
->>>>>>> development
     "jsonwebtoken": "^8.5.1",
     "react-test-renderer": "^16.9.0",
     "unfetch": "^4.1.0"
