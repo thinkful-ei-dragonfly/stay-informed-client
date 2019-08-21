@@ -1,5 +1,5 @@
 #rep-pane {
- 
+
 }
 
 .headshot {
@@ -13,10 +13,7 @@ ul {
   list-style-type: none;
 }
 
-.representative {
-  padding: 20px;
-}
-
+/* 
 .go-details {
   margin-top: 20px;
   width: 250px;
@@ -32,8 +29,8 @@ ul {
   transition: 0.3s;
   cursor: pointer;
   border-radius: 5%;
-}
+} */
 
-.go-details:hover {
+/* .go-details:hover {
   background-color: rgba(97, 163, 204, 0.4);
-}
+} */

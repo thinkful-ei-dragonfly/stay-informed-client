@@ -5,6 +5,7 @@ import RepresentativeList from '../../components/RepresentativeList/Representati
 import Spinner from '../Spinner/Spinner';
 import { Link } from 'react-router-dom';
 import NewsList from '../NewsList/NewsList';
+import './Dashboard.scss'
 
 export default class Dashboard extends React.Component {
   static defaultProps = {
@@ -79,36 +80,44 @@ export default class Dashboard extends React.Component {
     if (this.context.user.address) {
       myData = (
         <aside className="myData">
-          <h1>My District</h1>
-          <p>
-            <span className="bold">State:</span> {this.context.state}
-          </p>
-          <p>
-            <span className="bold">District:</span> {this.context.district}
-          </p>
-          <p>
-            <Link to="/voter-registration">
-              Not registered to vote? Register here.
-            </Link>
-          </p>
+          <h2 className='subtitle'>My District</h2>
+          <div className='myData-text'>
+            <p>
+              <span className="bold">State:</span> {this.context.state}
+            </p>
+            <p>
+              <span className="bold">District:</span> {this.context.district}
+            </p>
+            <p>
+              <Link to="/voter-registration">
+                Not registered to vote? Register here.
+              </Link>
+            </p>
+          </div>
+
         </aside>
       );
     }
     return (
-      <div>
+      <main className='mainDashboard'>
+
         {this.context.fetching ? (
           <Spinner />
         ) : (
-          <section className="dashboard">
-            <header>Dashboard</header>
-            {myData}
-            <RepresentativeList
-              handleClickRepDetails={this.handleClickRepDetails}
-            />
-            <NewsList />
-          </section>
+          <>
+            <section className="dashboard">
+              {myData}
+              <RepresentativeList
+                handleClickRepDetails={this.handleClickRepDetails}
+              />
+            </section>
+            <section className='NewsList'>
+              <NewsList />
+            </section>
+          </>
         )}
-      </div>
+
+      </main>
     );
   }
 }
