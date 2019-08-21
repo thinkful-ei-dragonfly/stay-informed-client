@@ -1,0 +1,95 @@
+// Variables
+$blue: #0063C0;
+$red: #E9503E;
+$background: #FAFAF8;
+
+// Fonts / Typography
+@import url('https://fonts.googleapis.com/css?family=Corben&display=swap');
+
+@font-face {
+    font-family: 'JostRegular';
+    src: url('./font/Jost-500-Medium.ttf') format('truetype'),
+         url('./font/Jost-500-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'JostRegularItalic';
+    src: url('./font/Jost-500-MediumItalic.ttf') format('truetype'),
+         url('./font/Jost-500-MediumItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Resets
+html {  box-sizing: border-box;}
+*,*::before,*::after {  box-sizing: inherit; text-align: left;}
+
+input,
+textarea,
+select,
+button {
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {  margin: 0;  padding: 0;}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $background;
+  font-family: "JostRegular", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  letter-spacing: 0.025em;
+}
+
+
+h1,
+h2 {
+  font-family: "Corben", serif;
+}
+
+h3,
+p {
+  font-weight: 500;
+  font-family: 'JostRegular', 'Futura', sans-serif;
+}
+
+h2.title {
+  font-size: 2em;
+}
+
+h3.subtitle {
+  font-size: 1.75em;
+
+}
+
+label.small {
+  font-family: 'Corben', serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+button.submit {
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.25em;
+}

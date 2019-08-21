@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Required, Label } from '../../components/Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../../components/Button/Button';
-import './Search.css';
+import './Search.scss';
 
 class Search extends Component {
   static defaultProps = {
@@ -60,10 +60,13 @@ class Search extends Component {
     }
     const { error } = this.state;
     return (
+      <div className='search-wrapper'>
+        <section className='search-text'>
+          <h2 className='title'>Search your representatives</h2>
+        </section>
       <form className="SearchForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p>{error}</p>}</div>
-        <h3>Enter your address</h3>
-        <section className="SearchFormStreet">
+        <section className="form-fields">
           <Label htmlFor="search-street">
             Street
             <Required />
@@ -76,7 +79,7 @@ class Search extends Component {
             required
           />
         </section>
-        <section className="SearchFormCity">
+        <section className="form-fields">
           <Label htmlFor="search-city">
             City
             <Required />
@@ -88,7 +91,7 @@ class Search extends Component {
             required
           />
         </section>
-        <section className="SearchFormState">
+        <section className="form-fields">
           <Label htmlFor="search-state">
             State
             <Required />
@@ -100,7 +103,7 @@ class Search extends Component {
             required
           />
         </section>
-        <section className="SearchFormZip">
+        <section className="form-fields">
           <Label htmlFor="search-zip">
             Zip Code
             <Required />
@@ -113,9 +116,12 @@ class Search extends Component {
           />
         </section>
         <footer>
-          <Button type="submit">Search</Button>
+          <Button
+            className='submit'
+            type="submit">Search</Button>
         </footer>
       </form>
+    </div>
     );
   }
 }

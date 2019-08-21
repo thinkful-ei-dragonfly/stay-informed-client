@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
-import './Header.css'
+import './Header.scss'
 
 class Header extends Component {
   static contextType = UserContext
@@ -18,11 +18,13 @@ class Header extends Component {
           {this.context.user.name}
         </span>
         <nav>
-          <Link id="search-nav"
+          <Link
+            className="search-nav"
             to='/search'>
             Search New Address
           </Link>
           <Link
+            className='logout'
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout
@@ -36,9 +38,11 @@ class Header extends Component {
     return (
       <div className='header-controls signed-out'>
         <nav>
-          <Link to='/login'>Login</Link>
-          {'  |  '}
-          <Link to='/register'>Sign up</Link>
+          <Link className='login-link'
+            to='/login'>Login</Link>
+          {''}
+          <Link className='register-link'
+            to='/register'>Sign up</Link>
         </nav>
       </div>
     )
@@ -47,7 +51,7 @@ class Header extends Component {
   render() {
     return (
       <header className='App-Header'>
-        <h1>
+        <h1 className='Header-Logo'>
           <Link to='/'>
             <span className='logo-red'>Stay</span><span className='logo-blue'>Informed</span>
           </Link>
