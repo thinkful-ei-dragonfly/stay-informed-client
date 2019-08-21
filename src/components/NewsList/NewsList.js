@@ -1,6 +1,5 @@
 import React from 'react';
 import NewsItem from '../NewsItem/NewsItem';
-import RepresentativeService from '../../services/representatives-service';
 import UserContext from '../../contexts/UserContext';
 
 export default class NewsList extends React.Component {
