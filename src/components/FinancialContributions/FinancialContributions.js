@@ -31,8 +31,7 @@ export default class FinancialContributions extends Component {
     let chartTitle = this.props.contributions[0].industry_name ? 'Sector Contributions' : 'Organization Contributions';
     const dataArr = this.getDataArr();
     const labelArr = this.getLabelArr();
-    console.log(dataArr);
-    console.log(labelArr);
+    
     let contribsList = []
     function currencyFormat(num) {
 

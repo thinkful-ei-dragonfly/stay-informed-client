@@ -10,7 +10,7 @@
       padding: 20px;
 
       h2 {
-        border-bottom: 1px solid;
+        padding-bottom: 25px;
         font-weight: 500;
         font-family: 'JostRegular', 'Futura', sans-serif;
       }
@@ -29,12 +29,13 @@
 
     .rep-pane {
       width: 66%;
+
       ul {
         display: flex;
         flex-wrap: wrap;
         li {
           width: 33%;
-          padding: 15px;
+          padding: 10px;
           img {
             max-width: 100%;
             width: 100%;
@@ -58,6 +59,11 @@
 
   .NewsList-wrapper {
     padding: 20px;
+    .NewsList-header {
+      font-family: 'JostRegular', 'Futura', sans-serif;
+      font-weight: 500;
+      padding-bottom: 25px;
+    }
     .NewsList {
       display: flex;
       flex-wrap: wrap;
@@ -94,6 +100,22 @@
           font-size: 0.75em;
         }
 
+        @media (max-width: 1200px) {
+          h2 {
+            font-size: 1.25em;
+          }
+        }
+        @media (max-width: 959px) {
+          width: 49%;
+        }
+        @media (max-width: 768px) {
+          h2 {
+            font-size: 1em;
+          }
+          .articleDescription {
+            font-size: 0.85em;
+          }
+        }
       }
     }
   }
