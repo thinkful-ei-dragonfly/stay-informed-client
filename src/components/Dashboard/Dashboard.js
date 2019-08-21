@@ -2,8 +2,8 @@ import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import RepresentativeService from '../../services/representatives-service';
 import RepresentativeList from '../../components/RepresentativeList/RepresentativeList.js';
-import Spinner from '../Spinner/Spinner'
-import { Link } from 'react-router-dom'
+import Spinner from '../Spinner/Spinner';
+import { Link } from 'react-router-dom';
 import NewsList from '../NewsList/NewsList';
 
 export default class Dashboard extends React.Component {
@@ -16,25 +16,32 @@ export default class Dashboard extends React.Component {
 
   static contextType = UserContext;
 
-
   componentDidMount() {
-
     if (this.context.user.address) {
+      this.context.setFetching(true);
 
-      this.context.setFetching(true)
-      
-      RepresentativeService.getReps(this.context.user.address).then(res => {
-        if (res.state) {
-          this.context.setUserState(res.state.toUpperCase());
-        }
-        if (res.district) {
-          this.context.setUserDistrict(res.district);
-        }
-        if (res.representatives) {
-          this.context.setRepresentatives(res.representatives);
-        }
-        this.context.setFetching(false)
-      });
+      RepresentativeService.getReps(this.context.user.address)
+        .then(res => {
+          if (res.state) {
+            this.context.setUserState(res.state.toUpperCase());
+          }
+          if (res.district) {
+            this.context.setUserDistrict(res.district);
+          }
+          if (res.representatives) {
+            this.context.setRepresentatives(res.representatives);
+          }
+          this.context.setFetching(false);
+        })
+        .then(() => {
+          RepresentativeService.getNews(
+            this.context.representatives[0],
+            this.context.representatives[1],
+            this.context.representatives[2]
+          )
+            .then(news => this.context.setNews(news.articles))
+            .catch(error => this.context.setError(error));
+        });
     }
   }
 
@@ -65,8 +72,6 @@ export default class Dashboard extends React.Component {
     content:
       'Ben Perrin is a Canadian cryptocurrency enthusiast and educator who hosts a bitcoin show on YouTube. This is immediately apparent after a quick a look at all his social media. Ten seconds of viewing on of his videos will show that he is knowledgeable about di… [+2329 chars]'
   };
-  
-
 
   render() {
     let myData = '';
@@ -82,23 +87,27 @@ export default class Dashboard extends React.Component {
             <span className="bold">District:</span> {this.context.district}
           </p>
           <p>
-          <Link to="/voter-registration">Not registered to vote? Register here.</Link>
+            <Link to="/voter-registration">
+              Not registered to vote? Register here.
+            </Link>
           </p>
         </aside>
       );
     }
     return (
       <div>
-        {this.context.fetching ? (<Spinner/>) :
-        (<section className="dashboard">
-          <header>Dashboard</header>
-          {myData}
-          <RepresentativeList
-            handleClickRepDetails={this.handleClickRepDetails}
-          />
-          <NewsList />
-        </section>)
-      }
+        {this.context.fetching ? (
+          <Spinner />
+        ) : (
+          <section className="dashboard">
+            <header>Dashboard</header>
+            {myData}
+            <RepresentativeList
+              handleClickRepDetails={this.handleClickRepDetails}
+            />
+            <NewsList />
+          </section>
+        )}
       </div>
     );
   }

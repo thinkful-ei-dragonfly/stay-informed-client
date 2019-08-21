@@ -13,13 +13,8 @@ export default class NewsList extends React.Component {
     return;
   }
 
-  componentDidMount() {
-    RepresentativeService.getNews(this.context.representatives[0],this.context.representatives[1],this.context.representatives[2])
-      .then(res => res.json())
-      .then(news => 
-        this.context.setNews(news))
-      .catch(error => this.context.setError(error));
-  }
+  // componentDidMount() {
+  // }
 
   render(){
     return (
