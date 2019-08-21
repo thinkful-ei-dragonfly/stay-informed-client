@@ -17,12 +17,13 @@ export default class NewsList extends React.Component {
 
   render(){
     return (
-      <div>
-        <ul>
+      <section className='NewsList-wrapper'>
+        <h2 className='NewsList-header'>News</h2>
+        <ul className='NewsList'>
           {this.displayArticles(this.context.news)}
         </ul>
-        <p>Credit NewsApi.org</p>
-      </div>
+        <p className='NewsList-credit'>Credit NewsApi.org</p>
+      </section>
     )
   }
 }
