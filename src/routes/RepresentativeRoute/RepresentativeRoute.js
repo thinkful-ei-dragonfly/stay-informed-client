@@ -17,11 +17,15 @@ export default class RepresentativeRoute extends React.Component {
     let topContribs
     let topIndustries
     let currentRepImg = ''
+    let phone = ''
+    let url = ''
 
     if (this.context.representatives) {
       const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
       name = `${currentRep.first_name} ${currentRep.last_name}`
       currentRole = currentRep.roles[0].title
+      phone = currentRep.roles[0].phone;
+      url = currentRep.url;
       party = currentRep.current_party
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
@@ -39,6 +43,8 @@ export default class RepresentativeRoute extends React.Component {
             <h1><span className='repPage-span'>Name</span>{name}</h1>
             <h2><span className='repPage-span'>Title</span>{currentRole}</h2>
             <h3><span className='repPage-span'>Party</span>{party}</h3>
+            <p><span className='repPage-span'>Phone</span> {phone}</p>
+            <p><span className='repPage-span'>Website</span> <a href={url}>{url}</a></p>
           </div>
           <div className='repPage-section-other repPage-section-image'>
             <div className='representativeImage'>
