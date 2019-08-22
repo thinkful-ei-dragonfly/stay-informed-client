@@ -4,7 +4,7 @@ $red: #E9503E;
 $background: #FAFAF8;
 
 // Fonts / Typography
-@import url('https://fonts.googleapis.com/css?family=Corben&display=swap');
+
 
 @font-face {
     font-family: 'JostRegular';
@@ -18,6 +18,21 @@ $background: #FAFAF8;
     font-family: 'JostRegularItalic';
     src: url('./font/Jost-500-MediumItalic.ttf') format('truetype'),
          url('./font/Jost-500-MediumItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SouvenirMedium';
+    src: url('./font/Souvenir-Medium.otf') format('truetype'),
+         url('./font/Souvenir-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'SouvenirMediumItalic';
+    src: url('./font/Souvenir-MediumItalic.otf') format('truetype'),
+         url('./font/Souvenir-MediumItalic.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -64,7 +79,7 @@ body {
 
 h1,
 h2 {
-  font-family: "Corben", serif;
+  font-family: "SouvenirMedium", serif;
 }
 
 h3,
@@ -74,7 +89,9 @@ p {
 }
 
 h2.title {
-  font-size: 2em;
+  font-size: 2.5em;
+  line-height: 1.25;
+  font-weight: 500;
 }
 
 h3.subtitle {
@@ -84,9 +101,10 @@ h3.subtitle {
 
 label.small,
 .repPage-span {
-  font-family: 'Corben', serif;
+  font-family: "SouvenirMedium", serif;
   font-size: 18px;
   font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .repPage-span {
