@@ -162,7 +162,7 @@ class RegistrationForm extends Component {
             <Button
               className='submit'
               type='submit'>
-              Register for Stay Informed
+              Sign Up
             </Button>
             {' '}
             <Link

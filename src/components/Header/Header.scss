@@ -5,6 +5,13 @@ $red: #E9503E;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  padding: 25px 0;
+  top: 0;
 
   a {
     color: inherit;
