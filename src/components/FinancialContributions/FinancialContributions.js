@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 export default class FinancialContributions extends Component {
-
   getDataArr() {
     const dataArr = [];
 
@@ -18,7 +17,7 @@ export default class FinancialContributions extends Component {
     let isIndustryType = this.props.contributions[0].industry_name;
     for (let i = 0; i < Math.min(5, this.props.contributions.length); i++) {
       if (isIndustryType) {
-        labelArr.push(this.props.contributions[i].industry_name)
+        labelArr.push(this.props.contributions[i].industry_name);
       } else {
         labelArr.push(this.props.contributions[i].org_name);
       }
@@ -27,19 +26,21 @@ export default class FinancialContributions extends Component {
   }
 
   render() {
-    // get title for industry vs org contribution chart type
-    let chartTitle = this.props.contributions[0].industry_name ? 'Sector Contributions' : 'Organization Contributions';
-    const dataArr = this.getDataArr();
-    const labelArr = this.getLabelArr();
     // format chart.js react data
-    let isDataPresent = this.props.contributions ? true : false;
     let data = null;
-    if (isDataPresent) {
+    let chartTitle = '';
+    if (this.props.contributions) {
+      // get title for industry vs org contribution chart type
+      chartTitle = this.props.contributions[0].industry_name
+        ? 'Sector Contributions'
+        : 'Organization Contributions';
+      const dataArr = this.getDataArr();
+      const labelArr = this.getLabelArr();
       data = {
         labels: labelArr,
         datasets: [
           {
-            label: 'Dollars given',
+            label: 'Dollars ($)',
             data: dataArr,
             backgroundColor: [
               'rgba(54, 162, 235, 0.2)', // blue
@@ -73,11 +74,41 @@ export default class FinancialContributions extends Component {
       legend: {
         display: false,
       },
+      // Add commas and dollar signs
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var value = data.datasets[0].data[tooltipItem.index];
+            if (parseInt(value) >= 1000) {
+              return (
+                '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              );
+            } else {
+              return '$' + value;
+            }
+          },
+        },
+      },
       scales: {
         xAxes: [
           {
             ticks: {
               fontSize: 14,
+            },
+          },
+        ],
+        yAxes: [
+          {
+            ticks: {
+              userCallback: function(value, index, values) {
+                if (parseInt(value) >= 1000) {
+                  return (
+                    '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                  );
+                } else {
+                  return '$' + value;
+                }
+              },
             },
           },
         ],
