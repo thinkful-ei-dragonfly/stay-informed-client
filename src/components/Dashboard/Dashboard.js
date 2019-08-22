@@ -6,6 +6,7 @@ import Spinner from '../Spinner/Spinner';
 import { Link } from 'react-router-dom';
 import NewsList from '../NewsList/NewsList';
 import './Dashboard.scss'
+import ErrorDisplay from '../../components/ErrorDisplay/ErrorDisplay'
 
 export default class Dashboard extends React.Component {
   static defaultProps = {
@@ -41,7 +42,6 @@ export default class Dashboard extends React.Component {
             this.context.representatives[2]
           )
             .then(news => this.context.setNews(news.articles))
-            //.catch(error => this.context.setError(error));
         }).catch(error => this.context.setError(error));
     }
   }
@@ -85,6 +85,9 @@ export default class Dashboard extends React.Component {
         {(this.context.fetching && !this.context.error) ? (
           <Spinner />
         ) : (
+          (this.context.error) ? (
+            <ErrorDisplay />
+          ) : (
           <>
             <section className="dashboard">
               {myData}
@@ -96,6 +99,7 @@ export default class Dashboard extends React.Component {
               <NewsList />
             </section>
           </>
+          )
         )}
 
       </main>
