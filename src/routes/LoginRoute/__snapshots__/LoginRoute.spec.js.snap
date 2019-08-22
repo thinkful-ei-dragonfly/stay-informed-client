@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoginRoute component renders a form.LoginRoute by default 1`] = `
-<section>
+<section
+  className="login-wrapper"
+>
+  <h2
+    className="title"
+  >
+    Welcome back. Sign in
+  </h2>
   <LoginForm
     onLoginSuccess={[Function]}
   />
