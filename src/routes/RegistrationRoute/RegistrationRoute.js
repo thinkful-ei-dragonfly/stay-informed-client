@@ -52,6 +52,7 @@ class RegistrationRoute extends Component {
         </div>
       </section>
       <section className='searchNow'>
+        {/* Just import the search component here too */}
         <h2 className='title'>Search now instead</h2>
         <h3 className='subtitle'>Use our search tool to find out who your representatives are. See their latest news, top financial backers and more.</h3>
         <Link
