@@ -1,26 +1,147 @@
-
 import React, { Component } from 'react';
+import { Input, Required, Label } from '../../components/Form/Form';
 import UserContext from '../../contexts/UserContext'
-// import {Link} from 'react-router-dom';
-// import Button from '../../components/Button/Button';
+import AuthApiService from '../../services/auth-api-service'
+import Button from '../../components/Button/Button';
+import './UserRoute.scss'
 
 class UserRoute extends Component {
-  state = {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  };
 
+  state = {
+    error: null,
+  };
+
+  static contextType = UserContext;
+  firstInput = React.createRef();
+
+  handleSubmit = ev => {
+    ev.preventDefault();
+    const { street, city, state, zip } = ev.target;
+    const address = `${street.value}, ${city.value}, ${state.value}, ${
+      zip.value
+      }`;
+    if (this.context.user) {
+      this.context.setUser({
+        ...this.context.user,
+        address
+      });
+    } else {
+      this.context.setUser({
+        address
+      });
+    }
+    this.updateAddress(address)
   }
 
-  static contextType = UserContext
+  fetchAddress = () => {
+    AuthApiService.getUserAddress(this.context.user.id).then(res => {
+      if (res) {
+        this.setState({ address: res[0].address })
+      }
+    })
+  }
 
+  updateAddress = (newAddress) => {
+    AuthApiService.postNewAddress(this.context.user.id, newAddress).then(res => {
+      if (res) {
+        this.setState({ address: res[0].address })
+      }
+      this.handleSuccessfulUpdate();
+    })
+  }
+
+  handleSuccessfulUpdate = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/dashboard'
+    history.push(destination)
+  }
   componentDidMount() {
-    console.log(this.context.address) // TODO note the log, otherwise doing nothing
+    this.firstInput.current.focus();
+    this.fetchAddress()
   }
 
   render() {
+    let streetDefault = '';
+    let cityDefault = '';
+    let stateDefault = '';
+    let zipDefault = '';
+    if (this.state.address) {
+      streetDefault = this.state.address.split(',')[0].trim();
+      cityDefault = this.state.address.split(',')[1].trim();
+      stateDefault = this.state.address.split(',')[2].trim();
+      zipDefault = this.state.address.split(',')[3].trim();
+    }
+    const error = this.state.error;
     return (
-      <section className='container'>
-          <h3>...</h3>
-      </section>
-      );
+      <div className='update-wrapper'>
+        <section className='update-text'>
+          <h2 className='title'>Update your address</h2>
+        </section>
+        <form className="UpdateForm" onSubmit={this.handleSubmit}>
+          <div role="alert">{error && <p>{error}</p>}</div>
+          <section className="form-fields">
+            <Label htmlFor="update-street">
+              Street
+            <Required />
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id="update-street-input"
+              name="street"
+              placeholder={streetDefault}
+              required
+            />
+          </section>
+          <section className="form-fields">
+            <Label htmlFor="update-city">
+              City
+            <Required />
+            </Label>
+            <Input
+              id="update-city-input"
+              name="city"
+              placeholder={cityDefault}
+              required
+            />
+          </section>
+          <section className="form-fields">
+            <Label htmlFor="update-state">
+              State
+            <Required />
+            </Label>
+            <Input
+              id="update-state-input"
+              name="state"
+              placeholder={stateDefault}
+              required
+            />
+          </section>
+          <section className="form-fields">
+            <Label htmlFor="update-zip">
+              Zip Code
+            <Required />
+            </Label>
+            <Input
+              id="update-zip-input"
+              name="zip"
+              placeholder={zipDefault}
+              required
+            />
+          </section>
+          <footer>
+            <Button
+              className='submit'
+              type="submit">Update Address</Button>
+          </footer>
+        </form>
+      </div>
+    );
   }
 }
 
