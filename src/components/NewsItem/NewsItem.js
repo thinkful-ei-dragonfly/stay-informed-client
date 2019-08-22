@@ -3,19 +3,18 @@ import './NewsItem.css'
 
 function NewsItem(props) {
   const date = new Date(props.article.publishedAt).toDateString();
- 
+
   return (
-    <li>
-      <p>{props.article.source.name}</p>
-      {props.article.urlToImage && <img className='thumbnail' src={props.article.urlToImage} alt='related to headline'/>}
-      <a href={props.article.url}>
-        <h2>{props.article.title}</h2>
+    <li className='articleThumbnail'>
+      <a href={props.article.url} target="_blank" rel="noopener noreferrer">
+        {props.article.urlToImage && <img className='articleImage' src={props.article.urlToImage} alt='related to headline'/>}
+        <h2 className='articleTitle'>{props.article.title}</h2>
       </a>
-      <p>{props.article.description}</p>
-      <p>Published: {date}</p>
+      <p className='articleSource'>{props.article.source.name}</p>
+      <p className='articleDescription'>{props.article.description}</p>
+      <p className='articlePublished'>Published: {date}</p>
     </li>
   );
 }
 
 export default NewsItem;
-

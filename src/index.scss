@@ -82,10 +82,15 @@ h3.subtitle {
 
 }
 
-label.small {
+label.small,
+.repPage-span {
   font-family: 'Corben', serif;
   font-size: 18px;
   font-weight: 600;
+}
+
+.repPage-span {
+  width: 100px;
 }
 
 button.submit {

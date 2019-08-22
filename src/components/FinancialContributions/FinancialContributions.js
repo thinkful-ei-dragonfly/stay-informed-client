@@ -31,6 +31,21 @@ export default class FinancialContributions extends Component {
     let chartTitle = this.props.contributions[0].industry_name ? 'Sector Contributions' : 'Organization Contributions';
     const dataArr = this.getDataArr();
     const labelArr = this.getLabelArr();
+
+    let contribsList = []
+    function currencyFormat(num) {
+
+      return '$' + parseInt(num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+    for (var i = 0; i < dataArr.length; i++) {
+      contribsList.push((
+        <li className='conributionItem' key={labelArr[i]}>
+          <span className='contributionFrom'>{labelArr[i]}</span>
+          <span className='contributionAmount'>{currencyFormat(dataArr[i])}</span>
+        </li>
+      ))
+    }
+
     // format chart.js react data
     let isDataPresent = this.props.contributions ? true : false;
     let data = null;
@@ -68,7 +83,7 @@ export default class FinancialContributions extends Component {
         fontSize: 25,
         fontColor: '#000000',
         padding: 20,
-        fontFamily: "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
+        // fontFamily: "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
       },
       legend: {
         display: false,
@@ -86,6 +101,12 @@ export default class FinancialContributions extends Component {
 
     return (
       <section id="contributionChart">
+        {/*<div className='contributionChart-text-div'>
+          <h1>{chartTitle}</h1>
+          <ul className='contributionsList'>
+            {contribsList}
+          </ul>
+        </div>*/}
         <Bar className="chart" data={data} options={options} />
       </section>
     );
