@@ -71,9 +71,9 @@ class ContribsChart extends React.Component {
 
   render() {
     return (
-      <div className="chart">
+      <section id="contributionChart">
         <HorizontalBar data={this.data} options={this.options} />
-      </div>
+      </section>
     );
   }
 }
