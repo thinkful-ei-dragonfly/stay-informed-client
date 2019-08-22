@@ -1,0 +1,22 @@
+$blue: #0063C0;
+$red: #E9503E;
+$background: #FAFAF8;
+.error {
+  border: 25px solid red;
+  color: red;
+  font-size: 70px;
+}
+
+button {
+  margin-top: 25px;
+  transition: opacity .25s ease;
+  opacity: 0.85;
+  border: none;
+  background: $red;
+  color: $background;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
