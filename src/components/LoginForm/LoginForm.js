@@ -45,15 +45,16 @@ class LoginForm extends Component {
     const { error } = this.state
     return (
       <form
-        className='container'
+        className='loginForm'
         onSubmit={this.handleSubmit}
       >
-        <h2>Login</h2>
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div>
-          <Label htmlFor='login-username-input'>
+        <section className='form-fields'>
+          <Label
+            className='small'
+            htmlFor='login-username-input'>
             Username
           </Label>
           <Input
@@ -65,12 +66,15 @@ class LoginForm extends Component {
             aria-required="true"
             required
           />
-        </div>
-        <div>
-          <Label htmlFor='login-password-input'>
+      </section>
+        <section className='form-fields'>
+          <Label
+            className='small'
+            htmlFor='login-password-input'>
             Password
           </Label>
           <Input
+
             id='login-password-input'
             name='password'
             type='password'
@@ -78,8 +82,10 @@ class LoginForm extends Component {
             aria-required="true"
             required
           />
-        </div>
-        <Button type='submit'>
+      </section>
+        <Button
+          className='submit'
+          type='submit'>
           Login
         </Button>
       </form>

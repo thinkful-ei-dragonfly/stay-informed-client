@@ -1,0 +1,50 @@
+$blue: #0063C0;
+$red: #E9503E;
+$background: #FAFAF8;
+.search-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .search-text,
+  .SearchForm {
+    width: 47.5%;
+  }
+
+  .SearchForm {
+    .form-fields {
+      padding: 25px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      label {
+        color: $blue;
+        width: 20%;
+        display: inline-block;
+      }
+      input {
+        width: 75%;
+        font-size: 1.5em;
+        background: inherit;
+        border: 0;
+        border-bottom: 2px solid $blue;
+        border-style: solid;
+        color: $blue;
+      }
+
+    }
+    button {
+      margin-top: 25px;
+      transition: opacity .25s ease;
+      opacity: 0.85;
+      border: none;
+      background: $red;
+      color: $background;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+  }
+}

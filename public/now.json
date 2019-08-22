@@ -1,6 +1,7 @@
 {
    "version": 2,
    "name": "stay-informed",
+   "alias": "stay-informed-app",
    "routes": [
        {
          "src": "^/static/(.*)",

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContribsChart component renders a form.ContribsChart by default 1`] = `
+<div
+  className="chart"
+>
+  <Chart
+    chartActions={null}
+    chartEvents={null}
+    chartType="BarChart"
+    chartWrapperParams={Object {}}
+    className=""
+    columns={null}
+    controls={null}
+    data={
+      Array [
+        Array [
+          "",
+          "$",
+          Object {
+            "role": "style",
+          },
+        ],
+        Array [
+          "Total Donations",
+          NaN,
+          "color: green",
+        ],
+        Array [
+          "Total Spent",
+          NaN,
+          "color: red",
+        ],
+      ]
+    }
+    diffdata={null}
+    formatters={null}
+    getChartEditor={null}
+    getChartWrapper={[Function]}
+    graphID={null}
+    graph_id={null}
+    height="200px"
+    legendToggle={false}
+    legend_toggle={false}
+    options={
+      Object {
+        "chartArea": Object {
+          "width": "50%",
+        },
+        "hAxis": Object {
+          "minValue": 0,
+          "title": "Dollars ($)",
+        },
+        "title": "Contributions in the past cycle",
+        "vAxis": Object {
+          "title": "City",
+        },
+      }
+    }
+    render={null}
+    rootProps={Object {}}
+    rows={null}
+    spreadSheetQueryParameters={
+      Object {
+        "gid": 1,
+        "headers": 1,
+      }
+    }
+    spreadSheetUrl={null}
+    style={Object {}}
+    toolbarID={null}
+    toolbarItems={null}
+    width="100%"
+  />
+</div>
+`;
