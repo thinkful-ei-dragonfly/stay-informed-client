@@ -33,7 +33,7 @@ export default class RepresentativeList extends React.Component {
                 src={'http://media2.giphy.com/gifsu/5zkNlgUl7QodTlg7nT/giphy-glitter.gif'}
                 alt={`professional photographic headshot of ${rep.first_name} ${
                   rep.last_name
-                }`} 
+                }`}
               />
             )}
             <h3 className="rep-name">{`${title} ${rep.first_name} ${
@@ -51,7 +51,7 @@ export default class RepresentativeList extends React.Component {
             </p>
             <button
               onClick={e => this.props.handleClickRepDetails(e, rep.member_id)}
-              className="go-details"
+              className="go-details submit"
             >
               Learn More
             </button>
@@ -66,10 +66,10 @@ export default class RepresentativeList extends React.Component {
     const repElemList = this.generateRepList();
 
     return (
-      <div id="rep-pane">
+      <aside className="rep-pane">
         <h2>Your Congress Representatives</h2>
         <ul id="rep-list">{repElemList}</ul>
-      </div>
+      </aside>
     );
   }
 }

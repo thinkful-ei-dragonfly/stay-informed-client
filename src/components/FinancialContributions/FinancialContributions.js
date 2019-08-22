@@ -26,6 +26,7 @@ export default class FinancialContributions extends Component {
   }
 
   render() {
+
     // format chart.js react data
     let data = null;
     let chartTitle = '';
@@ -69,7 +70,7 @@ export default class FinancialContributions extends Component {
         fontSize: 25,
         fontColor: '#000000',
         padding: 20,
-        fontFamily: "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
+        // fontFamily: "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
       },
       legend: {
         display: false,
@@ -117,6 +118,12 @@ export default class FinancialContributions extends Component {
 
     return (
       <section id="contributionChart">
+        {/*<div className='contributionChart-text-div'>
+          <h1>{chartTitle}</h1>
+          <ul className='contributionsList'>
+            {contribsList}
+          </ul>
+        </div>*/}
         <Bar className="chart" data={data} options={options} />
       </section>
     );

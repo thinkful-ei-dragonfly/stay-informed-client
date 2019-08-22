@@ -2,6 +2,9 @@ import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
+import './RepresentativeRoute.scss'
+import Icon from 'react-simple-icons';
+
 
 export default class RepresentativeRoute extends React.Component {
 
@@ -18,6 +21,8 @@ export default class RepresentativeRoute extends React.Component {
     let currentRepImg = ''
     let phone = ''
     let url = ''
+    let fbUrl = ''
+    let twitterUrl = ''
 
     if (this.context.representatives) {
       const currentRep = this.context.representatives.find( rep => rep.member_id === currRepId)
@@ -25,6 +30,8 @@ export default class RepresentativeRoute extends React.Component {
       currentRole = currentRep.roles[0].title
       phone = currentRep.roles[0].phone;
       url = currentRep.url;
+      fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`
+      twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`
       party = currentRep.current_party
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
@@ -37,20 +44,33 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
-        <aside className='representativeInfo'>
-          <h1>{name}</h1>
-          <h2>{currentRole}</h2>
-          <h3>{party}</h3>
-          <p>Phone: {phone}</p>
-          <p>Website: <a href={url}>{url}</a></p>
-          <FinancialContributions contributions={topContribs}/>
-          <FinancialContributions contributions={topIndustries}/>
-          <TotalContributions contribs={contribs}/>
+        <section className='repPage-section' id='contact-info'>
+          <div className='repPage-section-text'>
+            <h1><span className='repPage-span'>Name</span>{name}</h1>
+            <h2><span className='repPage-span'>Title</span>{currentRole}</h2>
+            <h3><span className='repPage-span'>Party</span>{party}</h3>
+            {phone && <p><span className='repPage-span'>Phone</span> {phone}</p>}
+            {url && <p><span className='repPage-span'>Website</span> <a href={url}>{url}</a></p>}
+            {twitterUrl && <a href={twitterUrl}><Icon name='twitter'/></a>}
+            {fbUrl && <a href={fbUrl}><Icon name='facebook'/></a>}
+          </div>
+          <div className='repPage-section-other repPage-section-image'>
+            <div className='representativeImage'>
+              {currentRepImg}
+            </div>
+          </div>
+        </section>
 
-        </aside>
-        <div className='representativeImage'>
-          {currentRepImg}
-        </div>
+        <section className='repPage-section'>
+          <FinancialContributions contributions={topContribs}/>
+        </section>
+        <section className='repPage-section'>
+          <FinancialContributions contributions={topIndustries}/>
+        </section>
+        <section className='repPage-section'>
+          <TotalContributions contribs={contribs}/>
+        </section>
+
 
       </div>
     );
