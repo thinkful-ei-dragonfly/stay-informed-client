@@ -1,76 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContribsChart component renders a form.ContribsChart by default 1`] = `
-<div
-  className="chart"
+<section
+  id="contributionChart"
 >
-  <Chart
-    chartActions={null}
-    chartEvents={null}
-    chartType="BarChart"
-    chartWrapperParams={Object {}}
-    className=""
-    columns={null}
-    controls={null}
+  <HorizontalBar
     data={
-      Array [
-        Array [
-          "",
-          "$",
+      Object {
+        "datasets": Array [
           Object {
-            "role": "style",
+            "backgroundColor": Array [
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(255, 99, 132, 0.2)",
+            ],
+            "borderColor": Array [
+              "rgba(75, 192, 192, 1)",
+              "rgba(255, 99, 132, 1)",
+            ],
+            "borderWidth": 1,
+            "data": Array [
+              NaN,
+              NaN,
+            ],
+            "label": "Dollars ($)",
           },
         ],
-        Array [
+        "labels": Array [
           "Total Donations",
-          NaN,
-          "color: green",
+          " Total Spent",
         ],
-        Array [
-          "Total Spent",
-          NaN,
-          "color: red",
-        ],
-      ]
+      }
     }
-    diffdata={null}
-    formatters={null}
-    getChartEditor={null}
-    getChartWrapper={[Function]}
-    graphID={null}
-    graph_id={null}
-    height="200px"
-    legendToggle={false}
-    legend_toggle={false}
     options={
       Object {
-        "chartArea": Object {
-          "width": "50%",
+        "legend": Object {
+          "display": false,
         },
-        "hAxis": Object {
-          "minValue": 0,
-          "title": "Dollars ($)",
+        "scales": Object {
+          "xAxes": Array [
+            Object {
+              "ticks": Object {
+                "beginAtZero": true,
+                "fontSize": 14,
+                "userCallback": [Function],
+              },
+            },
+          ],
         },
-        "title": "Contributions in the past cycle",
-        "vAxis": Object {
-          "title": "City",
+        "title": Object {
+          "display": true,
+          "fontColor": "#000000",
+          "fontFamily": "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
+          "fontSize": 25,
+          "padding": 20,
+          "text": "Total Contributions in the Last Cycle",
+        },
+        "tooltips": Object {
+          "callbacks": Object {
+            "label": [Function],
+          },
         },
       }
     }
-    render={null}
-    rootProps={Object {}}
-    rows={null}
-    spreadSheetQueryParameters={
-      Object {
-        "gid": 1,
-        "headers": 1,
-      }
-    }
-    spreadSheetUrl={null}
-    style={Object {}}
-    toolbarID={null}
-    toolbarItems={null}
-    width="100%"
   />
-</div>
+</section>
 `;
