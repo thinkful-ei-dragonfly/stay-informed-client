@@ -12,9 +12,6 @@ export default class NewsList extends React.Component {
     return;
   }
 
-  // componentDidMount() {
-  // }
-
   render(){
     return (
       <section className='NewsList-wrapper'>

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RepresentativeList component renders a form.RepresentativeList by default 1`] = `
-<div
-  id="rep-pane"
+<aside
+  className="rep-pane"
 >
   <h2>
     Your Congress Representatives
@@ -10,5 +10,5 @@ exports[`RepresentativeList component renders a form.RepresentativeList by defau
   <ul
     id="rep-list"
   />
-</div>
+</aside>
 `;

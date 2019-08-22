@@ -18,6 +18,7 @@ class Search extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
+    this.context.clearError();
     const { street, city, state, zip } = ev.target;
     const address = `${street.value}, ${city.value}, ${state.value}, ${
       zip.value
