@@ -14,9 +14,11 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='header-controls signed-in'>
-        <span>
+        <Link
+          className='header-user-name'
+          to={`/user/${this.context.user.id}`}>
           {this.context.user.name}
-        </span>
+        </Link>
         <nav>
           <Link
             className="search-nav"
