@@ -13,23 +13,16 @@ class Search extends Component {
 };
 
   static contextType = UserContext;
-  state = {
-    error: null
-  };
+  state = { error: null };
   firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
-
-    if (zip.length > 5 || typeof zip !== 'number') {
-      debugger;
-    }
     const address = `${street.value}, ${city.value}, ${state.value}, ${
       zip.value
     }`;
-
     if (this.context.user) {
       this.context.setUser({
         ...this.context.user,
@@ -44,6 +37,7 @@ class Search extends Component {
       this.handleSuccessfulSearch();
     }
 
+      this.handleSuccessfulSearch();
 
     ;
   };
@@ -62,9 +56,9 @@ class Search extends Component {
     let cityDefault = '';
     let stateDefault = '';
     let zipDefault = '';
-    let states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
-    'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM',
-    'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY']
+    let states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+    'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+    'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
     let statesArray = states.map(state => {
         return <option value={state} className='optionValue' key={state}>{state}</option>
     })
@@ -125,10 +119,8 @@ class Search extends Component {
             required
             defaultValue={this.context.state || 'placeholder'}
             >
-
             {statesArray}
             </select>
-
         </section>
         <section className="form-fields">
           <Label htmlFor="zip">
@@ -138,9 +130,6 @@ class Search extends Component {
           <Input
             id="search-zip-input"
             name="zip"
-            maxlength="5"
-            pattern="[0-9]{5}"
-            type='number'
             placeholder={zipDefault}
             required
           />
