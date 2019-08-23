@@ -35,7 +35,6 @@ class Search extends Component {
     }
 
       this.handleSuccessfulSearch();
-
     ;
   };
 
@@ -46,6 +45,17 @@ class Search extends Component {
   }
   componentDidMount() {
     this.firstInput.current.focus();
+  }
+
+  /* Render an input notification if zip entered is >5 digits */
+  limitDigits(e) {
+    e.preventDefault();
+    let zipString = e.target.value.toString()
+    if (zipString.length > 5 || isNaN((e.target.value)) ) {
+      this.setState({ error: 'Please enter a 5 digit zip code.'})
+    } else {
+      this.setState({ error: null }) // TODO REDUNDANT? OVERHEAD?
+    }
   }
 
   render() {
@@ -113,13 +123,14 @@ class Search extends Component {
             id="search-zip-input"
             name="zip"
             placeholder={zipDefault}
+            onChange={(e) => this.limitDigits(e)}
             required
           />
         </section>
         <footer>
           <Button
             className='submit'
-            type="submit">Search</Button>
+            type="submit" disabled={this.state.error}>Search</Button>
         </footer>
       </form>
     </div>
