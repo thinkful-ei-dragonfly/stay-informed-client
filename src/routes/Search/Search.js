@@ -13,16 +13,23 @@ class Search extends Component {
 };
 
   static contextType = UserContext;
-  state = { error: null };
+  state = {
+    error: null
+  };
   firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
+
+    if (zip.length > 5 || typeof zip !== 'number') {
+      debugger;
+    }
     const address = `${street.value}, ${city.value}, ${state.value}, ${
       zip.value
     }`;
+
     if (this.context.user) {
       this.context.setUser({
         ...this.context.user,
@@ -33,8 +40,10 @@ class Search extends Component {
         address
       });
     }
-
+    if (!this.state.erro) {
       this.handleSuccessfulSearch();
+    }
+
 
     ;
   };
@@ -116,10 +125,10 @@ class Search extends Component {
             required
             defaultValue={this.context.state || 'placeholder'}
             >
-           
+
             {statesArray}
             </select>
-          
+
         </section>
         <section className="form-fields">
           <Label htmlFor="zip">
@@ -129,6 +138,9 @@ class Search extends Component {
           <Input
             id="search-zip-input"
             name="zip"
+            maxlength="5"
+            pattern="[0-9]{5}"
+            type='number'
             placeholder={zipDefault}
             required
           />
