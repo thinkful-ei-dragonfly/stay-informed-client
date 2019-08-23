@@ -40,7 +40,7 @@ class Search extends Component {
         address
       });
     }
-    if (!this.state.erro) {
+    if (!this.state.error) {
       this.handleSuccessfulSearch();
     }
 
