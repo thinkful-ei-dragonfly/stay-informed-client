@@ -11,14 +11,14 @@ class ErrorDisplay extends React.Component {
 
   render() {
     return (
-      <>
+      <section>
         <div className='error'>
           <h3>{this.context.error.error}</h3>
         </div>
         <Link to='/search'>
             <Button>Try Searching Again</Button>
         </Link>
-      </>
+      </section>
     )
   }
 }

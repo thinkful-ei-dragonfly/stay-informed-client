@@ -20,7 +20,6 @@ class LoginRoute extends Component {
     return (
       <section className='login-wrapper'>
         <h2 className='title'>Welcome back. Sign in</h2>
-
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />

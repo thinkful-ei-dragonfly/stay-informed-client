@@ -19,7 +19,7 @@ class Header extends Component {
           to={`/user/${this.context.user.id}`}>
           {this.context.user.name}
         </Link>
-        <nav>
+        <nav role="navigation">
           <Link
             className="search-nav"
             to='/search'>
@@ -38,8 +38,8 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <div className='header-controls signed-out'>
-        <nav>
+      <div className='header-controls signed-out' >
+        <nav role="navigation">
           <Link className='login-link'
             to='/login'>Login</Link>
           {''}
@@ -52,7 +52,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className='App-Header'>
+      <header className='App-Header' role="banner">
         <h1 className='Header-Logo'>
           <Link to='/'>
             <span className='logo-red'>Stay</span><span className='logo-blue'>Informed</span>

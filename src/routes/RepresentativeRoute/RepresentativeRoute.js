@@ -38,7 +38,7 @@ export default class RepresentativeRoute extends React.Component {
       topIndustries = currentRep.topIndustries
       if (currentRep.photoUrl) {
         currentRepImg = (
-          <img src={currentRep.photoUrl} alt={name} />
+          <img src={currentRep.photoUrl} alt={`professional headshot of ${name}`} />
         )
       }
     }
@@ -70,8 +70,6 @@ export default class RepresentativeRoute extends React.Component {
         <section className='repPage-section'>
           <TotalContributions contribs={contribs}/>
         </section>
-
-
       </div>
     );
   }
