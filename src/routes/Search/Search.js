@@ -53,11 +53,25 @@ class Search extends Component {
     let cityDefault = '';
     let stateDefault = '';
     let zipDefault = '';
+    let states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+    'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM',
+    'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY']
+    let statesArray = states.map(state => {
+        return <option value={state} className='optionValue'>{state}</option>
+    })
     if (this.context.user.address) {
       streetDefault = this.context.user.address.split(',')[0].trim();
       cityDefault = this.context.user.address.split(',')[1].trim();
       stateDefault = this.context.user.address.split(',')[2].trim();
       zipDefault = this.context.user.address.split(',')[3].trim();
+      statesArray = states.map(state => {
+        if (state === stateDefault) {
+        return <option value={state} className='optionValue' selected>{state}</option>
+        }
+        return <option value={state} className='optionValue'>{state}</option>
+      })
+    } else {
+      statesArray.push(<option value='placeholder' className='placeholderOption' selected disabled hidden>State</option>)
     }
     const { error } = this.state;
     return (
@@ -97,12 +111,12 @@ class Search extends Component {
             State
             <Required />
           </Label>
-          <Input
+          <select name="state"
             id="search-state-input"
-            name="state"
             placeholder={stateDefault}
-            required
-          />
+            required>
+            </select>
+          
         </section>
         <section className="form-fields">
           <Label htmlFor="zip">
