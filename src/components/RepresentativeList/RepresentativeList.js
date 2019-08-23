@@ -5,8 +5,6 @@ import UserContext from '../../contexts/UserContext';
 export default class RepresentativeList extends React.Component {
   static contextType = UserContext;
 
-  // TODO determine how to and ideal way to handle missing photos
-  // TODO (some seem to lack one from civic api? check to see if last name match capture on back end is perfect.) Looked ok on brief glance to me.
   // This generates the element for each representative tile in the pane
   generateRepList() {
     if (this.context.representatives) {

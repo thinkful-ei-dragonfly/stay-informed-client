@@ -28,7 +28,7 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <main className='main-app'>
+        <div className='main-app'>
           {hasError && (
             <p>There was an error!</p>
           )}
@@ -76,7 +76,7 @@ export default class App extends Component {
               component={NotFoundRoute}
             />
           </Switch>
-        </main>
+        </div>
       </div>
     );
   }

@@ -83,10 +83,10 @@ class UserRoute extends Component {
         <section className='update-text'>
           <h2 className='title'>Update your address</h2>
         </section>
-        <form className="UpdateForm" onSubmit={this.handleSubmit}>
+        <form className="UpdateForm" onSubmit={this.handleSubmit} >
           <div role="alert">{error && <p>{error}</p>}</div>
           <section className="form-fields">
-            <Label htmlFor="update-street">
+            <Label htmlFor="street">
               Street
             <Required />
             </Label>
@@ -99,7 +99,7 @@ class UserRoute extends Component {
             />
           </section>
           <section className="form-fields">
-            <Label htmlFor="update-city">
+            <Label htmlFor="city">
               City
             <Required />
             </Label>
@@ -111,7 +111,7 @@ class UserRoute extends Component {
             />
           </section>
           <section className="form-fields">
-            <Label htmlFor="update-state">
+            <Label htmlFor="state">
               State
             <Required />
             </Label>
@@ -123,7 +123,7 @@ class UserRoute extends Component {
             />
           </section>
           <section className="form-fields">
-            <Label htmlFor="update-zip">
+            <Label htmlFor="zip">
               Zip Code
             <Required />
             </Label>
@@ -134,11 +134,11 @@ class UserRoute extends Component {
               required
             />
           </section>
-          <footer>
+          <div>
             <Button
               className='submit'
               type="submit">Update Address</Button>
-          </footer>
+          </div>
         </form>
       </div>
     );
