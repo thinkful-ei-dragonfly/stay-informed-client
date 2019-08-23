@@ -13,6 +13,7 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.scss'
 import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
 import VoterRegistrationRoute from '../../routes/VoterRegistrationRoute/VoterRegistrationRoute';
+import Footer from '../Footer/Footer';
 
 export default class App extends Component {
   
@@ -76,7 +77,9 @@ export default class App extends Component {
               component={NotFoundRoute}
             />
           </Switch>
+
         </div>
+        <Footer />
       </div>
     );
   }
