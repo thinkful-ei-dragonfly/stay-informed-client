@@ -114,6 +114,8 @@ export class UserProvider extends Component {
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
     this.setUser({});
+    this.setUserState('placeholder')
+    this.setUserDistrict({})
   };
 
   logoutBecauseIdle = () => {
