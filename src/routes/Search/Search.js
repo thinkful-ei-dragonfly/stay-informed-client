@@ -33,6 +33,9 @@ class Search extends Component {
         address
       });
     }
+    if (!this.state.error) {
+      this.handleSuccessfulSearch();
+    }
 
       this.handleSuccessfulSearch();
 
