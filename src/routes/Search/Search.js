@@ -54,8 +54,12 @@ class Search extends Component {
     this.firstInput.current.focus();
   }
 
+  isText = (e) => {
+    // TODO fill out for city?
+  };
+
   /* Render an input notification if zip entered is >5 digits */
-  limitDigits(e) {
+  limitDigits = (e) => {
     e.preventDefault();
     let zipString = e.target.value.toString()
     if (zipString.length > 5 || isNaN((e.target.value)) ) {
@@ -63,7 +67,9 @@ class Search extends Component {
     } else {
       this.setState({ error: null }) // TODO REDUNDANT? OVERHEAD?
     }
-  }
+  };
+
+  
 
   render() {
     let streetDefault = '';
@@ -120,6 +126,7 @@ class Search extends Component {
             id="search-city-input"
             name="city"
             placeholder={cityDefault}
+            onChange={e => this.isText()}
             required
           />
         </section>
@@ -146,8 +153,6 @@ class Search extends Component {
           <Input
             id="search-zip-input"
             name="zip"
-            maxlength="5"
-            pattern="[0-9]{5}"
             type='number'
             placeholder={zipDefault}
             onChange={(e) => this.limitDigits(e)}
