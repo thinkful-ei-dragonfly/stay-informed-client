@@ -12,7 +12,9 @@ class RegistrationForm extends Component {
     onRegistrationSuccess: () => { }
   }
 
-  state = { error: null }
+  state = {
+    error: null
+  }
 
   firstInput = React.createRef()
 

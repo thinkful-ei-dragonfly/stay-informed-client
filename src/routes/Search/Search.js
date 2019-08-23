@@ -14,7 +14,8 @@ class Search extends Component {
 
   static contextType = UserContext;
   state = {
-    error: null
+    error: null,
+    isDisabled: true
   };
   firstInput = React.createRef();
 
@@ -23,24 +24,33 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
-    if (zip.length > 5 || typeof zip !== 'number') {
+    if (zip.length < 5) {
       debugger;
+      this.setState({
+        error: `Your zipcode is less than 5 characters. Please update your zipcode and submit again`
+      }, function() {
+        return
+      })
     }
+
     const address = `${street.value}, ${city.value}, ${state.value}, ${
       zip.value
     }`;
 
-    if (this.context.user) {
-      this.context.setUser({
-        ...this.context.user,
-        address
-      });
-    } else {
-      this.context.setUser({
-        address
-      });
-    }
-    if (!this.state.error) {
+
+    if (this.state.error === null) {
+      console.log('handleSuccessfulSearch');
+      debugger;
+      if (this.context.user) {
+        this.context.setUser({
+          ...this.context.user,
+          address
+        });
+      } else {
+        this.context.setUser({
+          address
+        });
+      }
       this.handleSuccessfulSearch();
     }
 
@@ -146,9 +156,18 @@ class Search extends Component {
           />
         </section>
         <div>
-          <Button
-            className='submit'
-            type="submit">Search</Button>
+          {this.state.disabled
+            ? (
+              <Button
+                className='submit disabled'
+                disabled
+                type="submit">Search</Button>
+            )
+            : (
+              <Button
+                className='submit'
+                type="submit">Search</Button>)}
+
         </div>
       </form>
     </div>
