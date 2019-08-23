@@ -43,7 +43,7 @@ export default class Dashboard extends React.Component {
           )
             .then(news => this.context.setNews(news.articles))
         }).catch(error => this.context.setError(error));
-    }
+    } else {this.props.history.push('/')}
   }
 
   handleClickRepDetails = (e, repId) => {

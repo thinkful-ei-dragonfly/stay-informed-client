@@ -10,6 +10,12 @@ export default class RepresentativeRoute extends React.Component {
 
   static contextType = UserContext;
 
+  componentDidMount() {
+    if(!this.context.representatives){
+      this.props.history.push('/')    
+    }
+  }
+
   render() {
     let currRepId = this.props.match.params.repId;
     let name = ''
