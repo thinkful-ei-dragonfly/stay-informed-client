@@ -13,10 +13,12 @@ class Search extends Component {
 };
 
   static contextType = UserContext;
+
   state = {
     error: null,
     isDisabled: false
   };
+
   firstInput = React.createRef();
 
   handleSubmit = ev => {
@@ -42,8 +44,8 @@ class Search extends Component {
       })
     }
 
-    const address = `${updatedStreet}, ${city.value}, ${state.value}, ${zip.value}`;
 
+    const address = `${updatedStreet}, ${city.value}, ${state.value}, ${zip.value}`;
 
     // if the zipcode is correct & a valid state was selected
     if (zip.value.length === 5 && state.value !== 'placeholder') {
@@ -76,9 +78,9 @@ class Search extends Component {
     let cityDefault = '';
     let stateDefault = '';
     let zipDefault = '';
-    let states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
-    'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM',
-    'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY']
+    let states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+    'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+    'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
     let statesArray = states.map(state => {
         return <option value={state} className='optionValue' key={state}>{state}</option>
     })
@@ -139,10 +141,8 @@ class Search extends Component {
             required
             defaultValue={this.context.state || 'placeholder'}
             >
-
             {statesArray}
             </select>
-
         </section>
         <section className="form-fields">
           <Label htmlFor="zip">

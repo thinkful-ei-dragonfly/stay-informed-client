@@ -1,0 +1,65 @@
+$blue: #0063C0;
+$red: #E9503E;
+
+Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
+  background-color: rgb(126, 81, 126);
+  width: 100%;
+  margin-top: 250px;
+
+
+  section{
+    width: 50%;
+  }
+
+  .right{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .Footer-Logo {
+    padding: 25px 10px;
+  }
+
+  .git-links {
+    font-size: 22px;
+    padding: 15px 10px;
+    width: 90%;
+    
+    a{
+      font-size: 29px;
+      color: blue;
+      &:hover{color: lightblue}
+      &:first-of-type{
+        color: red;
+        &:hover{color: pink}
+      }
+    }
+  }
+
+  .attribs{
+    width: 50%;
+    font-size: 20px;
+    a{
+      
+      font-style: italic;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .bottom{
+    font-size: 10px;
+    color: gray;
+  }
+  
+}
