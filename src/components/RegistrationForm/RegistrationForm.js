@@ -191,7 +191,7 @@ class RegistrationForm extends Component {
             <Label
               className='small'
               type='number'
-              maxlength="5"
+              maxLength="5"
               htmlFor='zip'>
               Zip Code<Required />
             </Label>

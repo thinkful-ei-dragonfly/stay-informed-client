@@ -15,7 +15,7 @@ class Search extends Component {
   static contextType = UserContext;
   state = {
     error: null,
-    isDisabled: true
+    isDisabled: false
   };
   firstInput = React.createRef();
 
@@ -24,35 +24,35 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
-    if (zip.length < 5) {
-      debugger;
+    if (zip.value.length < 5) {
+      console.log('setting state because zip is less than 5 characters');
       this.setState({
         error: `Your zipcode is less than 5 characters. Please update your zipcode and submit again`
-      }, function() {
-        return
       })
+      // this is asynchronous
     }
 
     const address = `${street.value}, ${city.value}, ${state.value}, ${
       zip.value
     }`;
 
-
-    if (this.state.error === null) {
-      console.log('handleSuccessfulSearch');
-      debugger;
-      if (this.context.user) {
-        this.context.setUser({
-          ...this.context.user,
-          address
-        });
-      } else {
-        this.context.setUser({
-          address
-        });
-      }
-      this.handleSuccessfulSearch();
-    }
+    // I've commented this out because it runs BEFORE this.setState is complete
+    
+    // if (this.state.error === null && this.state.isDisabled === false) {
+    //   console.log(this.state);
+    //
+    //   if (this.context.user) {
+    //     this.context.setUser({
+    //       ...this.context.user,
+    //       address
+    //     });
+    //   } else {
+    //     this.context.setUser({
+    //       address
+    //     });
+    //   }
+    //   this.handleSuccessfulSearch();
+    // }
 
 
     ;
@@ -148,7 +148,7 @@ class Search extends Component {
           <Input
             id="search-zip-input"
             name="zip"
-            maxlength="5"
+            maxLength="5"
             pattern="[0-9]{5}"
             type='number'
             placeholder={zipDefault}
@@ -156,7 +156,7 @@ class Search extends Component {
           />
         </section>
         <div>
-          {this.state.disabled
+          {this.state.isDisabled
             ? (
               <Button
                 className='submit disabled'
