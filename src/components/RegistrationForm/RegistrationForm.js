@@ -77,7 +77,7 @@ class RegistrationForm extends Component {
           <section className='form-fields'>
             <Label
               className='small'
-              htmlFor='registration-name-input'>
+              htmlFor='name'>
               Name<Required />
             </Label>
             <Input
@@ -90,7 +90,7 @@ class RegistrationForm extends Component {
           <section className='form-fields'>
             <Label
               className='small'
-              htmlFor='registration-username-input'>
+              htmlFor='username'>
               Username<Required />
             </Label>
             <Input
@@ -102,7 +102,7 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-street'>
+              htmlFor='street'>
               Street Address<Required />
             </Label>
             <Input
@@ -115,7 +115,7 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-city'>
+              htmlFor='city'>
               City<Required />
             </Label>
             <Input
@@ -127,7 +127,7 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-state'>
+              htmlFor='state'>
               State<Required />
             </Label>
             <select name="registration-state">
@@ -188,7 +188,7 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-zip'>
+              htmlFor='zip'>
               Zip Code<Required />
             </Label>
             <Input
@@ -200,7 +200,7 @@ class RegistrationForm extends Component {
           <section className='form-fields'>
             <Label
               className='small'
-              htmlFor='registration-password-input'>
+              htmlFor='password'>
               Password<Required />
             </Label>
             <Input

@@ -43,7 +43,7 @@ export default class Dashboard extends React.Component {
           )
             .then(news => this.context.setNews(news.articles))
         }).catch(error => this.context.setError(error));
-    }
+    } else {this.props.history.push('/')}
   }
 
   handleClickRepDetails = (e, repId) => {
@@ -60,7 +60,7 @@ export default class Dashboard extends React.Component {
 
     if (this.context.user.address) {
       myData = (
-        <aside className="myData">
+        <aside className="myData" >
           <h2 className='subtitle'>My District</h2>
           <div className='myData-text'>
             <p>
@@ -80,7 +80,7 @@ export default class Dashboard extends React.Component {
       );
     }
     return (
-      <main className='mainDashboard'>
+      <main className='mainDashboard' role="main">
 
         {(this.context.fetching && !this.context.error) ? (
           <Spinner />
