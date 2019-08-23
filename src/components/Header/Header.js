@@ -14,12 +14,12 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='header-controls signed-in'>
-        <Link
-          className='header-user-name'
-          to={`/user/${this.context.user.id}`}>
-          {this.context.user.name}
-        </Link>
         <nav role="navigation">
+          <Link
+            className='header-user-name'
+            to={`/user/${this.context.user.id}`}>
+            {this.context.user.name}
+          </Link>
           <Link
             className="search-nav"
             to='/search'>
@@ -40,6 +40,11 @@ class Header extends Component {
     return (
       <div className='header-controls signed-out' >
         <nav role="navigation">
+          <Link
+            className="search-nav"
+            to='/search'>
+            Quick Search
+          </Link>
           <Link className='login-link'
             to='/login'>Login</Link>
           {''}
