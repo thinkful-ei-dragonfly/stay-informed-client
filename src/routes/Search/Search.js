@@ -13,33 +13,55 @@ class Search extends Component {
 };
 
   static contextType = UserContext;
-  state = { error: null };
+
+  state = {
+    error: null,
+    isDisabled: false
+  };
+
   firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
-    const address = `${street.value}, ${city.value}, ${state.value}, ${
-      zip.value
-    }`;
-    if (this.context.user) {
-      this.context.setUser({
-        ...this.context.user,
-        address
-      });
-    } else {
-      this.context.setUser({
-        address
-      });
-    }
-    if (!this.state.error) {
-      this.handleSuccessfulSearch();
+
+    // removing unnecessary commas since our search route splits the address returned by the database
+    let updatedStreet = street.value.split(',').join('');
+
+    // validating zip length if it's under 5 characters
+    if (zip.value.length < 5) {
+      console.log('setting state because zip is less than 5 characters');
+      this.setState({
+        error: `Your zipcode is less than 5 characters. Please update your zipcode and submit again`
+      })
+
     }
 
-      this.handleSuccessfulSearch();
+    if (state.value === 'placeholder') {
+      this.setState({
+        error: "Please select a state"
+      })
+    }
 
-    ;
+
+    const address = `${updatedStreet}, ${city.value}, ${state.value}, ${zip.value}`;
+
+    // if the zipcode is correct & a valid state was selected
+    if (zip.value.length === 5 && state.value !== 'placeholder') {
+        if (this.context.user) {
+          this.context.setUser({
+            ...this.context.user,
+            address
+          });
+        } else {
+          this.context.setUser({
+            address
+          });
+        }
+        this.handleSuccessfulSearch();
+
+    };
   };
 
   handleSuccessfulSearch = () => {
@@ -130,14 +152,26 @@ class Search extends Component {
           <Input
             id="search-zip-input"
             name="zip"
+            maxLength="5"
+            pattern="[0-9]{5}"
+            type='number'
             placeholder={zipDefault}
             required
           />
         </section>
         <div>
-          <Button
-            className='submit'
-            type="submit">Search</Button>
+          {this.state.isDisabled
+            ? (
+              <Button
+                className='submit disabled'
+                disabled
+                type="submit">Search</Button>
+            )
+            : (
+              <Button
+                className='submit'
+                type="submit">Search</Button>)}
+
         </div>
       </form>
     </div>
