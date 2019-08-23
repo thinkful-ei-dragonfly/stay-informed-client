@@ -24,38 +24,42 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
+    // removing unnecessary commas since our search route splits the address returned by the database
+    let updatedStreet = street.value.split(',').join('');
+
+    // validating zip length if it's under 5 characters
     if (zip.value.length < 5) {
       console.log('setting state because zip is less than 5 characters');
       this.setState({
         error: `Your zipcode is less than 5 characters. Please update your zipcode and submit again`
       })
-      // this is asynchronous
+
     }
 
-    const address = `${street.value}, ${city.value}, ${state.value}, ${
-      zip.value
-    }`;
+    if (state.value === 'placeholder') {
+      this.setState({
+        error: "Please select a state"
+      })
+    }
 
-    // I've commented this out because it runs BEFORE this.setState is complete
-    
-    // if (this.state.error === null && this.state.isDisabled === false) {
-    //   console.log(this.state);
-    //
-    //   if (this.context.user) {
-    //     this.context.setUser({
-    //       ...this.context.user,
-    //       address
-    //     });
-    //   } else {
-    //     this.context.setUser({
-    //       address
-    //     });
-    //   }
-    //   this.handleSuccessfulSearch();
-    // }
+    const address = `${updatedStreet}, ${city.value}, ${state.value}, ${zip.value}`;
 
 
-    ;
+    // if the zipcode is correct & a valid state was selected
+    if (zip.value.length === 5 && state.value !== 'placeholder') {
+        if (this.context.user) {
+          this.context.setUser({
+            ...this.context.user,
+            address
+          });
+        } else {
+          this.context.setUser({
+            address
+          });
+        }
+        this.handleSuccessfulSearch();
+
+    };
   };
 
   handleSuccessfulSearch = () => {
