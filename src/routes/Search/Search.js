@@ -68,7 +68,7 @@ class Search extends Component {
       <form className="SearchForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p>{error}</p>}</div>
         <section className="form-fields">
-          <Label htmlFor="search-street">
+          <Label htmlFor="street">
             Street
             <Required />
           </Label>
@@ -81,7 +81,7 @@ class Search extends Component {
           />
         </section>
         <section className="form-fields">
-          <Label htmlFor="search-city">
+          <Label htmlFor="city">
             City
             <Required />
           </Label>
@@ -93,7 +93,7 @@ class Search extends Component {
           />
         </section>
         <section className="form-fields">
-          <Label htmlFor="search-state">
+          <Label htmlFor="state">
             State
             <Required />
           </Label>
@@ -105,7 +105,7 @@ class Search extends Component {
           />
         </section>
         <section className="form-fields">
-          <Label htmlFor="search-zip">
+          <Label htmlFor="zip">
             Zip Code
             <Required />
           </Label>
@@ -116,11 +116,11 @@ class Search extends Component {
             required
           />
         </section>
-        <footer>
+        <div>
           <Button
             className='submit'
             type="submit">Search</Button>
-        </footer>
+        </div>
       </form>
     </div>
     );

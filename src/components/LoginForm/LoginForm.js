@@ -54,7 +54,7 @@ class LoginForm extends Component {
         <section className='form-fields'>
           <Label
             className='small'
-            htmlFor='login-username-input'>
+            htmlFor='username'>
             Username
           </Label>
           <Input
@@ -70,11 +70,10 @@ class LoginForm extends Component {
         <section className='form-fields'>
           <Label
             className='small'
-            htmlFor='login-password-input'>
+            htmlFor='password'>
             Password
           </Label>
           <Input
-
             id='login-password-input'
             name='password'
             type='password'
