@@ -57,7 +57,7 @@ class Search extends Component {
     'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM',
     'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY']
     let statesArray = states.map(state => {
-        return <option value={state} className='optionValue'>{state}</option>
+        return <option value={state} className='optionValue' key={state}>{state}</option>
     })
     if (this.context.user.address) {
       streetDefault = this.context.user.address.split(',')[0].trim();
@@ -66,12 +66,12 @@ class Search extends Component {
       zipDefault = this.context.user.address.split(',')[3].trim();
       statesArray = states.map(state => {
         if (state === stateDefault) {
-        return <option value={state} className='optionValue' selected>{state}</option>
+        return <option value={state} className='optionValue' key={state}> {state}</option>
         }
-        return <option value={state} className='optionValue'>{state}</option>
+        return <option value={state} className='optionValue' key={state}> {state}</option>
       })
     } else {
-      statesArray.push(<option value='placeholder' className='placeholderOption' selected disabled hidden>State</option>)
+      statesArray.push(<option value='placeholder' className='placeholderOption' disabled hidden key='placeholder'>State</option>)
     }
     const { error } = this.state;
     return (
@@ -113,8 +113,11 @@ class Search extends Component {
           </Label>
           <select name="state"
             id="search-state-input"
-            placeholder={stateDefault}
-            required>
+            required
+            defaultValue={this.context.state || 'placeholder'}
+            >
+           
+            {statesArray}
             </select>
           
         </section>
