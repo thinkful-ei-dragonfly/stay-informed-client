@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
+import './FinancialContributions.scss'
 
 export default class FinancialContributions extends Component {
   getDataArr() {
@@ -33,8 +34,8 @@ export default class FinancialContributions extends Component {
     if (this.props.contributions) {
       // get title for industry vs org contribution chart type
       chartTitle = this.props.contributions[0].industry_name
-        ? 'Sector Contributions'
-        : 'Organization Contributions';
+        ? 'Top 5 Contributing Sectors'
+        : 'Top 5 Individual Contributors';
       const dataArr = this.getDataArr();
       const labelArr = this.getLabelArr();
       data = {
@@ -118,12 +119,6 @@ export default class FinancialContributions extends Component {
 
     return (
       <section id="contributionChart">
-        {/*<div className='contributionChart-text-div'>
-          <h1>{chartTitle}</h1>
-          <ul className='contributionsList'>
-            {contribsList}
-          </ul>
-        </div>*/}
         <Bar className="chart" data={data} options={options} />
       </section>
     );

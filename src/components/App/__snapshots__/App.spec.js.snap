@@ -5,7 +5,9 @@ exports[`App component renders a form.App by default 1`] = `
   className="App"
 >
   <Header />
-  <main>
+  <main
+    className="main-app"
+  >
     <Switch>
       <PublicOnlyRoute
         component={[Function]}

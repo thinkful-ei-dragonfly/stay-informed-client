@@ -14,18 +14,21 @@ class Search extends Component {
 };
 
   static contextType = UserContext;
+
   state = {
     isStreetValidErr: null,
     isStateValidErr: null,
     isCityValidErr: null,
     isZipValidErr: null,
   };
+
   firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
+
 
     // Only render a lack of State selection or too short zip code error message
     // if the submit button has actually been clicked
@@ -54,6 +57,7 @@ class Search extends Component {
         this.handleSuccessfulSearch();
       }
     }
+
   };
 
   handleSuccessfulSearch = () => {
@@ -207,6 +211,7 @@ class Search extends Component {
             disabled={(!isAllValid)}
             className={`submit${!isAllValid ? ` btn-disabled` : ` active`}`}
             type="submit">Search</Button>
+
         </div>
       </form>
     </div>

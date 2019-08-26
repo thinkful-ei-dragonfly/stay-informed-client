@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
@@ -12,7 +13,7 @@ export default class RepresentativeRoute extends React.Component {
 
   componentDidMount() {
     if(!this.context.representatives){
-      this.props.history.push('/')    
+      this.props.history.push('/')
     }
   }
 
@@ -38,7 +39,7 @@ export default class RepresentativeRoute extends React.Component {
       url = currentRep.url;
       fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`
       twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`
-      party = currentRep.current_party
+      party = (currentRep.current_party === 'R') ? 'Republican' : 'Democrat'
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
       topIndustries = currentRep.topIndustries
@@ -50,15 +51,22 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
+        <nav role="navigation">
+          <Link
+            className="back-nav"
+            to='/dashboard'>
+            {' \u2b05 Go Back'}
+          </Link>
+        </nav>
         <section className='repPage-section' id='contact-info'>
           <div className='repPage-section-text'>
             <h1><span className='repPage-span'>Name</span>{name}</h1>
             <h2><span className='repPage-span'>Title</span>{currentRole}</h2>
             <h3><span className='repPage-span'>Party</span>{party}</h3>
-            {phone && <p><span className='repPage-span'>Phone</span> {phone}</p>}
-            {url && <p><span className='repPage-span'>Website</span> <a href={url}>{url}</a></p>}
-            {twitterUrl && <a href={twitterUrl}><Icon name='twitter'/></a>}
-            {fbUrl && <a href={fbUrl}><Icon name='facebook'/></a>}
+            {phone && <p><span className='repPage-span'>Phone</span> <a href={`tel:${phone}`}>{phone}</a></p>}
+            {url && <p><span className='repPage-span'>Website</span> <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></p>}
+            {twitterUrl && <a href={twitterUrl} target="_blank" rel="noopener noreferrer"><Icon name='twitter'/></a>}
+            {fbUrl && <a href={fbUrl} target="_blank" rel="noopener noreferrer"><Icon name='facebook'/></a>}
           </div>
           <div className='repPage-section-other repPage-section-image'>
             <div className='representativeImage'>
@@ -68,12 +76,15 @@ export default class RepresentativeRoute extends React.Component {
         </section>
 
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the top 5 contributors to your representative and how much money your representative accepted from each one.</h3>
           <FinancialContributions contributions={topContribs}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the top 5 business sectors that your representative takes donations from and how much comes from each one.</h3>
           <FinancialContributions contributions={topIndustries}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the total amount of money your representative took in donations and how much they spent in the last cycle.</h3>
           <TotalContributions contribs={contribs}/>
         </section>
       </div>

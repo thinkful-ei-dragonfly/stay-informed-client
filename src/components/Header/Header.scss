@@ -2,6 +2,8 @@ $blue: #0063C0;
 $red: #E9503E;
 
 .App-Header {
+  box-shadow: 0 0 15px 10px #fafaf8;
+  background-color: #fafaf8;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,6 +28,7 @@ $red: #E9503E;
 
   nav {
     .login-link,
+    .search-nav,
     .register-link {
       padding: 10px;
       transition: color .25s ease, background .25s ease;
@@ -35,6 +38,12 @@ $red: #E9503E;
       &:hover {
         background: pink;
         color: $red;
+      }
+    }
+    .search-nav {
+      &:hover {
+        background: #BCD39C;
+        color: green;
       }
     }
     .register-link {
@@ -52,11 +61,19 @@ $red: #E9503E;
 
     nav {
       margin-left: 25px;
+      .header-user-name,
       .search-nav,
       .logout {
         padding: 10px;
         transition: color .25s ease, background .25s ease;
         border-radius: 10px;
+      }
+      .header-user-name {
+        margin-left: 25px;
+        &:hover {
+          color: $blue;
+          background: lightblue;
+        }
       }
       .search-nav {
         &:hover {

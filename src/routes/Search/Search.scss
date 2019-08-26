@@ -30,6 +30,17 @@ $background: #FAFAF8;
         border-bottom: 2px solid $blue;
         border-style: solid;
         color: $blue;
+        &::placeholder { /* Firefox, Chrome, Opera */
+            color: lightgrey;
+        }
+
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: lightgrey;
+        }
+
+        &::-ms-input-placeholder { /* Microsoft Edge */
+            color: lightgrey;
+          }
       }
       select {
         align-self: flex-start;
@@ -60,6 +71,13 @@ $background: #FAFAF8;
 
       &:hover {
         cursor: pointer;
+        opacity: 1;
+      }
+
+      &.disabled {
+        background: grey;
+        cursor: not-allowed;
+        color: black;
         opacity: 1;
       }
     }

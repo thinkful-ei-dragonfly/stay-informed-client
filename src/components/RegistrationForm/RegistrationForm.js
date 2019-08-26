@@ -12,7 +12,9 @@ class RegistrationForm extends Component {
     onRegistrationSuccess: () => { }
   }
 
-  state = { error: null }
+  state = {
+    error: null
+  }
 
   firstInput = React.createRef()
 
@@ -130,7 +132,8 @@ class RegistrationForm extends Component {
               htmlFor='state'>
               State<Required />
             </Label>
-            <select name="registration-state" defaultValue='placeholder'>
+            <select name="state" defaultValue='placeholder'>
+
               <option value='placeholder' className='placeholderOption' disabled hidden>State</option>
               <option value="AL" className='optionValue'>AL</option>
               <option value="AK" className='optionValue'>AK</option>
