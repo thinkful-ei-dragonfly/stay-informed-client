@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Input, Required, Label } from '../../components/Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../../components/Button/Button';
+import * as Yup from 'yup'; // for everything
+
 import './Search.scss';
 
 class Search extends Component {
@@ -14,7 +16,7 @@ class Search extends Component {
 
   static contextType = UserContext;
   state = {
-    error: null
+    error: null,
   };
   firstInput = React.createRef();
 
@@ -23,9 +25,6 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
-    if (zip.length > 5 || typeof zip !== 'number') {
-      debugger;
-    }
     const address = `${street.value}, ${city.value}, ${state.value}, ${
       zip.value
     }`;
@@ -54,12 +53,43 @@ class Search extends Component {
     this.firstInput.current.focus();
   }
 
-  isText = (e) => {
-    // TODO fill out for city?
-  };
+  isStreetValid = (e) => {
+    e.preventDefault();
+    let street = e.target.value;
+    if (typeof street !== 'string' || !street.match(/^[0-9a-zA-Z #]+$/)) {
+      this.setState({error: 'Street must contain only alphanumeric text.'})
+    } else if (street === '' || street === null) {
+      this.setState({ error: 'Please enter a street.' })
+    } else {
+      this.setState( { error: null } )
+    }
+  }
+
+  isCityValid = (e) => {
+    e.preventDefault();
+    let city = e.target.value;
+    if (typeof city !== 'string' || !city.match(/^[a-zA-Z ]+$/)) {
+      this.setState({error: 'City must contain only alphabetic text.'})
+    } else if (city === '' || city === null) {
+      this.setState({ error: 'Please enter a city.' })
+    } else {
+      this.setState( { error: null } )
+    }
+  }
+
+  isStateValid = (e) => {
+    e.preventDefault();
+    let state = this.context.state;
+    // TODO FIND RELEVANCY / WHAT TO DO FOR STATE
+    if (state === null) {
+      this.setState({ error: 'Please enter a State.' })
+    } else {
+      this.setState( { error: null } )
+    }
+  }
 
   /* Render an input notification if zip entered is >5 digits */
-  limitDigits = (e) => {
+  isZipValid = (e) => {
     e.preventDefault();
     let zipString = e.target.value.toString()
     if (zipString.length > 5 || isNaN((e.target.value)) ) {
@@ -68,8 +98,6 @@ class Search extends Component {
       this.setState({ error: null }) // TODO REDUNDANT? OVERHEAD?
     }
   };
-
-  
 
   render() {
     let streetDefault = '';
@@ -114,6 +142,7 @@ class Search extends Component {
             id="search-street-input"
             name="street"
             placeholder={streetDefault}
+            onChange={(e) => this.isStreetValid(e)}
             required
           />
         </section>
@@ -126,7 +155,7 @@ class Search extends Component {
             id="search-city-input"
             name="city"
             placeholder={cityDefault}
-            onChange={e => this.isText()}
+            onChange={(e) => this.isCityValid(e)}
             required
           />
         </section>
@@ -139,8 +168,8 @@ class Search extends Component {
             id="search-state-input"
             required
             defaultValue={this.context.state || 'placeholder'}
+            // onChange={(e) => this.isStateValid(e)}
             >
-
             {statesArray}
             </select>
 
@@ -155,13 +184,15 @@ class Search extends Component {
             name="zip"
             type='number'
             placeholder={zipDefault}
-            onChange={(e) => this.limitDigits(e)}
+            onChange={(e) => this.isZipValid(e)}
             required
           />
         </section>
         <div>
           <Button
-            className='submit'
+            // onClick={e => this.isStateValid(e)}
+            disabled={(this.state.error)}
+            className={`submit${this.state.error ? ` btn-disabled` : ` active`}`}
             type="submit">Search</Button>
         </div>
       </form>
