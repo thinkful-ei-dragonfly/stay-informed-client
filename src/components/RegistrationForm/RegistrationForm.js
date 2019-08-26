@@ -133,6 +133,7 @@ class RegistrationForm extends Component {
               State<Required />
             </Label>
             <select name="state" defaultValue='placeholder'>
+
               <option value='placeholder' className='placeholderOption' disabled hidden>State</option>
               <option value="AL" className='optionValue'>AL</option>
               <option value="AK" className='optionValue'>AK</option>
