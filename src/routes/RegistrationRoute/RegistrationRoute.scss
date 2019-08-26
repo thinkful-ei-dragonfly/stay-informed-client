@@ -4,46 +4,7 @@ $blue: #0063C0;
 .searchNow {
   display: flex;
 }
-.heroAbout {
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 100px 0 100px 0;
 
-  .heroAboutImg,
-  .heroAboutText {
-    width: 50%;
-  }
-  .heroAboutImg {
-    text-align: right;
-    padding-right: 25px;
-  }
-  .heroAboutText {
-    padding-top: 10%;
-    padding-left: 25px;
-
-    h2 {
-      max-width: 25ch;
-      margin-bottom: 1em;
-    }
-    .submit {
-      opacity: 0.75;
-      transition: opacity .2s ease;
-      cursor: pointer;
-      &:hover {
-        opacity: 1;
-      }
-    }
-    .registerButton {
-      margin-right: 50px;
-      background: pink;
-      color: #E9503E;
-    }
-    .searchButton {
-      color: #0063C0;
-      background: lightblue;
-    }
-  }
-}
 .createFormDiv {
   align-items: flex-start;
   justify-content: space-between;
