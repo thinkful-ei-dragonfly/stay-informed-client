@@ -12,7 +12,7 @@ export default class RepresentativeRoute extends React.Component {
 
   componentDidMount() {
     if(!this.context.representatives){
-      this.props.history.push('/')    
+      this.props.history.push('/')
     }
   }
 
@@ -55,10 +55,10 @@ export default class RepresentativeRoute extends React.Component {
             <h1><span className='repPage-span'>Name</span>{name}</h1>
             <h2><span className='repPage-span'>Title</span>{currentRole}</h2>
             <h3><span className='repPage-span'>Party</span>{party}</h3>
-            {phone && <p><span className='repPage-span'>Phone</span> {phone}</p>}
-            {url && <p><span className='repPage-span'>Website</span> <a href={url}>{url}</a></p>}
-            {twitterUrl && <a href={twitterUrl}><Icon name='twitter'/></a>}
-            {fbUrl && <a href={fbUrl}><Icon name='facebook'/></a>}
+            {phone && <p><span className='repPage-span'>Phone</span> <a href={`tel:${phone}`}>{phone}</a></p>}
+            {url && <p><span className='repPage-span'>Website</span> <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></p>}
+            {twitterUrl && <a href={twitterUrl} target="_blank" rel="noopener noreferrer"><Icon name='twitter'/></a>}
+            {fbUrl && <a href={fbUrl} target="_blank" rel="noopener noreferrer"><Icon name='facebook'/></a>}
           </div>
           <div className='repPage-section-other repPage-section-image'>
             <div className='representativeImage'>
