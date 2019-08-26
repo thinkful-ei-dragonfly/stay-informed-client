@@ -6,6 +6,7 @@ import FinancialContributions from '../../components/FinancialContributions/Fina
 import './RepresentativeRoute.scss';
 import Icon from 'react-simple-icons';
 import RepresentativeService from '../../services/representatives-service';
+import Spinner from '../../components/Spinner/Spinner';
 
 export default class RepresentativeRoute extends React.Component {
   static contextType = UserContext;
@@ -113,7 +114,7 @@ export default class RepresentativeRoute extends React.Component {
             <div className="representativeImage">{currentRepImg}</div>
           </div>
         </section>
-        {contribs && (<>
+        {contribs ? (<>
           <section className="repPage-section">
             <h3 className="chartDesc">
               This chart shows the top 5 contributors to your representative and
@@ -136,6 +137,7 @@ export default class RepresentativeRoute extends React.Component {
             <TotalContributions contribs={contribs} />
           </section>
         </>)
+        : <Spinner />
       }
       </div>
     );
