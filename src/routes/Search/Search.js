@@ -3,7 +3,6 @@ import { Input, Required, Label } from '../../components/Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../../components/Button/Button';
 
-
 import './Search.scss';
 
 class Search extends Component {
@@ -16,7 +15,10 @@ class Search extends Component {
 
   static contextType = UserContext;
   state = {
-    error: null,
+    isStreetValidErr: null,
+    isStateValidErr: null,
+    isCityValidErr: null,
+    isZipValidErr: null,
   };
   firstInput = React.createRef();
 
@@ -25,11 +27,13 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
+    // Only render a lack of State selection or too short zip code error message
+    // if the submit button has actually been clicked
     if(zip.value.length < 5){
-      this.setState({error: 'Zip code is too short must be five numbers'})
+      this.setState({isZipValidErr: 'Zip code has too few digits - must be five digits.'})
     }
     else if(state.value === 'placeholder'){
-      this.setState({error: 'Please select a state'})
+      this.setState({isStateValidErr: 'Please select a State.'})
     }
     else {
       const address = `${street.value}, ${city.value}, ${state.value}, ${
@@ -50,8 +54,6 @@ class Search extends Component {
         this.handleSuccessfulSearch();
       }
     }
-
-    
   };
 
   handleSuccessfulSearch = () => {
@@ -67,11 +69,11 @@ class Search extends Component {
     e.preventDefault();
     let street = e.target.value;
     if (typeof street !== 'string' || !street.match(/^[0-9a-zA-Z #]+$/)) {
-      this.setState({error: 'Street must contain only alphanumeric text.'})
+      this.setState({isStreetValidErr: 'Street must contain only alphanumeric text.'})
     } else if (street === '' || street === null) {
-      this.setState({ error: 'Please enter a street.' })
+      this.setState({ isStreetValidErr: 'Please enter a street.' })
     } else {
-      this.setState( { error: null } )
+      this.setState( { isStreetValidErr: null } )
     }
   }
 
@@ -79,22 +81,21 @@ class Search extends Component {
     e.preventDefault();
     let city = e.target.value;
     if (typeof city !== 'string' || !city.match(/^[a-zA-Z ]+$/)) {
-      this.setState({error: 'City must contain only alphabetic text.'})
+      this.setState({isCityValidErr: 'City must contain only alphabetic text.'})
     } else if (city === '' || city === null) {
-      this.setState({ error: 'Please enter a city.' })
+      this.setState({ isCityValidErr: 'Please enter a city.' })
     } else {
-      this.setState( { error: null } )
+      this.setState( { isCityValidErr: null } )
     }
   }
 
   isStateValid = (e) => {
     e.preventDefault();
     let state = e.target.value;
-    // TODO FIND RELEVANCY / WHAT TO DO FOR STATE
     if (state === 'placeholder') {
-      this.setState({ error: 'Please enter a State.' })
+      this.setState({ isStateValidErr: 'Please enter a State.' })
     } else {
-      this.setState( { error: null } )
+      this.setState( { isStateValidErr: null } )
     }
   }
 
@@ -103,9 +104,9 @@ class Search extends Component {
     e.preventDefault();
     let zipString = e.target.value.toString()
     if (zipString.length > 5 ) {
-      this.setState({ error: 'Please enter a 5 digit zip code.'})
+      this.setState({ isZipValidErr: 'Zip code cannot be larger than 5 digits.'})
     } else {
-      this.setState({ error: null })
+      this.setState({ isZipValidErr: null })
     }
   };
 
@@ -118,7 +119,7 @@ class Search extends Component {
     'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
     'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
     let statesArray = states.map(state => {
-        return <option value={state} className='optionValue' key={state}>{state}</option>
+      return <option value={state} className='optionValue' key={state}>{state}</option>
     })
     if (this.context.user.address) {
       streetDefault = this.context.user.address.split(',')[0].trim();
@@ -134,16 +135,18 @@ class Search extends Component {
     } else {
       statesArray.push(<option value='placeholder' className='placeholderOption' hidden key='placeholder'>State</option>)
     }
-    const { error } = this.state;
+    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr } = this.state;
+    let isAllValid = !isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr;
     return (
       <div className='search-wrapper'>
         <section className='search-text'>
           <h2 className='title'>Search your representatives</h2>
         </section>
       <form className="SearchForm" onSubmit={this.handleSubmit}>
-        <div role="alert">{error && <p>{error}</p>}</div>
-        <div role="alert">{!error && this.state.isLess5Digits && <p>{'Zip is less than 5 digits'}</p>}</div>
-
+      <div role="alert">{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
+      <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
+      <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>
+      <div role="alert">{isZipValidErr && <p>{isZipValidErr}</p>}</div>
         <section className="form-fields">
           <Label htmlFor="street">
             Street
@@ -184,7 +187,6 @@ class Search extends Component {
             >
             {statesArray}
             </select>
-
         </section>
         <section className="form-fields">
           <Label htmlFor="zip">
@@ -202,9 +204,8 @@ class Search extends Component {
         </section>
         <div>
           <Button
-            // onClick={e => this.isStateValid(e)}
-            disabled={(this.state.error)}
-            className={`submit${this.state.error ? ` btn-disabled` : ` active`}`}
+            disabled={(!isAllValid)}
+            className={`submit${!isAllValid ? ` btn-disabled` : ` active`}`}
             type="submit">Search</Button>
         </div>
       </form>
