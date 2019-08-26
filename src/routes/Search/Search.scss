@@ -4,15 +4,19 @@ $background: #FAFAF8;
 .search-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 
-  .search-text,
+  .searchText,
   .SearchForm {
-    width: 47.5%;
-  }
+    width: 100%;
 
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
   .SearchForm {
     .form-fields {
-      padding: 25px 0;
+      padding: 15px 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -59,7 +63,9 @@ $background: #FAFAF8;
         color: $blue;
         border-radius: 0;
       }
-
+      @media (min-width: 768px) {
+        padding: 25px 0;
+      }
     }
     button {
       margin-top: 25px;
@@ -81,5 +87,9 @@ $background: #FAFAF8;
         opacity: 1;
       }
     }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }
