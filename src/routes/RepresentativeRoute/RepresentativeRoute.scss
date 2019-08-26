@@ -1,5 +1,23 @@
 .representativePage {
 
+  nav {
+    .back-nav {
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 25px;
+      transition: opacity .25s ease;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.75;
+      text-align: center;
+      background: #BCD39C;
+      color: green;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
   .repPage-section {
     display: flex;
 
