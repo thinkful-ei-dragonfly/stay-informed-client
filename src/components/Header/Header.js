@@ -57,7 +57,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className='App-Header' role="banner">
+      <header className='appHeader' role="banner">
         <h1 className='Header-Logo'>
           <Link to='/'>
             <span className='logo-red'>Stay</span><span className='logo-blue'>Informed</span>

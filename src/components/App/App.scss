@@ -5,7 +5,9 @@
 
 }
 .main-app {
-  padding-top: 100px;
+  @media (min-width: 959px) {
+    padding-top: 100px;
+  }
 }
 
 .wrapper {

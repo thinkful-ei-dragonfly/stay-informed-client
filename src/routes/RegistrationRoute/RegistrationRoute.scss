@@ -45,9 +45,9 @@ $blue: #0063C0;
   }
 }
 .createFormDiv {
-  padding-top: 100px;
   align-items: flex-start;
   justify-content: space-between;
+  flex-direction: column;
 
 
   .title,
@@ -58,47 +58,32 @@ $blue: #0063C0;
 
   .title,
   .form-wrapper {
-    width: 50%;
-
-  }
-  .title {
-    padding: 25px 5%;
-  }
-  .form-wrapper {
-    padding: 25px;
-  }
-
-}
-
-.searchNow {
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  margin: 200px auto;
-  h2 {
-    margin-bottom: 50px;
-  }
-  h3 {
-    max-width: 50ch;
-    margin: 0 auto;
-    text-align: center;
-  }
-  a.searchNow-button {
-    text-decoration: none;
-    margin-top: 50px;
-    opacity: 0.75;
-    transition: opacity 0.25s ease;
-    background: lightblue;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: 1.25em;
-    color: $blue;
-    &:hover {
-      opacity: 1;
+    width: 100%;
+    @media (min-width: 768px) {
+      width: 50%;
     }
   }
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    @media (min-width: 768px) {
+      padding-right: 25px;
+      font-size: 2em;
+    }
+  }
+  .form-wrapper {
+    h3 {
+      font-size: 1.25em;
+    }
 
+    @media (min-width: 768px) {
+      padding: 0 25px;
+      h3 {
+        font-size: 1.75em;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
