@@ -1,6 +1,5 @@
 $blue: #0063C0;
 .heroAbout,
-.createFormDiv,
 .searchNow {
   display: flex;
 }
@@ -43,31 +42,6 @@ $blue: #0063C0;
       background: lightblue;
     }
   }
-}
-.createFormDiv {
-  padding-top: 100px;
-  align-items: flex-start;
-  justify-content: space-between;
-
-
-  .title,
-  .form-wrapper,
-  .subtitle {
-    text-align: left;
-  }
-
-  .title,
-  .form-wrapper {
-    width: 50%;
-
-  }
-  .title {
-    padding: 25px 5%;
-  }
-  .form-wrapper {
-    padding: 25px;
-  }
-
 }
 
 .searchNow {
