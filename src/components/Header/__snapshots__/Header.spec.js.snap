@@ -3,6 +3,7 @@
 exports[`Header component renders a form.Header by default 1`] = `
 <header
   className="App-Header"
+  role="banner"
 >
   <h1
     className="Header-Logo"
@@ -25,7 +26,15 @@ exports[`Header component renders a form.Header by default 1`] = `
   <div
     className="header-controls signed-out"
   >
-    <nav>
+    <nav
+      role="navigation"
+    >
+      <Link
+        className="search-nav"
+        to="/search"
+      >
+        Quick Search
+      </Link>
       <Link
         className="login-link"
         to="/login"

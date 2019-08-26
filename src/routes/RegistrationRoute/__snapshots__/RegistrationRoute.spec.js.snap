@@ -1,47 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RegistrationRoute component renders a form.RegistrationRoute by default 1`] = `
-<Fragment>
-  <section
-    className="container"
+<section
+  className="createFormDiv"
+  id="createForm"
+>
+  <h2
+    className="title"
   >
-    <h2
-      className="title"
-    >
-      StayInformed is an app that helps you cut the noise and gives you “just the facts” about your local and federal politicians.
-    </h2>
-    <div
-      className="form-wrapper"
-    >
-      <h3
-        className="subtitle"
-      >
-        Sign up and stay informed
-      </h3>
-      <RegistrationForm
-        onRegistrationSuccess={[Function]}
-      />
-    </div>
-  </section>
-  <section
-    className="searchNow"
+    Create a user profile, allowing you to check in on your elected officials. Contact them, see who contributes to their campaigns, and stay up-to-date on local goings-on.
+  </h2>
+  <div
+    className="form-wrapper"
   >
-    <h2
-      className="title"
-    >
-      Search now instead
-    </h2>
     <h3
       className="subtitle"
     >
-      Use our search tool to find out who your representatives are. See their latest news, top financial backers and more.
+      Sign up and stay informed
     </h3>
-    <Link
-      className="searchNow-button"
-      to="/search"
-    >
-      Search now
-    </Link>
-  </section>
-</Fragment>
+    <RegistrationForm
+      onRegistrationSuccess={[Function]}
+    />
+  </div>
+</section>
 `;
