@@ -76,12 +76,15 @@ export default class RepresentativeRoute extends React.Component {
         </section>
 
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the top 5 contributors to your representative and how much money they contributed to their campaign.</h3>
           <FinancialContributions contributions={topContribs}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the top 5 contributing sectors to your representative and how much money they contributed to their campaign.</h3>
           <FinancialContributions contributions={topIndustries}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the total amount of money your representative took in donations and how much they spent in the last cycle.</h3>
           <TotalContributions contribs={contribs}/>
         </section>
       </div>
