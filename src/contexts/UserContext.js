@@ -15,6 +15,7 @@ const UserContext = React.createContext({
   clearError: () => {},
   setUser: () => {},
   setRepresentatives: () => {},
+  setFinancesOnRep: () =>{},
   processLogin: () => {},
   processLogout: () => {}
 });
@@ -90,6 +91,16 @@ export class UserProvider extends Component {
     this.setState({ representatives });
   };
 
+  setFinancesOnRep = (finObj, idx) =>{
+    const representatives = this.state.representatives.map((rep, i) =>{
+      if(i === idx){
+        return {...rep, ...finObj}
+      }
+      return rep;
+    });
+    this.setState({ representatives });
+  }
+
   setNews = news => {
     this.setState({ news });
   };
@@ -155,6 +166,7 @@ export class UserProvider extends Component {
       setUserDistrict: this.setUserDistrict,
       setRepresentatives: this.setRepresentatives,
       setNews: this.setNews,
+      setFinancesOnRep: this.setFinancesOnRep,
       processLogin: this.processLogin,
       processLogout: this.processLogout
     };
