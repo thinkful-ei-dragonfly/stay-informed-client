@@ -1,5 +1,4 @@
 import React from 'react';
-import './RepresentativeList.css';
 import UserContext from '../../contexts/UserContext';
 
 export default class RepresentativeList extends React.Component {
@@ -17,7 +16,7 @@ export default class RepresentativeList extends React.Component {
         const photoUrl = rep.photoUrl;
         const party = (rep.roles[0].party === 'R') ? 'Republican' : 'Democrat';
         return (
-          <li key={idx} className="representative">
+          <li key={idx} className="representative" onClick={e => this.props.handleClickRepDetails(e, rep.member_id)}>
             {photoUrl ? (
               <img
                 className="headshot"
@@ -49,7 +48,7 @@ export default class RepresentativeList extends React.Component {
               <span className="field-val">{party}</span>
             </p>
             <button
-              onClick={e => this.props.handleClickRepDetails(e, rep.member_id)}
+
               className="go-details submit"
             >
               Learn More
@@ -66,7 +65,6 @@ export default class RepresentativeList extends React.Component {
 
     return (
       <aside className="rep-pane">
-        <h2>Your Congress Representatives</h2>
         <ul id="rep-list">{repElemList}</ul>
       </aside>
     );

@@ -22,17 +22,19 @@ const UserContext = React.createContext({
 
 export default UserContext;
 
+const initialUserState = {
+  user: {},
+  state: null,
+  district: null,
+  representatives: null,
+  error: null,
+  fetching: false
+};
+
 export class UserProvider extends Component {
   constructor(props) {
     super(props);
-    const state = {
-      user: {},
-      state: null,
-      district: null,
-      representatives: null,
-      error: null,
-      fetching: false
-    };
+    const state = initialUserState;
 
     const jwtPayload = TokenService.parseAuthToken();
 
@@ -124,9 +126,7 @@ export class UserProvider extends Component {
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
-    this.setUser({});
-    this.setUserState('placeholder')
-    this.setUserDistrict({})
+    this.setState(initialUserState)
   };
 
   logoutBecauseIdle = () => {
@@ -134,6 +134,7 @@ export class UserProvider extends Component {
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
     this.setUser({ idle: true });
+    this.setState(initialUserState)
   };
 
   fetchRefreshToken = () => {

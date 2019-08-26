@@ -1,18 +1,20 @@
 $blue: #0063C0;
 $red: #E9503E;
+$background: #FAFAF8;
 
 .App-Header {
   box-shadow: 0 0 15px 10px #fafaf8;
   background-color: #fafaf8;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
   position: sticky;
   position: -webkit-sticky;
   position: -moz-sticky;
   position: -ms-sticky;
   position: -o-sticky;
-  padding: 25px 0;
+  padding: 20px 0;
+  background-color: $background;
   top: 0;
 
   a {
@@ -20,6 +22,8 @@ $red: #E9503E;
     text-decoration: none;
   }
   .Header-Logo {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
     a {
       background: transparent;
       cursor: pointer;
@@ -30,11 +34,15 @@ $red: #E9503E;
     .login-link,
     .search-nav,
     .register-link {
-      padding: 10px;
-      transition: color .25s ease, background .25s ease;
-      border-radius: 10px;
+      @media (min-width: 768px) {
+        padding: 10px;
+        transition: color .25s ease, background .25s ease;
+        border-radius: 10px;
+      }
+
     }
     .login-link {
+      margin-left: 25px;
       &:hover {
         background: pink;
         color: $red;
@@ -89,5 +97,9 @@ $red: #E9503E;
         }
       }
     }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }
