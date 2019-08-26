@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import AllOtherRoute from '../AllOtherRoute/AllOtherRoute'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
+import LandingPage from '../../routes/LandingPage/LandingPage'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import UserRoute from '../../routes/UserRoute/UserRoute'
@@ -37,7 +38,7 @@ export default class App extends Component {
             <PublicOnlyRoute
               exact
               path={'/'}
-              component={RegistrationRoute}
+              component={LandingPage}
             />
             <Route
               exact
@@ -48,7 +49,6 @@ export default class App extends Component {
               path={'/search'}
               component={Search}
               />
-
             <Route
               path={'/dashboard'}
               component={Dashboard}
