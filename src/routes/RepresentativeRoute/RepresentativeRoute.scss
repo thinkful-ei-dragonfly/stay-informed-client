@@ -1,8 +1,29 @@
 .representativePage {
 
+  nav {
+    .back-nav {
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 25px;
+      transition: opacity .25s ease;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.75;
+      text-align: center;
+      background: #BCD39C;
+      color: green;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
   .repPage-section {
     display: flex;
-
+    .chartDesc {
+      width: 33%;
+      padding: 120px 10px;
+    }
     .repPage-section-text,
     .repPage-section-other {
       width: 50%;
@@ -34,6 +55,7 @@
     #contributionChart {
       width: 100%;
       display: flex;
+      
       .contributionChart-text-div,
       canvas {
         width: 50%;

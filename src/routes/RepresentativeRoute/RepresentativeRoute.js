@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions'
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
@@ -50,6 +51,13 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
+        <nav role="navigation">
+          <Link
+            className="back-nav"
+            to='/dashboard'>
+            {' \u2b05 Go Back'}
+          </Link>
+        </nav>
         <section className='repPage-section' id='contact-info'>
           <div className='repPage-section-text'>
             <h1><span className='repPage-span'>Name</span>{name}</h1>
@@ -68,12 +76,15 @@ export default class RepresentativeRoute extends React.Component {
         </section>
 
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the top 5 contributors to your representative and how much money they contributed to their campaign.</h3>
           <FinancialContributions contributions={topContribs}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the top 5 contributing sectors to your representative and how much money they contributed to their campaign.</h3>
           <FinancialContributions contributions={topIndustries}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the total amount of money your representative took in donations and how much they spent in the last cycle.</h3>
           <TotalContributions contribs={contribs}/>
         </section>
       </div>
