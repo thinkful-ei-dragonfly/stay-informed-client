@@ -79,9 +79,10 @@ class Search extends Component {
 
   isStateValid = (e) => {
     e.preventDefault();
-    let state = this.context.state;
+    let state = e.target.value;
+    console.log(e.target.value);
     // TODO FIND RELEVANCY / WHAT TO DO FOR STATE
-    if (state === null) {
+    if (!e.target.value) {
       this.setState({ error: 'Please enter a State.' })
     } else {
       this.setState( { error: null } )
@@ -92,10 +93,10 @@ class Search extends Component {
   isZipValid = (e) => {
     e.preventDefault();
     let zipString = e.target.value.toString()
-    if (zipString.length > 5 || isNaN((e.target.value)) ) {
+    if (zipString.length !== 5 ) {
       this.setState({ error: 'Please enter a 5 digit zip code.'})
     } else {
-      this.setState({ error: null }) // TODO REDUNDANT? OVERHEAD?
+      this.setState({ error: null })
     }
   };
 
@@ -132,6 +133,8 @@ class Search extends Component {
         </section>
       <form className="SearchForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p>{error}</p>}</div>
+        <div role="alert">{!error && this.state.isLess5Digits && <p>{'Zip is less than 5 digits'}</p>}</div>
+
         <section className="form-fields">
           <Label htmlFor="street">
             Street
@@ -168,7 +171,7 @@ class Search extends Component {
             id="search-state-input"
             required
             defaultValue={this.context.state || 'placeholder'}
-            // onChange={(e) => this.isStateValid(e)}
+            onChange={(e) => this.isStateValid(e)}
             >
             {statesArray}
             </select>
@@ -191,7 +194,7 @@ class Search extends Component {
         <div>
           <Button
             // onClick={e => this.isStateValid(e)}
-            disabled={(this.state.error)}
+            disabled={(this.state.error) || !this.context.state}
             className={`submit${this.state.error ? ` btn-disabled` : ` active`}`}
             type="submit">Search</Button>
         </div>
