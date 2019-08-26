@@ -1,5 +1,6 @@
 $blue: #0063C0;
 $red: #E9503E;
+$background: #FAFAF8;
 
 .App-Header {
   display: flex;
@@ -11,6 +12,7 @@ $red: #E9503E;
   position: -ms-sticky;
   position: -o-sticky;
   padding: 25px 0;
+  background-color: $background;
   top: 0;
 
   a {

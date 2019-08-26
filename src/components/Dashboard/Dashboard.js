@@ -61,7 +61,7 @@ export default class Dashboard extends React.Component {
     if (this.context.user.address) {
       myData = (
         <aside className="myData" >
-          <h2 className='subtitle'>My District</h2>
+          <h2 className='title'>Your Elected Officials</h2>
           <div className='myData-text'>
             <p>
               <span className="repPage-span">State</span> {this.context.state}
