@@ -8,7 +8,7 @@ $red: #E9503E;
   flex-direction: column;
   padding: 25px 0;
   width: 100%;
-  margin-top: 250px;
+  margin-top: 75px;
   flex-wrap: wrap;
 
   .footerHeader {
@@ -81,5 +81,6 @@ $red: #E9503E;
 
  @media (min-width: 768px) {
    flex-direction: row;
+   margin-top: 250px;
  }
 }

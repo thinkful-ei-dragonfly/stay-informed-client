@@ -42,7 +42,7 @@ class Search extends Component {
       const address = `${street.value}, ${city.value}, ${state.value}, ${
         zip.value
       }`;
-  
+
       if (this.context.user) {
         this.context.setUser({
           ...this.context.user,
@@ -143,7 +143,7 @@ class Search extends Component {
     let isAllValid = !isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr;
     return (
       <div className='search-wrapper'>
-        <section className='search-text'>
+        <section className='searchText'>
           <h2 className='title'>Search your representatives</h2>
         </section>
       <form className="SearchForm" onSubmit={this.handleSubmit}>
