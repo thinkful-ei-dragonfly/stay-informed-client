@@ -76,6 +76,7 @@ export default class RepresentativeRoute extends React.Component {
           <FinancialContributions contributions={topIndustries}/>
         </section>
         <section className='repPage-section'>
+          <h3 className='chartDesc'>This chart shows the total amount of money your representative took in donations and how much they spent in the last cycle.</h3>
           <TotalContributions contribs={contribs}/>
         </section>
       </div>
