@@ -5,6 +5,8 @@ import TotalContributions from '../../components/TotalContributions/TotalContrib
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions'
 import './RepresentativeRoute.scss'
 import Icon from 'react-simple-icons';
+import Elephant from './elephant.png'
+import Donkey from './donkey.png'
 
 
 export default class RepresentativeRoute extends React.Component {
@@ -39,7 +41,7 @@ export default class RepresentativeRoute extends React.Component {
       url = currentRep.url;
       fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`
       twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`
-      party = (currentRep.current_party === 'R') ? 'Republican' : 'Democrat'
+      party = (currentRep.current_party === 'R') ? <div>Republican <img className='partyIcon' src={Elephant} alt=''/></div> : <div>Democrat <img className='partyIcon' src={Donkey} alt=''/></div>
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
       topIndustries = currentRep.topIndustries
@@ -51,13 +53,6 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
-        <nav role="navigation">
-          <Link
-            className="back-nav"
-            to='/dashboard'>
-            {' \u2b05 Go Back'}
-          </Link>
-        </nav>
         <section className='repPage-section' id='contact-info'>
           <div className='repPage-section-text'>
             <h1><span className='repPage-span'>Name</span>{name}</h1>
@@ -67,6 +62,11 @@ export default class RepresentativeRoute extends React.Component {
             {url && <p><span className='repPage-span'>Website</span> <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></p>}
             {twitterUrl && <a href={twitterUrl} target="_blank" rel="noopener noreferrer"><Icon name='twitter'/></a>}
             {fbUrl && <a href={fbUrl} target="_blank" rel="noopener noreferrer"><Icon name='facebook'/></a>}
+            <Link
+              className="back-nav"
+              to='/dashboard'>
+              {' \u2b05 Go Back'}
+            </Link>
           </div>
           <div className='repPage-section-other repPage-section-image'>
             <div className='representativeImage'>
