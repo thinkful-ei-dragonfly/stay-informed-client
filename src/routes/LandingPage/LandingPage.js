@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import { Link } from 'react-router-dom'
 import { HashLink } from "react-router-hash-link";
-import './RegistrationRoute.scss'
+import './LandingPage.scss'
 import Hand from './Hand.svg'
 
 class RegistrationRoute extends Component {
