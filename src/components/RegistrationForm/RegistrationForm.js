@@ -130,8 +130,8 @@ class RegistrationForm extends Component {
               htmlFor='state'>
               State<Required />
             </Label>
-            <select name="registration-state">
-              <option value='placeholder' className='placeholderOption' selected disabled hidden>State</option>
+            <select name="registration-state" defaultValue='placeholder'>
+              <option value='placeholder' className='placeholderOption' disabled hidden>State</option>
               <option value="AL" className='optionValue'>AL</option>
               <option value="AK" className='optionValue'>AK</option>
               <option value="AZ" className='optionValue'>AZ</option>
@@ -189,7 +189,7 @@ class RegistrationForm extends Component {
             <Label
               className='small'
               type='number'
-              maxlength="5"
+              maxLength="5"
               htmlFor='zip'>
               Zip Code<Required />
             </Label>

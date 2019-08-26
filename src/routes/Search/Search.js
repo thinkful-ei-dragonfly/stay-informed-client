@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Required, Label } from '../../components/Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../../components/Button/Button';
-import * as Yup from 'yup'; // for everything
+
 
 import './Search.scss';
 
@@ -25,23 +25,33 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
-    const address = `${street.value}, ${city.value}, ${state.value}, ${
-      zip.value
-    }`;
+    if(zip.value.length < 5){
+      this.setState({error: 'Zip code is too short must be five numbers'})
+    }
+    else if(state.value === 'placeholder'){
+      this.setState({error: 'Please select a state'})
+    }
+    else {
+      const address = `${street.value}, ${city.value}, ${state.value}, ${
+        zip.value
+      }`;
+  
+      if (this.context.user) {
+        this.context.setUser({
+          ...this.context.user,
+          address
+        });
+      } else {
+        this.context.setUser({
+          address
+        });
+      }
+      if (!this.state.error) {
+        this.handleSuccessfulSearch();
+      }
+    }
 
-    if (this.context.user) {
-      this.context.setUser({
-        ...this.context.user,
-        address
-      });
-    } else {
-      this.context.setUser({
-        address
-      });
-    }
-    if (!this.state.error) {
-      this.handleSuccessfulSearch();
-    }
+    
   };
 
   handleSuccessfulSearch = () => {
@@ -80,9 +90,8 @@ class Search extends Component {
   isStateValid = (e) => {
     e.preventDefault();
     let state = e.target.value;
-    console.log(e.target.value);
     // TODO FIND RELEVANCY / WHAT TO DO FOR STATE
-    if (!e.target.value) {
+    if (state === 'placeholder') {
       this.setState({ error: 'Please enter a State.' })
     } else {
       this.setState( { error: null } )
@@ -93,7 +102,7 @@ class Search extends Component {
   isZipValid = (e) => {
     e.preventDefault();
     let zipString = e.target.value.toString()
-    if (zipString.length !== 5 ) {
+    if (zipString.length > 5 ) {
       this.setState({ error: 'Please enter a 5 digit zip code.'})
     } else {
       this.setState({ error: null })
@@ -105,9 +114,9 @@ class Search extends Component {
     let cityDefault = '';
     let stateDefault = '';
     let zipDefault = '';
-    let states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
-    'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM',
-    'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY']
+    let states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+    'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+    'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
     let statesArray = states.map(state => {
         return <option value={state} className='optionValue' key={state}>{state}</option>
     })
@@ -123,7 +132,7 @@ class Search extends Component {
         return <option value={state} className='optionValue' key={state}> {state}</option>
       })
     } else {
-      statesArray.push(<option value='placeholder' className='placeholderOption' disabled hidden key='placeholder'>State</option>)
+      statesArray.push(<option value='placeholder' className='placeholderOption' hidden key='placeholder'>State</option>)
     }
     const { error } = this.state;
     return (
@@ -194,7 +203,7 @@ class Search extends Component {
         <div>
           <Button
             // onClick={e => this.isStateValid(e)}
-            disabled={(this.state.error) || !this.context.state}
+            disabled={(this.state.error)}
             className={`submit${this.state.error ? ` btn-disabled` : ` active`}`}
             type="submit">Search</Button>
         </div>
