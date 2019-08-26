@@ -1,65 +1,85 @@
 $blue: #0063C0;
 $red: #E9503E;
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400&display=swap');
 
-Footer {
+.appFooter {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   padding: 25px 0;
-  background-color: rgb(126, 81, 126);
   width: 100%;
   margin-top: 250px;
+  flex-wrap: wrap;
 
+  .footerHeader {
+    width: 100%;
+    h2 {
+      margin-bottom: 1em;
+    }
+  }
+  .footerLeft,
+  .footerRight {
+    width: 100%;
 
-  section{
-    width: 50%;
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
-  .right{
-    display: flex;
-    justify-content: space-around;
+  .footerLeft {
+    .createdBy {
+      margin-bottom: 1em;
+
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+    .teamMembersHeading {
+      margin-bottom: 0.5em;
+    }
+    .teamMembers {
+      padding-left: 1em;
+      li {
+        cursor: pointer;
+      }
+    }
+
+    padding-bottom: 1em;
+    @media (min-width: 768px) {
+      padding-bottom: 0;
+    }
+  }
+
+  .footerRight {
+    .codeLinks {
+      p {
+        margin-bottom: 0.5em;
+      }
+
+      ul {
+        margin-bottom: 1em;
+        padding-left: 1em;
+        li.codeLink {
+          font-family: 'IBM Plex Mono', monospace;
+        }
+      }
+    }
+    .attribs {
+      @media (min-width: 768px) {
+        max-width: 55ch;
+      }
+    }
   }
 
   a {
     color: inherit;
     text-decoration: none;
-  }
-
-  .Footer-Logo {
-    padding: 25px 10px;
-  }
-
-  .git-links {
-    font-size: 22px;
-    padding: 15px 10px;
-    width: 90%;
-    
-    a{
-      font-size: 29px;
-      color: blue;
-      &:hover{color: lightblue}
-      &:first-of-type{
-        color: red;
-        &:hover{color: pink}
-      }
+    &:hover {
+      text-decoration: underline;
     }
   }
 
-  .attribs{
-    width: 50%;
-    font-size: 20px;
-    a{
-      
-      font-style: italic;
-      &:hover{
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .bottom{
-    font-size: 10px;
-    color: gray;
-  }
-  
+ @media (min-width: 768px) {
+   flex-direction: row;
+ }
 }
