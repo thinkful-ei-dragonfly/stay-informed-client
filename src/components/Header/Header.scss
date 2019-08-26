@@ -1,5 +1,6 @@
 $blue: #0063C0;
 $red: #E9503E;
+$background: #FAFAF8;
 
 .App-Header {
   box-shadow: 0 0 15px 10px #fafaf8;
@@ -13,6 +14,7 @@ $red: #E9503E;
   position: -ms-sticky;
   position: -o-sticky;
   padding: 25px 0;
+  background-color: $background;
   top: 0;
 
   a {

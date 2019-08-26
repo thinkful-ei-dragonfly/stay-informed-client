@@ -2,41 +2,41 @@ import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 
-//TODO Make semantic.
-//Thanks to API's we used
-//Team Name
-//Github links
-//Team Info
-//ABOUT PAGE
-
 export default function Footer() {
   return (
-    <footer>
-      <section className='left'>
-        <h1 className="Footer-Logo">
+    <footer className='appFooter' role='contentinfo'>
+      <header className='footerHeader'>
+        <h2 className="footerLogo">
           <Link to="/">
             <span className="logo-red">Stay</span>
             <span className="logo-blue">Informed</span>
           </Link>
-        </h1>
-        <h2 className='git-links'>Checkout our <a className ='source-link' href='https://github.com/thinkful-ei-dragonfly/stay-informed-client'>&lt; Front End /&gt;</a> and <br /><a className ='source-link' href='https://github.com/thinkful-ei-dragonfly/stay-informed-api'>&#123; Back End &#125;</a>  source code on GitHub</h2>
-
-        <p className='bottom'>Brought to you by &#123; teamName: null &#125;</p>
+        </h2>
+      </header>
+      <section className='footerLeft'>
+        <h3 className='createdBy'>Created by &#123; teamName: null &#125;</h3>
+        <p className='teamMembersHeading'>Team Members</p>
+        <ul className='teamMembers'>
+          <li><a href='https://github.com/michaelbravo777' target='_blank' rel='noreferrer noopener'>Michael Bravo</a></li>
+          <li><a href='https://github.com/iAmDusan' target='_blank' rel='noopener noreferrer'>Michael Dusaniwskyj</a></li>
+          <li><a href='https://github.com/DustinHaefele' target='_blank' rel='noopener noreferrer'>Dustin Haefele</a></li>
+          <li><a href='https://github.com/lucasvocos' target='_blank' rel='noreferrer noopener'>Lucas Vocos</a></li>
+          <li><a href='https://github.com/RobertWiggins' target='_blank' rel='noreferrer noopener'>Robert Wiggins</a></li>
+        </ul>
       </section>
-      <section className='right'>
-        <aside>
-        <h3>Team Members</h3>
-          <ul>
-            <li>Michael Bravo</li>
-            <li>Michael Dusaniwskyj</li>
-            <li>Dustin Haefele</li>
-            <li>Lucas Vocos</li>
-            <li>Rob Wiggins</li>
+      <section className='footerRight'>
+        <aside className='codeLinks'>
+          <p>Code:</p>
+          <ul className='codeLinksList'>
+
+            <li className='codeLink'><a href='https://github.com/thinkful-ei-dragonfly/stay-informed-client' target='_blank' rel='noopener noreferrer'>&#123;Frontend&#125;</a></li>
+            <li className='codeLink'><a href='https://github.com/thinkful-ei-dragonfly/stay-informed-api' target='_blank' rel='noopener noreferrer'>&#123;Backend&#125;</a></li>
           </ul>
+
         </aside>
-        
+
         <p className='attribs'>
-          Made possible by{' '}
+          This project leverages the following resources:{' '}
           <a
             className="attribution-link"
             href="https://developers.google.com/civic-information/"
@@ -62,7 +62,7 @@ export default function Footer() {
             className="attribution-link"
             href="https://github.com/unitedstates/images"
           >
-            United States Images Github
+            United States Images Github,
           </a>{' '}
           and{' '}
           <a className="attribution-link" href="https://newsapi.org/">
@@ -70,7 +70,7 @@ export default function Footer() {
           </a>
         </p>
       </section>
-    
+
     </footer>
   );
 }
