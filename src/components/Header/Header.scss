@@ -2,6 +2,8 @@ $blue: #0063C0;
 $red: #E9503E;
 
 .App-Header {
+  box-shadow: 0 0 15px 10px #fafaf8;
+  background-color: #fafaf8;
   display: flex;
   align-items: center;
   justify-content: space-between;
