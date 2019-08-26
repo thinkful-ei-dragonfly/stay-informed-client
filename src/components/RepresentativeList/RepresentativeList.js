@@ -15,6 +15,7 @@ export default class RepresentativeList extends React.Component {
           title === 'Rep.' ? `District ${rep.roles[0].district}` : '';
         // to check if photo exists for representative
         const photoUrl = rep.photoUrl;
+        const party = (rep.roles[0].party === 'R') ? 'Republican' : 'Democrat';
         return (
           <li key={idx} className="representative">
             {photoUrl ? (
@@ -45,7 +46,7 @@ export default class RepresentativeList extends React.Component {
             </p>
             <p>
               <span className="rep-field">Party: </span>
-              <span className="field-val">{rep.roles[0].party}</span>
+              <span className="field-val">{party}</span>
             </p>
             <button
               onClick={e => this.props.handleClickRepDetails(e, rep.member_id)}

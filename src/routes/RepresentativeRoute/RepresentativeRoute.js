@@ -39,7 +39,7 @@ export default class RepresentativeRoute extends React.Component {
       url = currentRep.url;
       fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`
       twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`
-      party = currentRep.current_party
+      party = (currentRep.current_party === 'R') ? 'Republican' : 'Democrat'
       contribs = currentRep.contributionTotals
       topContribs = currentRep.topContributors
       topIndustries = currentRep.topIndustries
@@ -76,11 +76,11 @@ export default class RepresentativeRoute extends React.Component {
         </section>
 
         <section className='repPage-section'>
-          <h3 className='chartDesc'>This chart shows the top 5 contributors to your representative and how much money they contributed to their campaign.</h3>
+          <h3 className='chartDesc'>This chart shows the top 5 contributors to your representative and how much money your representative accepted from each one.</h3>
           <FinancialContributions contributions={topContribs}/>
         </section>
         <section className='repPage-section'>
-          <h3 className='chartDesc'>This chart shows the top 5 contributing sectors to your representative and how much money they contributed to their campaign.</h3>
+          <h3 className='chartDesc'>This chart shows the top 5 business sectors that your representative takes donations from and how much comes from each one.</h3>
           <FinancialContributions contributions={topIndustries}/>
         </section>
         <section className='repPage-section'>
