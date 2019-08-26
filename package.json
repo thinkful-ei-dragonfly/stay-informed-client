@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.8",
-    "@fortawesome/fontawesome-svg-core": "^1.2.22",
-    "@fortawesome/free-solid-svg-icons": "^5.10.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
+    "unfetch": "^4.1.0",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "lottie-web": "^5.5.7",
     "node-sass": "^4.12.0",
@@ -38,13 +36,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "npm-check-updates": "^3.1.21",
     "chai": "^4.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "canvas": "^2.6.0",
     "enzyme-to-json": "^3.4.0",
-    "jsonwebtoken": "^8.5.1",
-    "react-test-renderer": "^16.9.0",
-    "unfetch": "^4.1.0"
+    "react-test-renderer": "^16.9.0"
   }
 }
