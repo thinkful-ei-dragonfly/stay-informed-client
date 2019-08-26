@@ -1,6 +1,6 @@
 .representativePage {
 
-  nav {
+  .repPage-section {
     .back-nav {
       text-decoration: none;
       border-radius: 10px;
@@ -8,7 +8,7 @@
       margin-top: 25px;
       transition: opacity .25s ease;
       cursor: pointer;
-      width: 100%;
+      width: 130px;
       opacity: 0.75;
       text-align: center;
       background: #BCD39C;
@@ -17,8 +17,6 @@
         opacity: 1;
       }
     }
-  }
-  .repPage-section {
     display: flex;
     .chartDesc {
       font-size: 20px;
@@ -52,6 +50,10 @@
         max-width: 100%;
         width: 100%;
       }
+    }
+    .partyIcon {
+      vertical-align: middle;
+      width: 25px;
     }
     #contributionChart {
       width: 100%;
