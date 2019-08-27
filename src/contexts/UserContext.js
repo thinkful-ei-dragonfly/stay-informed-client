@@ -15,23 +15,26 @@ const UserContext = React.createContext({
   clearError: () => {},
   setUser: () => {},
   setRepresentatives: () => {},
+  setFinancesOnRep: () =>{},
   processLogin: () => {},
   processLogout: () => {}
 });
 
 export default UserContext;
 
+const initialUserState = {
+  user: {},
+  state: null,
+  district: null,
+  representatives: null,
+  error: null,
+  fetching: false
+};
+
 export class UserProvider extends Component {
   constructor(props) {
     super(props);
-    const state = {
-      user: {},
-      state: null,
-      district: null,
-      representatives: null,
-      error: null,
-      fetching: false
-    };
+    const state = initialUserState;
 
     const jwtPayload = TokenService.parseAuthToken();
 
@@ -90,6 +93,16 @@ export class UserProvider extends Component {
     this.setState({ representatives });
   };
 
+  setFinancesOnRep = (finObj, idx) =>{
+    const representatives = this.state.representatives.map((rep, i) =>{
+      if(i === idx){
+        return {...rep, ...finObj}
+      }
+      return rep;
+    });
+    this.setState({ representatives });
+  }
+
   setNews = news => {
     this.setState({ news });
   };
@@ -113,7 +126,7 @@ export class UserProvider extends Component {
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
-    this.setUser({});
+    this.setState(initialUserState)
   };
 
   logoutBecauseIdle = () => {
@@ -121,6 +134,7 @@ export class UserProvider extends Component {
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
     this.setUser({ idle: true });
+    this.setState(initialUserState)
   };
 
   fetchRefreshToken = () => {
@@ -153,6 +167,7 @@ export class UserProvider extends Component {
       setUserDistrict: this.setUserDistrict,
       setRepresentatives: this.setRepresentatives,
       setNews: this.setNews,
+      setFinancesOnRep: this.setFinancesOnRep,
       processLogin: this.processLogin,
       processLogout: this.processLogout
     };

@@ -4,15 +4,19 @@ $background: #FAFAF8;
 .search-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 
-  .search-text,
+  .searchText,
   .SearchForm {
-    width: 47.5%;
-  }
+    width: 100%;
 
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
   .SearchForm {
     .form-fields {
-      padding: 25px 0;
+      padding: 15px 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -30,8 +34,38 @@ $background: #FAFAF8;
         border-bottom: 2px solid $blue;
         border-style: solid;
         color: $blue;
-      }
+        &::placeholder { /* Firefox, Chrome, Opera */
+            color: lightgrey;
+        }
 
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: lightgrey;
+        }
+
+        &::-ms-input-placeholder { /* Microsoft Edge */
+            color: lightgrey;
+          }
+      }
+      select {
+        align-self: flex-start;
+        width: 75%;
+        font-size: 1.5em;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: inherit;
+        background-position: right 50%;
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAcCAYAAADvANYcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFuSURBVHgBxZbRVYMwFIb/MImO4ASSUSwuoAuITlDfW0+cBCZwBbuBDGCIuQk9tDRAgiT9HmhPuIfz9fb+JAyPVQ7FXnAtmHpl5ktRV/qaIzUKB3zkt9nRBtegVZw+rMSO11rrE2kREPzQSxASpb42SIXsu99LkJVS70gB/f1dF84liBZbMywxoefveHm6dC4heKMtnxATxsqLJWdhvMjW2Od8uJg5S2NFVqoH17JbwkZ27SEVp8M4L0GsGVkaRjne3XEJGtK1Ipvp54x0gWCYY1N/66obLKXbH6ZKMsyRuYfJG0ckwyXMkKLCMgT297N70rwEIdUGS5B+UfeTMEOltghiehjDJQgJ+lU/XrUmkvCW9pewkX3zqqVh9OyCKUcoRf2lr3ej9z0iOcS/E0eYep5+YnikwyWmIyu6+5ElCBvZxrG+aPddJuE6Cg6ObPEliNZE0HaDhvEXge+RNSRsZO1R0EYy3Un9gqIS+Cd/EjOREbyMWRsAAAAASUVORK5CYII=');
+        border: 0;
+        border-bottom: 2px solid $blue;
+        border-style: solid;
+        color: $blue;
+        border-radius: 0;
+      }
+      @media (min-width: 768px) {
+        padding: 25px 0;
+      }
     }
     button {
       margin-top: 25px;
@@ -45,6 +79,17 @@ $background: #FAFAF8;
         cursor: pointer;
         opacity: 1;
       }
+
+      &.disabled {
+        background: grey;
+        cursor: not-allowed;
+        color: black;
+        opacity: 1;
+      }
     }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }

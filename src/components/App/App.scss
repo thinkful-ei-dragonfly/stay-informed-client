@@ -1,11 +1,11 @@
 .App {
-  // max-width: 1600px;
-  // margin: 0 auto;
   padding: 0 25px;
 
 }
 .main-app {
-  padding-top: 100px;
+  @media (min-width: 959px) {
+    padding-top: 100px;
+  }
 }
 
 .wrapper {

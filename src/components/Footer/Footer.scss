@@ -1,0 +1,86 @@
+$blue: #0063C0;
+$red: #E9503E;
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400&display=swap');
+
+.appFooter {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 25px 0;
+  width: 100%;
+  margin-top: 75px;
+  flex-wrap: wrap;
+
+  .footerHeader {
+    width: 100%;
+    h2 {
+      margin-bottom: 1em;
+    }
+  }
+  .footerLeft,
+  .footerRight {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
+
+  .footerLeft {
+    .createdBy {
+      margin-bottom: 1em;
+
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+    .teamMembersHeading {
+      margin-bottom: 0.5em;
+    }
+    .teamMembers {
+      padding-left: 1em;
+      li {
+        cursor: pointer;
+      }
+    }
+
+    padding-bottom: 1em;
+    @media (min-width: 768px) {
+      padding-bottom: 0;
+    }
+  }
+
+  .footerRight {
+    .codeLinks {
+      p {
+        margin-bottom: 0.5em;
+      }
+
+      ul {
+        margin-bottom: 1em;
+        padding-left: 1em;
+        li.codeLink {
+          font-family: 'IBM Plex Mono', monospace;
+        }
+      }
+    }
+    .attribs {
+      @media (min-width: 768px) {
+        max-width: 55ch;
+      }
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+ @media (min-width: 768px) {
+   flex-direction: row;
+   margin-top: 250px;
+ }
+}

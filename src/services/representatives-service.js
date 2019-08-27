@@ -38,6 +38,23 @@ const RepresentativeService = {
         ? res.json().then(e=>Promise.reject(e))
         : res.json()
     )
+  },
+
+  getFinances(cid){
+    return fetch(`${config.API_ENDPOINT}/finances`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        cid
+      })
+    })
+    .then(res => 
+      (!res.ok) 
+      ? res.json().then(e=>Promise.reject(e))
+      : res.json()
+    )
   }
 }
 

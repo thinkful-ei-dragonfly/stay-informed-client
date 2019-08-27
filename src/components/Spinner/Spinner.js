@@ -9,7 +9,6 @@ const defaultOptions = {
       loop: true,
       autoplay: true,
       animationData: NewspaperSpinner,
-
     };
 
   return (

@@ -12,13 +12,18 @@ class RegistrationForm extends Component {
     onRegistrationSuccess: () => { }
   }
 
-  state = { error: null }
+  state = {
+    error: null
+  }
 
   firstInput = React.createRef()
 
   handleSubmit = ev => {
     ev.preventDefault()
     const { name, username, password, street, city, state, zip } = ev.target
+
+    // begin validation
+
     const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`
     let loginUsername
 
@@ -74,7 +79,7 @@ class RegistrationForm extends Component {
           <section className='form-fields'>
             <Label
               className='small'
-              htmlFor='registration-name-input'>
+              htmlFor='name'>
               Name<Required />
             </Label>
             <Input
@@ -87,7 +92,7 @@ class RegistrationForm extends Component {
           <section className='form-fields'>
             <Label
               className='small'
-              htmlFor='registration-username-input'>
+              htmlFor='username'>
               Username<Required />
             </Label>
             <Input
@@ -99,7 +104,7 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-street'>
+              htmlFor='street'>
               Street Address<Required />
             </Label>
             <Input
@@ -112,7 +117,7 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-city'>
+              htmlFor='city'>
               City<Required />
             </Label>
             <Input
@@ -124,19 +129,71 @@ class RegistrationForm extends Component {
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-state'>
+              htmlFor='state'>
               State<Required />
             </Label>
-            <Input
-              id='registration-state-input'
-              name='state'
-              required
-            />
+            <select name="state" defaultValue='placeholder'>
+
+              <option value='placeholder' className='placeholderOption' disabled hidden>State</option>
+              <option value="AL" className='optionValue'>AL</option>
+              <option value="AK" className='optionValue'>AK</option>
+              <option value="AZ" className='optionValue'>AZ</option>
+              <option value="AR" className='optionValue'>AR</option>
+              <option value="CA" className='optionValue'>CA</option>
+              <option value="CO" className='optionValue'>CO</option>
+              <option value="CT" className='optionValue'>CT</option>
+              <option value="DE" className='optionValue'>DE</option>
+              <option value="FL" className='optionValue'>FL</option>
+              <option value="GA" className='optionValue'>GA</option>
+              <option value="HI" className='optionValue'>HI</option>
+              <option value="ID" className='optionValue'>ID</option>
+              <option value="IL" className='optionValue'>IL</option>
+              <option value="IN" className='optionValue'>IN</option>
+              <option value="IA" className='optionValue'>IA</option>
+              <option value="KS" className='optionValue'>KS</option>
+              <option value="KY" className='optionValue'>KY</option>
+              <option value="LA" className='optionValue'>LA</option>
+              <option value="ME" className='optionValue'>ME</option>
+              <option value="MD" className='optionValue'>MD</option>
+              <option value="MA" className='optionValue'>MA</option>
+              <option value="MI" className='optionValue'>MI</option>
+              <option value="MN" className='optionValue'>MN</option>
+              <option value="MS" className='optionValue'>MS</option>
+              <option value="MO" className='optionValue'>MO</option>
+              <option value="MT" className='optionValue'>MT</option>
+              <option value="NE" className='optionValue'>NE</option>
+              <option value="NV" className='optionValue'>NV</option>
+              <option value="NH" className='optionValue'>NH</option>
+              <option value="NJ" className='optionValue'>NJ</option>
+              <option value="NM" className='optionValue'>NM</option>
+              <option value="NY" className='optionValue'>NY</option>
+              <option value="NC" className='optionValue'>NC</option>
+              <option value="ND" className='optionValue'>ND</option>
+              <option value="OH" className='optionValue'>OH</option>
+              <option value="OK" className='optionValue'>OK</option>
+              <option value="OR" className='optionValue'>OR</option>
+              <option value="PA" className='optionValue'>PA</option>
+              <option value="RI" className='optionValue'>RI</option>
+              <option value="SC" className='optionValue'>SC</option>
+              <option value="SD" className='optionValue'>SD</option>
+              <option value="TN" className='optionValue'>TN</option>
+              <option value="TX" className='optionValue'>TX</option>
+              <option value="UT" className='optionValue'>UT</option>
+              <option value="VT" className='optionValue'>VT</option>
+              <option value="VA" className='optionValue'>VA</option>
+              <option value="WA" className='optionValue'>WA</option>
+              <option value="WV" className='optionValue'>WV</option>
+              <option value="WI" className='optionValue'>WI</option>
+              <option value="WY" className='optionValue'>WY</option>
+            </select>
+
           </section>
           <section className='form-fields' >
             <Label
               className='small'
-              htmlFor='registration-zip'>
+              type='number'
+              maxLength="5"
+              htmlFor='zip'>
               Zip Code<Required />
             </Label>
             <Input
@@ -148,7 +205,7 @@ class RegistrationForm extends Component {
           <section className='form-fields'>
             <Label
               className='small'
-              htmlFor='registration-password-input'>
+              htmlFor='password'>
               Password<Required />
             </Label>
             <Input

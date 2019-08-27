@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import AllOtherRoute from '../AllOtherRoute/AllOtherRoute'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
+import LandingPage from '../../routes/LandingPage/LandingPage'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import UserRoute from '../../routes/UserRoute/UserRoute'
@@ -13,6 +14,7 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import './App.scss'
 import RepresentativeRoute from '../../routes/RepresentativeRoute/RepresentativeRoute';
 import VoterRegistrationRoute from '../../routes/VoterRegistrationRoute/VoterRegistrationRoute';
+import Footer from '../Footer/Footer';
 
 export default class App extends Component {
   
@@ -28,7 +30,7 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <main className='main-app'>
+        <div className='main-app'>
           {hasError && (
             <p>There was an error!</p>
           )}
@@ -36,7 +38,7 @@ export default class App extends Component {
             <PublicOnlyRoute
               exact
               path={'/'}
-              component={RegistrationRoute}
+              component={LandingPage}
             />
             <Route
               exact
@@ -47,7 +49,6 @@ export default class App extends Component {
               path={'/search'}
               component={Search}
               />
-
             <Route
               path={'/dashboard'}
               component={Dashboard}
@@ -76,7 +77,9 @@ export default class App extends Component {
               component={NotFoundRoute}
             />
           </Switch>
-        </main>
+
+        </div>
+        <Footer />
       </div>
     );
   }
