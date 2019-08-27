@@ -53,7 +53,7 @@ class UserRoute extends Component {
         this.setState({ address: res[0].address })
       }
       this.handleSuccessfulUpdate();
-    })
+    }).catch(e=>this.context.setError(e.error));
   }
 
   handleSuccessfulUpdate = () => {
@@ -77,7 +77,7 @@ class UserRoute extends Component {
       stateDefault = this.state.address.split(',')[2].trim();
       zipDefault = this.state.address.split(',')[3].trim();
     }
-    const error = this.state.error;
+    const error = this.state.error || this.context.error;
     return (
       <div className='update-wrapper'>
         <section className='update-text'>
