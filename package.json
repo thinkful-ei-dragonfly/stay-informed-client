@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "unfetch": "^4.1.0",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
+    "jest-canvas-mock": "^2.1.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "lottie-web": "^5.5.7",
@@ -18,7 +18,8 @@
     "react-router-dom": "^5.0.1",
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.1.1",
-    "react-simple-icons": "^1.0.0-beta.5"
+    "react-simple-icons": "^1.0.0-beta.5",
+    "unfetch": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

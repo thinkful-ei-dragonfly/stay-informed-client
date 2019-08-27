@@ -2,7 +2,7 @@
 
 exports[`Header component renders a form.Header by default 1`] = `
 <header
-  className="App-Header"
+  className="appHeader"
   role="banner"
 >
   <h1
