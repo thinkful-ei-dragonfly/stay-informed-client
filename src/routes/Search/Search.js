@@ -31,7 +31,7 @@ class Search extends Component {
 
     // Only render a lack of State selection or too short zip code error message
     // if the submit button has actually been clicked
-    if(zip.value.length < 5){
+    if (zip.value.length < 5) {
       this.setState({isZipValidErr: 'Zip code has too few digits - must be five digits.'})
     }
     else if(state.value === 'placeholder'){
