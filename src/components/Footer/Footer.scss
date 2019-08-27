@@ -18,10 +18,7 @@ $background: #FAFAF8;
   color: $background;
 
   @media (min-width: 768px) {
-    padding: 25px 0;
-    position: static;
-    color: inherit;
-    background: transparent;
+    padding: 25px;
   }
 
   .footerHeader {
