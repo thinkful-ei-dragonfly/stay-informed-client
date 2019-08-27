@@ -94,7 +94,7 @@ class UserRoute extends Component {
               ref={this.firstInput}
               id="update-street-input"
               name="street"
-              placeholder={streetDefault}
+              defaultValue={streetDefault}
               required
             />
           </section>
@@ -106,7 +106,7 @@ class UserRoute extends Component {
             <Input
               id="update-city-input"
               name="city"
-              placeholder={cityDefault}
+              defaultValue={cityDefault}
               required
             />
           </section>
@@ -118,7 +118,7 @@ class UserRoute extends Component {
             <Input
               id="update-state-input"
               name="state"
-              placeholder={stateDefault}
+              defaultValue={stateDefault}
               required
             />
           </section>
@@ -130,7 +130,7 @@ class UserRoute extends Component {
             <Input
               id="update-zip-input"
               name="zip"
-              placeholder={zipDefault}
+              defaultValue={zipDefault}
               required
             />
           </section>
