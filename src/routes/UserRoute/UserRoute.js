@@ -53,7 +53,7 @@ class UserRoute extends Component {
         this.setState({ address: res[0].address })
       }
       this.handleSuccessfulUpdate();
-    }).catch(e=>this.context.setError(e.error));
+    }).catch(e=>this.setState({error:e.error}));
   }
 
   handleSuccessfulUpdate = () => {
