@@ -7,7 +7,7 @@ $blue: #0063C0;
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-  padding: 100px 0 100px 0;
+  padding: 25px 0 50px 0;
 
   .heroAboutImg,
   .heroAboutText {
@@ -26,9 +26,9 @@ $blue: #0063C0;
     }
   }
   .heroAboutText {
-    padding-top: 2em;
+    padding-top: 1em;
     @media (min-width: 768px) {
-      padding-top: 10%;
+      padding-top: 4%;
       padding-left: 25px;
     }
 
