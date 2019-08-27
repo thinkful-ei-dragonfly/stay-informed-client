@@ -6,7 +6,7 @@ $red: #E9503E;
   flex-direction: column;
   .title,
   .loginForm {
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       width: 47.5%;
     }
   }
@@ -65,7 +65,7 @@ $red: #E9503E;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     flex-direction: row;
   }
 }

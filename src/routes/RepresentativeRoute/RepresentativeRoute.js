@@ -44,7 +44,7 @@ export default class RepresentativeRoute extends React.Component {
       url = currentRep.url;
       fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`;
       twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`;
-      party = currentRep.current_party === 'R' ? 'Republican' : 'Democrat';
+      party = (currentRep.current_party === 'R') ? <div>Republican <img className='partyIcon' src={Elephant} alt=''/></div> : <div>Democrat <img className='partyIcon' src={Donkey} alt=''/></div>
       contribs = currentRep.contributionTotals || null;
       topContribs = currentRep.topContributors || null;
       topIndustries = currentRep.topIndustries || null;
