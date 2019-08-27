@@ -6,7 +6,7 @@ import FinancialContributions from '../../components/FinancialContributions/Fina
 import './RepresentativeRoute.scss';
 import Icon from 'react-simple-icons';
 import RepresentativeService from '../../services/representatives-service';
-import Spinner from '../../components/Spinner/Spinner';
+import MoneySpinner from '../../components/MoneySpinner/Spinner';
 import Elephant from './elephant.png'
 import Donkey from './donkey.png'
 
@@ -101,7 +101,7 @@ export default class RepresentativeRoute extends React.Component {
             <TotalContributions contribs={contribs} />
           </section>
         </>)
-        : <Spinner />
+        : <MoneySpinner />
       }
       </div>
     );
