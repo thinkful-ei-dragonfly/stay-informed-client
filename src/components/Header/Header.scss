@@ -68,19 +68,27 @@ $background: #FAFAF8;
     display: flex;
 
     nav {
-      margin-left: 25px;
+      @media (min-width: 768px) {
+        margin-left: 25px;
+      }
       .header-user-name,
       .search-nav,
       .logout {
-        padding: 10px;
+        padding-right: 25px;
+        @media (min-width: 768px) {
+          padding: 10px;
+        }
         transition: color .25s ease, background .25s ease;
         border-radius: 10px;
       }
       .header-user-name {
-        margin-left: 25px;
+
         &:hover {
           color: $blue;
           background: lightblue;
+        }
+        @media (min-width: 768px) {
+          margin-left: 25px;
         }
       }
       .search-nav {
@@ -90,7 +98,9 @@ $background: #FAFAF8;
         }
       }
       .logout {
-        margin-left: 25px;
+        @media (min-width: 768px) {
+          margin-left: 25px;
+        }
         &:hover {
           background: pink;
           color: $red;

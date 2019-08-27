@@ -95,13 +95,20 @@ p {
 }
 
 h2.title {
-  font-size: 2.5em;
+  font-size: 2em;
+  @media (min-width: 959px) {
+    font-size: 2.5em;
+  }
+
   line-height: 1.25;
   font-weight: 500;
 }
 
 h3.subtitle {
-  font-size: 1.75em;
+  font-size: 1.5em;
+  @media (min-width: 959px) {
+    font-size: 1.75em;
+  }
 
 }
 
