@@ -42,6 +42,12 @@ export default class Dashboard extends React.Component {
             this.context.representatives[2]
           )
             .then(news => this.context.setNews(news.articles))
+          this.context.representatives.forEach((rep,idx)=> {
+            RepresentativeService.getFinances(rep.crp_id).then(response => {
+              this.context.setFinancesOnRep(response, idx);
+            })  
+          })
+           
         }).catch(error => this.context.setError(error));
     } else {this.props.history.push('/')}
   }

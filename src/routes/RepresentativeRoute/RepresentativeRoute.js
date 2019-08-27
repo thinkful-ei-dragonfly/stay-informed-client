@@ -18,16 +18,6 @@ export default class RepresentativeRoute extends React.Component {
     if (!this.context.representatives) {
       this.props.history.push('/');
     }
-    let currRepId = this.props.match.params.repId;
-      const currentRep = this.context.representatives.find(
-        rep => rep.member_id === currRepId
-      );
-      const idx = this.context.representatives.findIndex(
-        rep => rep.member_id === currRepId
-      );
-      RepresentativeService.getFinances(currentRep.crp_id).then(response => {
-        this.context.setFinancesOnRep(response, idx);
-      })
   }
 
   render() {
