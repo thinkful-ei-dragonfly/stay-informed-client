@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import RegistrationRoute from './RegistrationRoute'
+import LandingPage from './LandingPage'
 
-describe(`RegistrationRoute component`, () => {
-  it('renders a form.RegistrationRoute by default', () => {
-    const wrapper = shallow(<RegistrationRoute />)
+describe(`LandingPage component`, () => {
+  it('renders a LandingPage by default', () => {
+    const wrapper = shallow(<LandingPage />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

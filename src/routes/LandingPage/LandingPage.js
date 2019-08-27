@@ -11,10 +11,6 @@ class RegistrationRoute extends Component {
       push: () => {},
     },
   }
-  componentDidMount() {
-    window.scrollTo(0, 0)
-    // starts at the top when you navigate home if you're not logged in
-  }
 
   handleRegistrationSuccess = (user) => {
     const { history } = this.props
