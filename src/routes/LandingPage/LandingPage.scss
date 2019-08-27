@@ -5,24 +5,39 @@ $blue: #0063C0;
 }
 .heroAbout {
   align-items: flex-start;
+  flex-direction: column;
   justify-content: space-between;
   padding: 100px 0 100px 0;
 
   .heroAboutImg,
   .heroAboutText {
-    width: 50%;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
   .heroAboutImg {
     text-align: right;
     padding-right: 25px;
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
   }
   .heroAboutText {
-    padding-top: 10%;
-    padding-left: 25px;
+    padding-top: 2em;
+    @media (min-width: 768px) {
+      padding-top: 10%;
+      padding-left: 25px;
+    }
 
     h2 {
       max-width: 25ch;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
+      @media (min-width: 768px) {
+        margin-bottom: 1em;
+      }
     }
     .submit {
       opacity: 0.75;
@@ -42,6 +57,10 @@ $blue: #0063C0;
       background: lightblue;
     }
   }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .searchNow {
@@ -58,7 +77,10 @@ $blue: #0063C0;
   h3 {
     max-width: 50ch;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
+    @media (min-width: 768px) {
+      text-align: center;
+    }
   }
   a.searchNow-button {
     text-decoration: none;
