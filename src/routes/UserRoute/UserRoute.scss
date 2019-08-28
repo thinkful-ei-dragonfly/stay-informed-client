@@ -1,6 +1,7 @@
 @import '../../index.scss';
 .update-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 
   .update-text,
@@ -44,5 +45,9 @@
         opacity: 1;
       }
     }
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
   }
 }

@@ -58,11 +58,13 @@
     #contributionChart {
       width: 100%;
       display: flex;
-      
       .contributionChart-text-div,
       canvas {
         width: 50%;
       }
     }
   }
+  @media (min-width: 768px) {
+    display: flex;
+  }      
 }
