@@ -5,7 +5,6 @@ import TotalContributions from '../../components/TotalContributions/TotalContrib
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions';
 import './RepresentativeRoute.scss';
 import Icon from 'react-simple-icons';
-import RepresentativeService from '../../services/representatives-service';
 import MoneySpinner from '../../components/MoneySpinner/Spinner';
 import Elephant from './elephant.png'
 import Donkey from './donkey.png'
@@ -61,13 +60,13 @@ export default class RepresentativeRoute extends React.Component {
       <div className="representativePage">
         <section className='repPage-section' id='contact-info'>
           <div className='repPage-section-text'>
-            <h1><span className='repPage-span'>Name</span>{name}</h1>
-            <h2><span className='repPage-span'>Title</span>{currentRole}</h2>
-            <h3><span className='repPage-span'>Party</span>{party}</h3>
-            {phone && <p><span className='repPage-span'>Phone</span> <a href={`tel:${phone}`}>{phone}</a></p>}
-            {url && <p><span className='repPage-span'>Website</span> <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></p>}
-            {twitterUrl && <a href={twitterUrl} target="_blank" rel="noopener noreferrer"><Icon name='twitter'/></a>}
-            {fbUrl && <a href={fbUrl} target="_blank" rel="noopener noreferrer"><Icon name='facebook'/></a>}
+            <h1 className='repPage-name'><span className='repPage-span'>Name</span>{name}</h1>
+            <h2 className='repPage-title'><span className='repPage-span'>Title</span>{currentRole}</h2>
+            <h3 className='repPage-party'><span className='repPage-span'>Party</span>{party}</h3>
+            {phone && <p className='repPage-phone'><span className='repPage-span'>Phone</span> <a href={`tel:${phone}`}>{phone}</a></p>}
+            {url && <p className='repPage-url'><span className='repPage-span'>Website</span> <span className='site'><a href={url} target="_blank" rel="noopener noreferrer">Visit</a></span></p>}
+            {twitterUrl && <a href={twitterUrl} className='social-icon' target="_blank" rel="noopener noreferrer"><Icon name='twitter'/></a>}
+            {fbUrl && <a href={fbUrl} className='social-icon' target="_blank" rel="noopener noreferrer"><Icon name='facebook'/></a>}
             <Link
               className="back-nav"
               to='/dashboard'>
