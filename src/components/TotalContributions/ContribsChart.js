@@ -1,5 +1,5 @@
 import React from 'react';
-import { HorizontalBar } from 'react-chartjs-2';
+import { HorizontalBar, Doughnut } from 'react-chartjs-2';
 import '../../index.scss'
 
 class ContribsChart extends React.Component {
