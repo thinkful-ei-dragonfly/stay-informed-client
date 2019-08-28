@@ -1,6 +1,7 @@
 @import '../../index.scss';
 .update-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
 
@@ -28,7 +29,12 @@
 
   .update-text,
   .UpdateForm {
-    width: 47.5%;
+    width: 100%;
+    font-size: 0.85em;
+    @media (min-width: 768px) {
+      width: 47.5%;
+      font-size: 1em;
+    }
   }
 
   .UpdateForm {
@@ -72,5 +78,9 @@
         cursor: not-allowed;
       }
     }
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
   }
 }
