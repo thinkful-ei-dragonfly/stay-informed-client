@@ -3,7 +3,7 @@
 .appHeader {
   background-color: #fafaf8;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: space-between;
   position: sticky;
   position: -webkit-sticky;
@@ -17,8 +17,20 @@
   // border: 1px solid;
   margin: 0 -25px;
   border-bottom: 1px solid;
+  .mobile {
+    display: inline-block;
+  }
+  .full {
+    display: none;
+  }
 
   @media (min-width: 768px) {
+    .mobile {
+      display: none;
+    }
+    .full {
+      display: inline-block;
+    }
     border-bottom: 0;
     padding: 20px 0;
     margin: 0;
@@ -45,26 +57,31 @@
         transition: color .25s ease, background .25s ease;
         border-radius: 10px;
       }
-
     }
     .login-link {
       margin-left: 25px;
-      &:hover {
-        background: pink;
-        color: $red;
+      @media (min-width: 768px) {
+        &:hover {
+          background: pink;
+          color: $red;
+        }
       }
     }
     .search-nav {
-      &:hover {
-        background: $lightgreen;
-        color: $green;
+      @media (min-width: 768px) {
+        &:hover {
+          background: $lightgreen;
+          color: $green;
+        }
       }
     }
     .register-link {
       margin-left: 25px;
-      &:hover {
-        color: $blue;
-        background: $lightblue;
+      @media (min-width: 768px) {
+        &:hover {
+          color: $blue;
+          background: $lightblue;
+        }
       }
     }
 
@@ -83,33 +100,35 @@
         padding-right: 25px;
         @media (min-width: 768px) {
           padding: 10px;
+          transition: color .25s ease, background .25s ease;
+          border-radius: 10px;
         }
-        transition: color .25s ease, background .25s ease;
-        border-radius: 10px;
       }
       .header-user-name {
-
-        &:hover {
-          color: $blue;
-          background: $lightblue;
-        }
         @media (min-width: 768px) {
           margin-left: 25px;
+          &:hover {
+            color: $blue;
+            background: $lightblue;
+          }
         }
       }
       .search-nav {
-        &:hover {
-          background: $lightgreen;
-          color: $green;
+        @media (min-width: 768px) {
+          &:hover {
+            background: $lightgreen;
+            color: $green;
+          }
         }
+
       }
       .logout {
         @media (min-width: 768px) {
           margin-left: 25px;
-        }
-        &:hover {
-          background: $pink;
-          color: $red;
+          &:hover {
+            background: $pink;
+            color: $red;
+          }
         }
       }
     }

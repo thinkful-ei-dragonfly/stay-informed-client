@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
+import Login from './login.svg'
+import Logout from './logout.svg'
+import Search from './search.svg'
+import Settings from './settings.svg'
+import SignUp from './add-user.svg'
 import './Header.scss'
 
 class Header extends Component {
@@ -18,18 +23,21 @@ class Header extends Component {
           <Link
             className='header-user-name'
             to={`/user/${this.context.user.id}`}>
-            {this.context.user.name}
+            <span className="full">{this.context.user.name}</span>
+            <span className="mobile"><img src={Settings} alt='Settings'/></span>
           </Link>
           <Link
             className="search-nav"
             to='/search'>
-            Quick Search
+            <span className="full">Quick Search</span>
+            <span className="mobile"><img src={Search} alt='Search'/></span>
           </Link>
           <Link
             className='logout'
             onClick={this.handleLogoutClick}
             to='/login'>
-            Logout
+            <span className="full">Logout</span>
+            <span className="mobile"><img src={Logout} alt='Logout'/></span>
           </Link>
         </nav>
       </div>
@@ -43,13 +51,20 @@ class Header extends Component {
           <Link
             className="search-nav"
             to='/search'>
-            Quick Search
+            <span className="full">Quick Search</span>
+            <span className="mobile"><img src={Search} alt='Search'/></span>
           </Link>
           <Link className='login-link'
-            to='/login'>Login</Link>
+            to='/login'>
+            <span className="full">Login</span>
+            <span className="mobile"><img src={Login} alt='Login'/></span>
+          </Link>
           {''}
           <Link className='register-link'
-            to='/register'>Sign up</Link>
+            to='/register'>
+            <span className="full">Sign up</span>
+            <span className="mobile"><img src={SignUp} alt='SignUp'/></span>
+          </Link>
         </nav>
       </div>
     )
