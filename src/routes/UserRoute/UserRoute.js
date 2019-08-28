@@ -24,20 +24,22 @@ class UserRoute extends Component {
   static contextType = UserContext;
   firstInput = React.createRef();
 
+  // TODO issue here with never re-clearing the error from the backend
   handleSubmit = ev => {
+    console.log('I entered handle submit function')
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
-    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr } = this.state;
+    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr, error } = this.state;
 
     // Only render a lack of State selection or too short zip code error message
     // if the submit button has actually been clicked
     if (zip.value.length < 5) {
       this.setState({isZipValidErr: 'Zip code has too few digits - must be five digits.'})
     }
-    else if(state.value === 'placeholder'){
-      this.setState({isStateValidErr: 'Please select a State.'})
-    }
+    // else if(state.value === 'placeholder'){
+    //   this.setState({isStateValidErr: 'Please select a State.'})
+    // }
     else {
       const address = `${street.value}, ${city.value}, ${state.value}, ${
         zip.value
@@ -51,14 +53,15 @@ class UserRoute extends Component {
       } else {
         this.context.setUser({
           address
-        }).then(() => {
-          if (!isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr ) {
-            this.updateAddress(address)
-          }
         })
-      }  
-    }
-  };
+      }
+    // TODO error field?? Timing in general here??
+    if (!isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr && !error ) {
+      console.log('I made it to update address call')
+      this.updateAddress(address)
+    }  
+    }  
+    };
 
   isStreetValid = (e) => {
     e.preventDefault();
