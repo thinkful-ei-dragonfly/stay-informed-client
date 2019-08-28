@@ -14,6 +14,7 @@ class UserRoute extends Component {
   };
 
   state = {
+    updateError: null,
     isStreetValidErr: null,
     isStateValidErr: null,
     isCityValidErr: null,
@@ -118,7 +119,7 @@ class UserRoute extends Component {
         this.setState({ address: res[0].address })
       }
       this.handleSuccessfulUpdate();
-    })
+    }).catch(e=>this.setState({updateError:e.error}));
   }
 
   handleSuccessfulUpdate = () => {
@@ -143,8 +144,12 @@ class UserRoute extends Component {
       zipDefault = this.state.address.split(',')[3].trim();
     }
   
-    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr } = this.state;
-    let isAllValid = !isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr;
+    // merged here
+    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr, updateError} = this.state;
+
+    // TODO is this.context.error a string or an object?
+    const error = updateError || this.context.error;
+    let isAllValid = !isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr && !error;
 
     return (
       <div className='update-wrapper'>
@@ -152,6 +157,7 @@ class UserRoute extends Component {
           <h2 className='title'>Update your address</h2>
         </section>
           <form className="UpdateForm" onSubmit={this.handleSubmit} >
+          <div role="alert">{error && <p>{error}</p>}</div>          
           <div role="alert">{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
           <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
           <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>

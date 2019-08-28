@@ -3,17 +3,13 @@ import RegistrationForm from '../../components/RegistrationForm/RegistrationForm
 import { Link } from 'react-router-dom'
 import { HashLink } from "react-router-hash-link";
 import './LandingPage.scss'
-import Hand from './Hand.svg'
+import Ballot from './ballot.png'
 
 class RegistrationRoute extends Component {
   static defaultProps = {
     history: {
       push: () => {},
     },
-  }
-  componentDidMount() {
-    window.scrollTo(0, 0)
-    // starts at the top when you navigate home if you're not logged in
   }
 
   handleRegistrationSuccess = (user) => {
@@ -26,7 +22,7 @@ class RegistrationRoute extends Component {
       <>
       <section className='heroAbout'>
         <aside className='heroAboutImg'>
-          <img src={Hand} alt='Voter placing ballot' />
+          <img src={Ballot} alt='Voter placing ballot' />
         </aside>
         <div className='heroAboutText'>
           <h2 className='title'>

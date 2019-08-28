@@ -23,7 +23,7 @@ class Header extends Component {
           <Link
             className="search-nav"
             to='/search'>
-            Search New Address
+            Quick Search
           </Link>
           <Link
             className='logout'

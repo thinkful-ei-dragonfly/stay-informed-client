@@ -1,16 +1,26 @@
 $blue: #0063C0;
 $red: #E9503E;
+$background: #FAFAF8;
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400&display=swap');
 
 .appFooter {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 25px 0;
   width: 100%;
   margin-top: 75px;
   flex-wrap: wrap;
-  margin-top: auto;
+  position: absolute;
+  left: 0;
+  padding: 20px;
+  background-color: #AC9AB5;
+  color: $background;
+  margin-top: 75px;
+
+  @media (min-width: 768px) {
+    padding: 25px;
+    margin-top: auto;
+  }
 
   .footerHeader {
     width: 100%;
@@ -82,5 +92,10 @@ $red: #E9503E;
 
  @media (min-width: 768px) {
    flex-direction: row;
+   background: $background;
+   color: inherit;
+   position: static;
+ }
+ @media (min-width: 959px) {
  }
 }
