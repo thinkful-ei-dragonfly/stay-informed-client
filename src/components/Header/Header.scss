@@ -1,6 +1,4 @@
-$blue: #0063C0;
-$red: #E9503E;
-$background: #FAFAF8;
+@import '../../index.scss';
 
 .appHeader {
   background-color: #fafaf8;
@@ -50,15 +48,15 @@ $background: #FAFAF8;
     }
     .search-nav {
       &:hover {
-        background: #BCD39C;
-        color: green;
+        background: $lightgreen;
+        color: $green;
       }
     }
     .register-link {
       margin-left: 25px;
       &:hover {
         color: $blue;
-        background: lightblue;
+        background: $lightblue;
       }
     }
 
@@ -85,7 +83,7 @@ $background: #FAFAF8;
 
         &:hover {
           color: $blue;
-          background: lightblue;
+          background: $lightblue;
         }
         @media (min-width: 768px) {
           margin-left: 25px;
@@ -93,8 +91,8 @@ $background: #FAFAF8;
       }
       .search-nav {
         &:hover {
-          background: #BCD39C;
-          color: green;
+          background: $lightgreen;
+          color: $green;
         }
       }
       .logout {
@@ -102,7 +100,7 @@ $background: #FAFAF8;
           margin-left: 25px;
         }
         &:hover {
-          background: pink;
+          background: $pink;
           color: $red;
         }
       }

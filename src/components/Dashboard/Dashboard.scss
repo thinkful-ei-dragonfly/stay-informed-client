@@ -1,6 +1,5 @@
+@import '../../index.scss';
 .mainDashboard {
-
-
   .dashboard {
     display: flex;
     flex-direction: column;
@@ -81,8 +80,8 @@
             width: 100%;
             opacity: 0.75;
             text-align: center;
-            background: #BCD39C;
-            color: green;
+            background: $lightgreen;
+            color: $green;
             &:hover {
               opacity: 1;
             }
