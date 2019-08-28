@@ -172,7 +172,18 @@ class UserRoute extends Component {
       zipDefault = this.state.address.split(',')[3].trim();
     }
 
-    // merged here
+    // build states dropdown html options
+    let states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+    'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+    'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
+
+    let defaultStateIndex = states.indexOf(stateDefault);
+    let stateOptions = states.map((state, idx) => {
+      return <option value={state} className='optionValue' key={idx}>{state}</option>
+    })
+    // add selected attribute to the user's current stored State so that it opens on user's current State
+    stateOptions[defaultStateIndex] = <option value={stateDefault} className='optionValue' key={defaultStateIndex} selected>{stateDefault}</option>
+
     const {
       isStreetValidErr,
       isCityValidErr,
@@ -241,13 +252,13 @@ class UserRoute extends Component {
               State
               <Required />
             </Label>
-            <Input
-              id="update-state-input"
-              name="state"
-              onChange={e => this.isStateValid(e)}
-              placeholder={stateDefault}
-              required
-            />
+            <select name="state"
+            id="update-state-input"
+            required
+            onChange={(e) => this.isStateValid(e)}
+            >
+            {stateOptions}
+            </select>
           </section>
           <section className="form-fields">
             <Label htmlFor="zip">

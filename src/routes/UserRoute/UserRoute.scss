@@ -2,6 +2,11 @@
 .update-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+  .unfound-district-alert {
+    width: 100%;
+  }
 
   .update-text,
   .UpdateForm {
