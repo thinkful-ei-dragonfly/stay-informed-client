@@ -5,7 +5,6 @@ import TotalContributions from '../../components/TotalContributions/TotalContrib
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions';
 import './RepresentativeRoute.scss';
 import Icon from 'react-simple-icons';
-import RepresentativeService from '../../services/representatives-service';
 import MoneySpinner from '../../components/MoneySpinner/Spinner';
 import Elephant from './elephant.png'
 import Donkey from './donkey.png'

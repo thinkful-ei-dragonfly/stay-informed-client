@@ -92,6 +92,8 @@ export class UserProvider extends Component {
   };
 
   setFinancesOnRep = (finObj, idx) =>{
+    if (this.state.representatives) {
+
     const representatives = this.state.representatives.map((rep, i) =>{
       if(i === idx){
         return {...rep, ...finObj}
@@ -99,6 +101,7 @@ export class UserProvider extends Component {
       return rep;
     });
     this.setState({ representatives });
+  }
   }
 
   setNews = news => {
@@ -137,6 +140,11 @@ export class UserProvider extends Component {
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
     this.setUser({ idle: true });
+    this.setUserState(null)
+    this.setState(null);
+    this.setUserDistrict(null); 
+    this.setRepresentatives(null);
+    this.setNews(null);
   };
 
   fetchRefreshToken = () => {
