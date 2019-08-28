@@ -5,7 +5,12 @@
   justify-content: space-between;
   flex-direction: column;
 
-  .searchText,
+  .searchText {
+    font-size: 0.85em;
+    @media (min-width: 768px) {
+      font-size: 1em;
+    }
+  }
   .SearchForm {
     width: 100%;
 

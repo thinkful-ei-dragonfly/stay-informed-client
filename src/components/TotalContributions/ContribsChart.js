@@ -69,6 +69,13 @@ class ContribsChart extends React.Component {
           },
         },
       ],
+      yAxes: [
+        {
+          ticks: {
+            fontSize: 14,
+          },
+        },
+      ],
     },
   };
 

@@ -5,6 +5,35 @@
     display: flex;
     flex-direction: column-reverse;
 
+    .mobile-contributions {
+      margin-bottom: 2.5em;
+
+      h2 {
+        font-family: 'JostRegular', sans-serif;
+        margin-bottom: 1em;
+      }
+      .contributionItem {
+        display: flex;
+        padding: 10px 5%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        span.repPage-span {
+          padding-top: 5px;
+          display: block;
+          width: 25%;
+          min-width: 25%;
+          margin-right: 50px;
+          font-weight: 400;
+          font-size: 1rem;
+        }
+        font-size: 1.5em;
+
+      }
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
     &#contact-info {
       flex-direction: column-reverse;
       @media (min-width: 768px) {
@@ -16,8 +45,13 @@
     }
     .chartDesc {
       width: 100%;
+      display: none;
       padding: 25px 0 50px;
+      @media (min-width: 768px) {
+        display: inherit;
+      }
       @media (min-width: 959px) {
+        // display: inherit;
         font-size: 20px;
         width: 20%;
         padding: 25px;
@@ -79,15 +113,18 @@
     }
     #contributionChart {
       width: 100%;
-      display: flex;
-
+      display: none;
 
       .contributionChart-text-div,
       canvas {
         width: 100%;
       }
+      @media (min-width: 768px) {
+        display: flex;
+      }
       @media (min-width: 959px) {
         width: 75%;
+
         height: auto;
       }
     }
@@ -97,4 +134,7 @@
       justify-content: space-between;
     }
   }
+  @media (min-width: 768px) {
+    display: flex;
+  }      
 }

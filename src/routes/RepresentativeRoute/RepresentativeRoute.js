@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions';
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions';
+import TextContributions from '../../components/TextContributions/TextContributions'
 import './RepresentativeRoute.scss';
 import Icon from 'react-simple-icons';
 import MoneySpinner from '../../components/MoneySpinner/Spinner';
@@ -79,6 +80,7 @@ export default class RepresentativeRoute extends React.Component {
         </section>
         {contribs ? (<>
           <section className="repPage-section">
+            <TextContributions contributions={topContribs}/>
             <h3 className="chartDesc">
               This chart shows the top 5 contributors to your representative and
               how much money your representative accepted from each one.
@@ -86,6 +88,7 @@ export default class RepresentativeRoute extends React.Component {
             <FinancialContributions contributions={topContribs} />
           </section>
           <section className="repPage-section">
+            <TextContributions contributions={topIndustries}/>
             <h3 className="chartDesc">
               This chart shows the top 5 business sectors that your representative
               takes donations from and how much comes from each one.
@@ -93,6 +96,7 @@ export default class RepresentativeRoute extends React.Component {
             <FinancialContributions contributions={topIndustries} />
           </section>
           <section className="repPage-section">
+            <TextContributions contribs={contribs}/>
             <h3 className="chartDesc">
               This chart shows the total amount of money your representative took
               in donations and how much they spent in the last cycle.
