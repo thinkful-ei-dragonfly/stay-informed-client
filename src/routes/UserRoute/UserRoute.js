@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Input, Required, Label } from '../../components/Form/Form';
-import UserContext from '../../contexts/UserContext'
-import AuthApiService from '../../services/auth-api-service'
+import UserContext from '../../contexts/UserContext';
+import AuthApiService from '../../services/auth-api-service';
 import Button from '../../components/Button/Button';
-import './UserRoute.scss'
+import './UserRoute.scss';
 
 class UserRoute extends Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => { },
+      push: () => {},
     },
   };
 
@@ -26,118 +26,138 @@ class UserRoute extends Component {
 
   // TODO issue here with never re-clearing the error from the backend
   handleSubmit = ev => {
-    console.log('I entered handle submit function')
+    console.log('I entered handle submit function');
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
-    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr, error } = this.state;
+    const {
+      isStreetValidErr,
+      isCityValidErr,
+      isStateValidErr,
+      isZipValidErr,
+      error,
+    } = this.state;
 
     // Only render a lack of State selection or too short zip code error message
     // if the submit button has actually been clicked
     if (zip.value.length < 5) {
-      this.setState({isZipValidErr: 'Zip code has too few digits - must be five digits.'})
+      this.setState({
+        isZipValidErr: 'Zip code has too few digits - must be five digits.',
+      });
     }
     // else if(state.value === 'placeholder'){
     //   this.setState({isStateValidErr: 'Please select a State.'})
     // }
     else {
-      const address = `${street.value}, ${city.value}, ${state.value}, ${
-        zip.value
-      }`;
+      const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`;
 
       if (this.context.user) {
         this.context.setUser({
           ...this.context.user,
-          address
+          address,
         });
       } else {
         this.context.setUser({
-          address
-        })
+          address,
+        });
       }
-    // TODO error field?? Timing in general here??
-    if (!isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr && !error ) {
-      console.log('I made it to update address call')
-      this.updateAddress(address)
-    }  
-    }  
-    };
+      // TODO error field?? Timing in general here??
+      if (
+        !isStreetValidErr &&
+        !isCityValidErr &&
+        !isStateValidErr &&
+        !isZipValidErr &&
+        !error
+      ) {
+        console.log('I made it to update address call');
+        this.updateAddress(address);
+      }
+    }
+  };
 
-  isStreetValid = (e) => {
+  isStreetValid = e => {
     e.preventDefault();
     let street = e.target.value;
     if (typeof street !== 'string' || !street.match(/^[0-9a-zA-Z #]+$/)) {
-      this.setState({isStreetValidErr: 'Street must contain only alphanumeric text.'})
+      this.setState({
+        isStreetValidErr: 'Street must contain only alphanumeric text.',
+      });
     } else if (street === '' || street === null) {
-      this.setState({ isStreetValidErr: 'Please enter a street.' })
+      this.setState({ isStreetValidErr: 'Please enter a street.' });
     } else {
-      this.setState( { isStreetValidErr: null } )
+      this.setState({ isStreetValidErr: null });
     }
-  }
+  };
 
-  isCityValid = (e) => {
+  isCityValid = e => {
     e.preventDefault();
     let city = e.target.value;
     if (typeof city !== 'string' || !city.match(/^[a-zA-Z ]+$/)) {
-      this.setState({isCityValidErr: 'City must contain only alphabetic text.'})
+      this.setState({
+        isCityValidErr: 'City must contain only alphabetic text.',
+      });
     } else if (city === '' || city === null) {
-      this.setState({ isCityValidErr: 'Please enter a city.' })
+      this.setState({ isCityValidErr: 'Please enter a city.' });
     } else {
-      this.setState( { isCityValidErr: null } )
+      this.setState({ isCityValidErr: null });
     }
-  }
+  };
 
-  isStateValid = (e) => {
+  isStateValid = e => {
     e.preventDefault();
     let state = e.target.value;
     if (state === 'placeholder') {
-      this.setState({ isStateValidErr: 'Please enter a State.' })
+      this.setState({ isStateValidErr: 'Please enter a State.' });
     } else {
-      this.setState( { isStateValidErr: null } )
+      this.setState({ isStateValidErr: null });
     }
-  }
+  };
 
   /* Render an input notification if zip entered is >5 digits */
-  isZipValid = (e) => {
+  isZipValid = e => {
     e.preventDefault();
-    let zipString = e.target.value.toString()
-    if (zipString.length > 5 ) {
-      this.setState({ isZipValidErr: 'Zip code cannot be larger than 5 digits.'})
+    let zipString = e.target.value.toString();
+    if (zipString.length > 5) {
+      this.setState({
+        isZipValidErr: 'Zip code cannot be larger than 5 digits.',
+      });
     } else {
-      this.setState({ isZipValidErr: null })
+      this.setState({ isZipValidErr: null });
     }
   };
 
   handleUnfoundClick = () => {
     // Reset error on unfound district notif button click to reset active submit button
-    this.setState({updateError: null})
-  }
+    this.setState({ updateError: null });
+  };
 
   fetchAddress = () => {
     AuthApiService.getUserAddress(this.context.user.id).then(res => {
       if (res) {
-        this.setState({ address: res[0].address })
+        this.setState({ address: res[0].address });
       }
-    })
-  }
+    });
+  };
 
-  updateAddress = (newAddress) => {
-    AuthApiService.postNewAddress(this.context.user.id, newAddress).then(res => {
-      if (res) {
-        this.setState({ address: res[0].address })
-      }
-      this.handleSuccessfulUpdate();
-    }).catch(e=>this.setState({updateError:e.error}));
-  }
+  updateAddress = newAddress => {
+    AuthApiService.postNewAddress(this.context.user.id, newAddress)
+      .then(res => {
+        if (res) {
+          this.setState({ address: res[0].address });
+        }
+        this.handleSuccessfulUpdate();
+      })
+      .catch(e => this.setState({ updateError: e.error }));
+  };
 
   handleSuccessfulUpdate = () => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/dashboard'
-    history.push(destination)
-  }
+    const { location, history } = this.props;
+    const destination = (location.state || {}).from || '/dashboard';
+    history.push(destination);
+  };
   componentDidMount() {
     this.firstInput.current.focus();
-    this.fetchAddress()
+    this.fetchAddress();
   }
 
   render() {
@@ -151,21 +171,39 @@ class UserRoute extends Component {
       stateDefault = this.state.address.split(',')[2].trim();
       zipDefault = this.state.address.split(',')[3].trim();
     }
-  
+
     // merged here
-    const { isStreetValidErr, isCityValidErr, isStateValidErr, isZipValidErr, updateError} = this.state;
+    const {
+      isStreetValidErr,
+      isCityValidErr,
+      isStateValidErr,
+      isZipValidErr,
+      updateError,
+    } = this.state;
 
     // TODO is this.context.error a string or an object?
     const error = updateError || this.context.error;
-    let isAllValid = !isStreetValidErr && !isCityValidErr && !isStateValidErr && !isZipValidErr && !error;
+    let isAllValid =
+      !isStreetValidErr &&
+      !isCityValidErr &&
+      !isStateValidErr &&
+      !isZipValidErr &&
+      !error;
 
     return (
-      <div className='update-wrapper'>
-        <section className='update-text'>
-          <h2 className='title'>Update your address</h2>
+      <div className="update-wrapper">
+        <section className="update-text">
+          <h2 className="title">Update your address</h2>
         </section>
-          <form className="UpdateForm" onSubmit={this.handleSubmit} >
-          {error ? <div className="unfound-district"><p>Uh oh, we couldn't locate your district. Please try again.</p><button onClick={this.handleUnfoundClick}>Try again</button></div> : '' }          
+        <form className="UpdateForm" onSubmit={this.handleSubmit}>
+          {error ? (
+            <div className="unfound-district-alert">
+              <p className="unfound-district-msg">Uh oh, we couldn't locate your district. Please try again.</p>
+              <button className="unfound-district-btn" onClick={this.handleUnfoundClick}>Try again</button>
+            </div>
+          ) : (
+            ''
+          )}
           <div role="alert">{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
           <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
           <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>
@@ -174,13 +212,13 @@ class UserRoute extends Component {
           <section className="form-fields">
             <Label htmlFor="street">
               Street
-            <Required />
+              <Required />
             </Label>
             <Input
               ref={this.firstInput}
               id="update-street-input"
               name="street"
-              onChange={(e) => this.isStreetValid(e)}
+              onChange={e => this.isStreetValid(e)}
               placeholder={streetDefault}
               required
             />
@@ -188,12 +226,12 @@ class UserRoute extends Component {
           <section className="form-fields">
             <Label htmlFor="city">
               City
-            <Required />
+              <Required />
             </Label>
             <Input
               id="update-city-input"
               name="city"
-              onChange={(e) => this.isCityValid(e)}
+              onChange={e => this.isCityValid(e)}
               placeholder={cityDefault}
               required
             />
@@ -201,12 +239,12 @@ class UserRoute extends Component {
           <section className="form-fields">
             <Label htmlFor="state">
               State
-            <Required />
+              <Required />
             </Label>
             <Input
               id="update-state-input"
               name="state"
-              onChange={(e) => this.isStateValid(e)}
+              onChange={e => this.isStateValid(e)}
               placeholder={stateDefault}
               required
             />
@@ -214,21 +252,24 @@ class UserRoute extends Component {
           <section className="form-fields">
             <Label htmlFor="zip">
               Zip Code
-            <Required />
+              <Required />
             </Label>
             <Input
               id="update-zip-input"
               name="zip"
-              onChange={(e) => this.isZipValid(e)}
+              onChange={e => this.isZipValid(e)}
               placeholder={zipDefault}
               required
             />
           </section>
           <div>
             <Button
-              disabled={(!isAllValid)}
+              disabled={!isAllValid}
               className={`submit${!isAllValid ? ` btn-disabled` : ` active`}`}
-              type="submit">Update Address</Button>
+              type="submit"
+            >
+              Update Address
+            </Button>
           </div>
         </form>
       </div>
@@ -236,4 +277,4 @@ class UserRoute extends Component {
   }
 }
 
-export default UserRoute
+export default UserRoute;
