@@ -192,11 +192,7 @@ class UserRoute extends Component {
 
     return (
       <div className="update-wrapper">
-        <section className="update-text">
-          <h2 className="title">Update your address</h2>
-        </section>
-        <form className="UpdateForm" onSubmit={this.handleSubmit}>
-          {error ? (
+        {error ? (
             <div className="unfound-district-alert">
               <p className="unfound-district-msg">Uh oh, we couldn't locate your district. Please try again.</p>
               <button className="unfound-district-btn" onClick={this.handleUnfoundClick}>Try again</button>
@@ -204,6 +200,10 @@ class UserRoute extends Component {
           ) : (
             ''
           )}
+        <section className="update-text">
+          <h2 className="title">Update your address</h2>
+        </section>
+        <form className="UpdateForm" onSubmit={this.handleSubmit}>
           <div role="alert">{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
           <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
           <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>
