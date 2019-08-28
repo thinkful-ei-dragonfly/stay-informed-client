@@ -108,6 +108,11 @@ class UserRoute extends Component {
     }
   };
 
+  handleUnfoundClick = () => {
+    // Reset error on unfound district notif button click to reset active submit button
+    this.setState({updateError: null})
+  }
+
   fetchAddress = () => {
     AuthApiService.getUserAddress(this.context.user.id).then(res => {
       if (res) {
@@ -160,7 +165,7 @@ class UserRoute extends Component {
           <h2 className='title'>Update your address</h2>
         </section>
           <form className="UpdateForm" onSubmit={this.handleSubmit} >
-          <div role="alert">{error && <p>{error}</p>}</div>          
+          {error ? <div className="unfound-district"><p>Uh oh, we couldn't locate your district. Please try again.</p><button onClick={this.handleUnfoundClick}>Try again</button></div> : '' }          
           <div role="alert">{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
           <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
           <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>
