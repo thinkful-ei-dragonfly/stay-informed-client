@@ -24,9 +24,7 @@ class UserRoute extends Component {
   static contextType = UserContext;
   firstInput = React.createRef();
 
-  // TODO issue here with never re-clearing the error from the backend
   handleSubmit = ev => {
-    console.log('I entered handle submit function');
     ev.preventDefault();
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
@@ -44,11 +42,7 @@ class UserRoute extends Component {
       this.setState({
         isZipValidErr: 'Zip code has too few digits - must be five digits.',
       });
-    }
-    // else if(state.value === 'placeholder'){
-    //   this.setState({isStateValidErr: 'Please select a State.'})
-    // }
-    else {
+    } else {
       const address = `${street.value}, ${city.value}, ${state.value}, ${zip.value}`;
 
       if (this.context.user) {
@@ -61,7 +55,6 @@ class UserRoute extends Component {
           address,
         });
       }
-      // TODO error field?? Timing in general here??
       if (
         !isStreetValidErr &&
         !isCityValidErr &&
@@ -69,7 +62,6 @@ class UserRoute extends Component {
         !isZipValidErr &&
         !error
       ) {
-        console.log('I made it to update address call');
         this.updateAddress(address);
       }
     }
@@ -192,7 +184,6 @@ class UserRoute extends Component {
       updateError,
     } = this.state;
 
-    // TODO is this.context.error a string or an object?
     const error = updateError || this.context.error;
     let isAllValid =
       !isStreetValidErr &&
