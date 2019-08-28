@@ -6,7 +6,12 @@
 
   .update-text,
   .UpdateForm {
-    width: 47.5%;
+    width: 100%;
+    font-size: 0.75em;
+    @media (min-width: 768px) {
+      width: 47.5%;
+      font-size: 1em;
+    }
   }
 
   .UpdateForm {
