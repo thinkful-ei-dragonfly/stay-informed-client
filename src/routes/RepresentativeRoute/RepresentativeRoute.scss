@@ -7,7 +7,7 @@
 
     .mobile-contributions {
       margin-bottom: 2.5em;
-      
+
       h2 {
         font-family: 'JostRegular', sans-serif;
         margin-bottom: 1em;
@@ -21,8 +21,10 @@
           padding-top: 5px;
           display: block;
           width: 25%;
-          margin-right: 75px;
+          min-width: 25%;
+          margin-right: 50px;
           font-weight: 400;
+          font-size: 1rem;
         }
         font-size: 1.5em;
 

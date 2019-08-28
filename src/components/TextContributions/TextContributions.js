@@ -19,6 +19,14 @@ export default class TextContributions extends React.Component {
       else {
         contribHeader = 'Top Industries'
         contribList = this.props.contributions.map(line => {
+          if (line.industry_name === 'TV/Movies/Music') {
+            return (
+              <p className='contributionItem' key={line.industry_name}>
+                <span className='repPage-span'>TV / Movies / Music</span>
+                <span className='contributionAmount'>${line.total}</span>
+              </p>
+            )
+          }
           return (
             <p className='contributionItem' key={line.industry_name}>
               <span className='repPage-span'>{line.industry_name}</span>
@@ -36,7 +44,7 @@ export default class TextContributions extends React.Component {
           <span className='contributionAmount'>${this.props.contribs.total_donations}</span>
         </p>
         <p className='contributionItem'>
-          <span className='repPage-span'>Spent</span>
+          <span className='repPage-span'>Spent {' '} {'  '}</span>
           <span className='contributionAmount'>${this.props.contribs.spent}</span>
         </p>
         <p className='contributionItem'>

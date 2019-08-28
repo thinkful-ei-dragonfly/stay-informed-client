@@ -10,11 +10,19 @@
   position: -moz-sticky;
   position: -ms-sticky;
   position: -o-sticky;
-  padding: 20px 0;
+  padding: 20px;
   background-color: $background;
   top: 0;
   z-index: 99999;
+  // border: 1px solid;
+  margin: 0 -25px;
+  border-bottom: 1px solid;
 
+  @media (min-width: 768px) {
+    border-bottom: 0;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
   a {
     color: inherit;
     text-decoration: none;
