@@ -1,6 +1,4 @@
-$blue: #0063C0;
-$red: #E9503E;
-$background: #FAFAF8;
+@import '../../index.scss';
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400&display=swap');
 
 .appFooter {
@@ -13,7 +11,7 @@ $background: #FAFAF8;
   position: absolute;
   left: 0;
   padding: 20px;
-  background-color: #AC9AB5;
+  background-color: $purple;
   color: $background;
   margin-top: 75px;
 
