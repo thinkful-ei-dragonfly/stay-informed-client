@@ -111,6 +111,7 @@ export default class FinancialContributions extends Component {
                   return '$' + value;
                 }
               },
+              fontSize: 14,
             },
           },
         ],
