@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import './FinancialContributions.scss'
 
 export default class FinancialContributions extends Component {
@@ -111,6 +111,7 @@ export default class FinancialContributions extends Component {
                   return '$' + value;
                 }
               },
+              fontSize: 14,
             },
           },
         ],
@@ -119,7 +120,7 @@ export default class FinancialContributions extends Component {
 
     return (
       <section id="contributionChart">
-        <Doughnut className="chart" data={data} options={options} />
+        <Bar className="chart" data={data} options={options} />
       </section>
     );
   }
