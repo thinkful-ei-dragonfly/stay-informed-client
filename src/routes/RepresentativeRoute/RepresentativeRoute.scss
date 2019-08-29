@@ -41,18 +41,21 @@
       }
       .social-icon {
         color: $black;
+        width: 20%;
+        display: inline-block;
       }
     }
     .chartDesc {
       width: 100%;
-      display: none;
+      font-size: 1em;
+      //display: none;
       padding: 25px 0 50px;
       @media (min-width: 768px) {
         display: inherit;
       }
       @media (min-width: 959px) {
         // display: inherit;
-        font-size: 20px;
+        font-size: 1.15em;
         width: 25%;
         padding: 25px;
       }
