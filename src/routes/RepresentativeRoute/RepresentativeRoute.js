@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TotalContributions from '../../components/TotalContributions/TotalContributions';
 import FinancialContributions from '../../components/FinancialContributions/FinancialContributions';
-import TextContributions from '../../components/TextContributions/TextContributions'
+import TextContributions from '../../components/TextContributions/TextContributions';
 import './RepresentativeRoute.scss';
 import Icon from 'react-simple-icons';
 import MoneySpinner from '../../components/MoneySpinner/Spinner';
-import Elephant from './elephant.png'
-import Donkey from './donkey.png'
-
+import Elephant from './elephant.png';
+import Donkey from './donkey.png';
 
 export default class RepresentativeRoute extends React.Component {
   static contextType = UserContext;
@@ -44,7 +43,16 @@ export default class RepresentativeRoute extends React.Component {
       url = currentRep.url;
       fbUrl = `https://www.facebook.com/${currentRep.facebook_account}`;
       twitterUrl = `https://www.twitter.com/${currentRep.twitter_account}`;
-      party = (currentRep.current_party === 'R') ? <div>Republican <img className='partyIcon' src={Elephant} alt=''/></div> : <div>Democrat <img className='partyIcon' src={Donkey} alt=''/></div>
+      party =
+        currentRep.current_party === 'R' ? (
+          <div>
+            Republican <img className="partyIcon" src={Elephant} alt="" />
+          </div>
+        ) : (
+          <div>
+            Democrat <img className="partyIcon" src={Donkey} alt="" />
+          </div>
+        );
       contribs = currentRep.contributionTotals || null;
       topContribs = currentRep.topContributors || null;
       topIndustries = currentRep.topIndustries || null;
@@ -59,18 +67,57 @@ export default class RepresentativeRoute extends React.Component {
     }
     return (
       <div className="representativePage">
-        <section className='repPage-section' id='contact-info'>
-          <div className='repPage-section-text'>
-            <h1 className='repPage-name'><span className='repPage-span'>Name</span>{name}</h1>
-            <h2 className='repPage-title'><span className='repPage-span'>Title</span>{currentRole}</h2>
-            <h3 className='repPage-party'><span className='repPage-span'>Party</span>{party}</h3>
-            {phone && <p className='repPage-phone'><span className='repPage-span'>Phone</span> <a href={`tel:${phone}`}>{phone}</a></p>}
-            {url && <p className='repPage-url'><span className='repPage-span'>Website</span> <span className='site'><a href={url} target="_blank" rel="noopener noreferrer">Visit</a></span></p>}
-            {twitterUrl && <a href={twitterUrl} className='social-icon' target="_blank" rel="noopener noreferrer"><Icon name='twitter'/></a>}
-            {fbUrl && <a href={fbUrl} className='social-icon' target="_blank" rel="noopener noreferrer"><Icon name='facebook'/></a>}
-            <Link
-              className="back-nav"
-              to='/dashboard'>
+        <section className="repPage-section" id="contact-info">
+          <div className="repPage-section-text">
+            <h1 className="repPage-name">
+              <span className="repPage-span">Name</span>
+              {name}
+            </h1>
+            <h2 className="repPage-title">
+              <span className="repPage-span">Title</span>
+              {currentRole}
+            </h2>
+            <h3 className="repPage-party">
+              <span className="repPage-span">Party</span>
+              {party}
+            </h3>
+            {phone && (
+              <p className="repPage-phone">
+                <span className="repPage-span">Phone</span>{' '}
+                <a href={`tel:${phone}`}>{phone}</a>
+              </p>
+            )}
+            {url && (
+              <p className="repPage-url">
+                <span className="repPage-span">Website</span>{' '}
+                <span className="site">
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    Visit
+                  </a>
+                </span>
+              </p>
+            )}
+            {twitterUrl && (
+              <a
+                href={twitterUrl}
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="twitter" />
+              </a>
+            )}
+            {fbUrl && (
+              <a
+                href={fbUrl}
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="facebook" />
+              </a>
+            )}
+            <Link className="back-nav" to="/dashboard">
               {' \u2b05 Go Back'}
             </Link>
           </div>
@@ -78,34 +125,42 @@ export default class RepresentativeRoute extends React.Component {
             <div className="representativeImage">{currentRepImg}</div>
           </div>
         </section>
-        {contribs ? (<>
-          <section className="repPage-section">
-            <TextContributions contributions={topContribs}/>
-            <h3 className="chartDesc">
-              This chart shows the top 5 contributors to your representative and
-              how much money your representative accepted from each one.
-            </h3>
-            <FinancialContributions contributions={topContribs} />
-          </section>
-          <section className="repPage-section">
-            <TextContributions contributions={topIndustries}/>
-            <h3 className="chartDesc">
-              This chart shows the top 5 business sectors that your representative
-              takes donations from and how much comes from each one.
-            </h3>
-            <FinancialContributions contributions={topIndustries} />
-          </section>
-          <section className="repPage-section">
-            <TextContributions contribs={contribs}/>
-            <h3 className="chartDesc">
-              This chart shows the total amount of money your representative took
-              in donations and how much they spent in the last cycle.
-            </h3>
-            <TotalContributions contribs={contribs} />
-          </section>
-        </>)
-        : <MoneySpinner />
-      }
+        {contribs ? (
+          <>
+            <section className="repPage-section">
+              <TextContributions contributions={topContribs} />
+              <h3 className="chartDesc">
+                Among all organizations, your representative accepted the
+                greatest dollar amount from these organizations. They may
+                possess a disproportionate influence over your representative's
+                platform and policies.
+              </h3>
+              <FinancialContributions contributions={topContribs} />
+            </section>
+            <section className="repPage-section">
+              <TextContributions contributions={topIndustries} />
+              <h3 className="chartDesc">
+                Among all sectors, these business sectors donated the
+                greatest dollar amount to this representative. Your
+                representative may be held particularly captive to the business
+                interests of these sectors.
+              </h3>
+              <FinancialContributions contributions={topIndustries} />
+            </section>
+            <section className="repPage-section">
+              <TextContributions contribs={contribs} />
+              <h3 className="chartDesc">
+                The degree of donations and spending in the last campaign cycle
+                lends insight into the strength of the representative's funding
+                infrastructure. Larger budgets typically grant candidates
+                greater visibility.
+              </h3>
+              <TotalContributions contribs={contribs} />
+            </section>
+          </>
+        ) : (
+          <MoneySpinner />
+        )}
       </div>
     );
   }
