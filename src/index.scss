@@ -92,7 +92,7 @@ p {
 }
 
 h2.title {
-  font-size: 2em;
+  font-size: 1.25em;
   @media (min-width: 959px) {
     font-size: 2.5em;
   }
@@ -102,7 +102,7 @@ h2.title {
 }
 
 h3.subtitle {
-  font-size: 1.5em;
+  font-size: 1em;
   @media (min-width: 959px) {
     font-size: 1.75em;
   }
@@ -123,6 +123,21 @@ label.small,
 
 button.submit {
   border-radius: 10px;
-  padding: 15px;
-  font-size: 1.25em;
+  font-size: .85em;
+  padding: 10px;
+  @media (min-width: 959px) {
+    padding: 15px;
+    font-size: 1.25em;
+  }
+}
+
+.alert,
+.unfound-district-alert {
+  color: $red;
+}
+.unfound-district-alert {
+  button {
+    color: $background;
+    margin-bottom: 1em;
+  }
 }

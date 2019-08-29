@@ -32,7 +32,7 @@
       }
       input {
         width: 75%;
-        font-size: 1.5em;
+        font-size: 1em;
         background: inherit;
         border: 0;
         border-bottom: 2px solid $blue;
@@ -48,6 +48,9 @@
 
         &::-ms-input-placeholder { /* Microsoft Edge */
             color: $lightgrey;
+          }
+          @media (min-width: 768px) {
+            font-size: 1.5em;
           }
       }
       select {

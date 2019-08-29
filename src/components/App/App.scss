@@ -8,8 +8,10 @@
 
 }
 .main-app {
+  margin-top: 1.5em;
   @media (min-width: 959px) {
     padding: 10px 0;
+    margin-top: 0;
   }
 }
 

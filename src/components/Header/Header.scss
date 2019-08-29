@@ -128,6 +128,7 @@
       .search-nav,
       .logout {
         padding: 3px;
+
         @media (min-width: 768px) {
           padding: 10px;
           transition: color .25s ease, background .25s ease;
