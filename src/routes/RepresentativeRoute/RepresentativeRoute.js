@@ -97,6 +97,7 @@ export default class RepresentativeRoute extends React.Component {
                 </span>
               </p>
             )}
+            <div className='socialIconsDiv'>
             {twitterUrl && (
               <a
                 href={twitterUrl}
@@ -117,6 +118,7 @@ export default class RepresentativeRoute extends React.Component {
                 <Icon name="facebook" />
               </a>
             )}
+            </div>
             <Link className="back-nav" to="/dashboard">
               {' \u2b05 Go Back'}
             </Link>

@@ -39,11 +39,7 @@
       @media (min-width: 768px) {
         flex-direction: row;
       }
-      .social-icon {
-        color: $black;
-        width: 20%;
-        display: inline-block;
-      }
+
     }
     .chartDesc {
       width: 100%;
@@ -97,6 +93,15 @@
         color: $green;
         &:hover {
           opacity: 1;
+        }
+      }
+
+      .socialIconsDiv {
+        display: flex;
+        flex-direction:row;
+        .social-icon {
+          color: $black;
+          margin: 0 40px 0 0;
         }
       }
 
