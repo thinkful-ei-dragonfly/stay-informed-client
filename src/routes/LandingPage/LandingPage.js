@@ -35,12 +35,10 @@ class RegistrationRoute extends Component {
           <Link to='/search'>
             <button className='submit searchButton'>Quick Search</button>
           </Link>
-
         </div>
       </section>
       <section className='createFormDiv' id='createForm'>
         <h2 className='title'>Want us to keep track of who represents you? Create a user profile, and we'll deliver all the latest information as soon as you login.</h2>
-
         <div className='form-wrapper'>
           <h3 className='subtitle'>Sign up and stay informed</h3>
           <RegistrationForm
