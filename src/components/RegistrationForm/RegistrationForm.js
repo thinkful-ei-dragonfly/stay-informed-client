@@ -81,7 +81,7 @@ class RegistrationForm extends Component {
     let name = e.target.value;
     if (name === '' || name === null) {
       this.setState({ isNameValidErr: 'Please enter your name.' });
-    } else if (typeof name !== 'string' || !name.match(/^[a-zA-Z ]+$/)) {
+    } else if (typeof name !== 'string' || !name.match(/^[a-zA-Z -]+$/)) {
       this.setState({
         isNameValidErr: 'Name must contain only alphabetic text.',
       });
@@ -117,12 +117,12 @@ class RegistrationForm extends Component {
   isStreetValid = e => {
     e.preventDefault();
     let street = e.target.value;
-    if (typeof street !== 'string' || !street.match(/^[0-9a-zA-Z #]+$/)) {
+    if (street === '' || street === null) {
+      this.setState({ isStreetValidErr: 'Please enter a street.' });
+    } else if (typeof street !== 'string' || !street.match(/^[0-9a-zA-Z #-]+$/)) {
       this.setState({
         isStreetValidErr: 'Street must contain only alphanumeric text.',
       });
-    } else if (street === '' || street === null) {
-      this.setState({ isStreetValidErr: 'Please enter a street.' });
     } else {
       this.setState({ isStreetValidErr: null });
     }
@@ -131,12 +131,12 @@ class RegistrationForm extends Component {
   isCityValid = e => {
     e.preventDefault();
     let city = e.target.value;
-    if (typeof city !== 'string' || !city.match(/^[a-zA-Z ]+$/)) {
+    if (city === '' || city === null) {
+      this.setState({ isCityValidErr: 'Please enter a city.' });
+    } else if (typeof city !== 'string' || !city.match(/^[a-zA-Z -]+$/)) {
       this.setState({
         isCityValidErr: 'City must contain only alphabetic text.',
       });
-    } else if (city === '' || city === null) {
-      this.setState({ isCityValidErr: 'Please enter a city.' });
     } else {
       this.setState({ isCityValidErr: null });
     }
@@ -165,6 +165,11 @@ class RegistrationForm extends Component {
     }
   };
 
+  handleFixCredentialClick = e => {
+    e.preventDefault();
+    this.setState({isRegistrationValidErr: null})
+  }
+
   componentDidMount() {
     this.firstInput.current.focus();
   }
@@ -192,6 +197,14 @@ class RegistrationForm extends Component {
 
     return (
       <>
+        {isRegistrationValidErr ? (
+            <div className="credential-alert">
+              <p className="credential-alert-msg">{isRegistrationValidErr}</p>
+              <button className="credential-alert-msg" onClick={this.handleFixCredentialClick}>Try again</button>
+            </div>
+          ) : (
+            ''
+          )}
         <form className="RegistrationForm" onSubmit={this.handleSubmit}>
           <div role="alert" className='alert'>
             {isRegistrationValidErr && <p>{isRegistrationValidErr}</p>}
