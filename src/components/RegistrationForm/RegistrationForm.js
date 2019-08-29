@@ -165,6 +165,11 @@ class RegistrationForm extends Component {
     }
   };
 
+  handleFixCredentialClick = e => {
+    e.preventDefault();
+    this.setState({isRegistrationValidErr: null})
+  }
+
   componentDidMount() {
     this.firstInput.current.focus();
   }
@@ -192,10 +197,15 @@ class RegistrationForm extends Component {
 
     return (
       <>
+        {isRegistrationValidErr ? (
+            <div className="credential-alert">
+              <p className="credential-alert-msg">{isRegistrationValidErr}</p>
+              <button className="credential-alert-msg" onClick={this.handleFixCredentialClick}>Try again</button>
+            </div>
+          ) : (
+            ''
+          )}
         <form className="RegistrationForm" onSubmit={this.handleSubmit}>
-          <div role="alert">
-            {isRegistrationValidErr && <p>{isRegistrationValidErr}</p>}
-          </div>
           <div role="alert">{isNameValidErr && <p>{isNameValidErr}</p>}</div>
           <div role="alert">
             {isUsernameValidErr && <p>{isUsernameValidErr}</p>}
