@@ -295,9 +295,6 @@ class RegistrationForm extends Component {
               <option value="CT" className="optionValue">
                 CT
               </option>
-              <option value="DC" className="optionValue">
-                DC
-              </option>
               <option value="DE" className="optionValue">
                 DE
               </option>
