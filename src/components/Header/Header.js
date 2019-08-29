@@ -33,8 +33,7 @@ class Header extends Component {
             className='logout'
             onClick={this.handleLogoutClick}
             to='/login'>
-            <span className="full">Logout</span>
-            <span className="mobile">Logout</span>
+            Logout
           </Link>
         </nav>
       </div>
