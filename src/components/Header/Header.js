@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
+import Search from './search.svg'
+import Settings from './settings.svg'
 import './Header.scss'
 
 class Header extends Component {
@@ -18,12 +20,14 @@ class Header extends Component {
           <Link
             className='header-user-name'
             to={`/user/${this.context.user.id}`}>
-            {this.context.user.name}
+            <span className="full">{this.context.user.name}</span>
+            <span className="mobile"><img src={Settings} alt='Settings'/></span>
           </Link>
           <Link
             className="search-nav"
             to='/search'>
-            Quick Search
+            <span className="full">Quick Search</span>
+            <span className="mobile"><img src={Search} alt='Search'/></span>
           </Link>
           <Link
             className='logout'
@@ -43,13 +47,19 @@ class Header extends Component {
           <Link
             className="search-nav"
             to='/search'>
-            Quick Search
+            <span className="full">Quick Search</span>
+            <span className="mobile"><img src={Search} alt='Search'/></span>
           </Link>
           <Link className='login-link'
-            to='/login'>Login</Link>
+            to='/login'>
+            Login
+          </Link>
           {''}
           <Link className='register-link'
-            to='/register'>Sign up</Link>
+            to='/register'>
+            <span className="full">Sign up</span>
+            <span className="mobile">Sign up</span>
+          </Link>
         </nav>
       </div>
     )
