@@ -59,12 +59,15 @@
       }
     }
     .login-link {
-      margin-left: 25px;
+      margin-left: 15px;
+      font-size: 0.85em;
+      &:hover {
+        background: pink;
+        color: $red;
+      }
       @media (min-width: 768px) {
-        &:hover {
-          background: pink;
-          color: $red;
-        }
+        font-size: 1.25em;
+        margin-left: 25px;
       }
     }
     .search-nav {

@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
-import Login from './login.svg'
-import Logout from './logout.svg'
 import Search from './search.svg'
 import Settings from './settings.svg'
-import SignUp from './add-user.svg'
 import './Header.scss'
 
 class Header extends Component {
@@ -37,7 +34,7 @@ class Header extends Component {
             onClick={this.handleLogoutClick}
             to='/login'>
             <span className="full">Logout</span>
-            <span className="mobile"><img src={Logout} alt='Logout'/></span>
+            <span className="mobile">Logout</span>
           </Link>
         </nav>
       </div>
@@ -56,14 +53,13 @@ class Header extends Component {
           </Link>
           <Link className='login-link'
             to='/login'>
-            <span className="full">Login</span>
-            <span className="mobile"><img src={Login} alt='Login'/></span>
+            Login
           </Link>
           {''}
           <Link className='register-link'
             to='/register'>
             <span className="full">Sign up</span>
-            <span className="mobile"><img src={SignUp} alt='SignUp'/></span>
+            <span className="mobile">Sign up</span>
           </Link>
         </nav>
       </div>
