@@ -34,8 +34,8 @@ export default class FinancialContributions extends Component {
     if (this.props.contributions) {
       // get title for industry vs org contribution chart type
       chartTitle = this.props.contributions[0].industry_name
-        ? 'Top 5 Contributing Sectors'
-        : 'Top 5 Individual Contributors';
+        ? 'Highest Sector Contributors'
+        : 'Highest Organizational Contributors';
       const dataArr = this.getDataArr();
       const labelArr = this.getLabelArr();
       data = {
@@ -71,7 +71,7 @@ export default class FinancialContributions extends Component {
         fontSize: 25,
         fontColor: '#000000',
         padding: 20,
-        // fontFamily: "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
+        fontFamily: "'JostRegular', 'Source Sans Pro', 'Lato', sans-serif",
       },
       legend: {
         display: false,
