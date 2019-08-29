@@ -13,11 +13,15 @@ class ErrorDisplay extends React.Component {
     return (
       <section>
         <div className='error'>
-          <h3>{this.context.error.error}</h3>
+          <h2 className='errorH2'>Something went wrong. {this.context.error.error}</h2>
         </div>
-        <Link to='/search'>
-            <Button>Try Searching Again</Button>
-        </Link>
+
+            <Button>
+              <Link to='/search'>
+                Try Searching Again
+              </Link>
+            </Button>
+
       </section>
     )
   }

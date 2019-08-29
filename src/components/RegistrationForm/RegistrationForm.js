@@ -206,19 +206,22 @@ class RegistrationForm extends Component {
             ''
           )}
         <form className="RegistrationForm" onSubmit={this.handleSubmit}>
-          <div role="alert">{isNameValidErr && <p>{isNameValidErr}</p>}</div>
-          <div role="alert">
+          <div role="alert" className='alert'>
+            {isRegistrationValidErr && <p>{isRegistrationValidErr}</p>}
+          </div>
+          <div role="alert" className='alert'>{isNameValidErr && <p>{isNameValidErr}</p>}</div>
+          <div role="alert" className='alert'>
             {isUsernameValidErr && <p>{isUsernameValidErr}</p>}
           </div>
-          <div role="alert">
+          <div role="alert" className='alert'>
             {isPasswordValidErr && <p>{isPasswordValidErr}</p>}
           </div>
-          <div role="alert">
+          <div role="alert" className='alert'>
             {isStreetValidErr && <p>{isStreetValidErr}</p>}
           </div>
-          <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
-          <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>
-          <div role="alert">{isZipValidErr && <p>{isZipValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isCityValidErr && <p>{isCityValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isStateValidErr && <p>{isStateValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isZipValidErr && <p>{isZipValidErr}</p>}</div>
           <section className="form-fields">
             <Label className="small" htmlFor="name">
               Name

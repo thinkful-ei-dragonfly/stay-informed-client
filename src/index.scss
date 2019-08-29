@@ -126,3 +126,14 @@ button.submit {
   padding: 15px;
   font-size: 1.25em;
 }
+
+.alert,
+.unfound-district-alert {
+  color: $red;
+}
+.unfound-district-alert {
+  button {
+    color: $background;
+    margin-bottom: 1em;
+  }
+}
