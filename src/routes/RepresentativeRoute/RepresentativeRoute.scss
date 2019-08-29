@@ -15,12 +15,12 @@
       .contributionItem {
         display: flex;
         padding: 10px 5%;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: flex-start;
         span.repPage-span {
           padding-top: 5px;
           display: block;
-          width: 25%;
+          width: 50%;
           min-width: 25%;
           margin-right: 50px;
           font-weight: 400;
@@ -39,6 +39,7 @@
       @media (min-width: 768px) {
         flex-direction: row;
       }
+
       .flex{
         flex-direction: row;
         justify-content: flex-start;
@@ -46,19 +47,20 @@
           margin: 0 50px 0 0;
           color: $black;
         }
-      }
+
       
     }
     .chartDesc {
       width: 100%;
-      display: none;
+      font-size: 1em;
+      //display: none;
       padding: 25px 0 50px;
       @media (min-width: 768px) {
         display: inherit;
       }
       @media (min-width: 959px) {
         // display: inherit;
-        font-size: 20px;
+        font-size: 1.15em;
         width: 25%;
         padding: 25px;
       }
