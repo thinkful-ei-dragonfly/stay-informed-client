@@ -7,35 +7,39 @@ export default class TextContributions extends React.Component {
     if (this.props.contributions) {
       if (this.props.contributions[0].org_name) {
         contribHeader = 'Top Contributors'
-        contribList = this.props.contributions.map(line => {
+        contribList = this.props.contributions.map((line,idx) => {
           const total = parseInt(line.total).toLocaleString();
           console.log(total);
+          if(idx<5){
           return (
             <p className='contributionItem' key={line.org_name}>
               <span className='repPage-span'>{line.org_name}</span>
               <span className='contributionAmount'>${total}</span>
             </p>
-          )
+          )}
+          return;
         })
       }
       else {
         contribHeader = 'Top Industries'
-        contribList = this.props.contributions.map(line => {
+        contribList = this.props.contributions.map((line,idx) => {
           const total = parseInt(line.total).toLocaleString();
-          if (line.industry_name === 'TV/Movies/Music') {
+          if(idx<5){
+            if (line.industry_name === 'TV/Movies/Music') {
+              return (
+                <p className='contributionItem' key={line.industry_name}>
+                  <span className='repPage-span'>TV / Movies / Music</span>
+                  <span className='contributionAmount'>${total}</span>
+                </p>
+              )}
+            
             return (
               <p className='contributionItem' key={line.industry_name}>
-                <span className='repPage-span'>TV / Movies / Music</span>
+                <span className='repPage-span'>{line.industry_name}</span>
                 <span className='contributionAmount'>${total}</span>
               </p>
-            )
-          }
-          return (
-            <p className='contributionItem' key={line.industry_name}>
-              <span className='repPage-span'>{line.industry_name}</span>
-              <span className='contributionAmount'>${total}</span>
-            </p>
-          )
+            )}
+            return;
         })
       }
     } else if (this.props.contribs) {
