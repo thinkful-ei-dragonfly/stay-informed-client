@@ -39,9 +39,15 @@
       @media (min-width: 768px) {
         flex-direction: row;
       }
-      .social-icon {
-        color: $black;
+      .flex{
+        flex-direction: row;
+        justify-content: flex-start;
+        .social-icon {
+          margin: 0 50px 0 0;
+          color: $black;
+        }
       }
+      
     }
     .chartDesc {
       width: 100%;
