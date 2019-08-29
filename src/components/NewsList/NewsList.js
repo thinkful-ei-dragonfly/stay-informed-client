@@ -16,7 +16,7 @@ export default class NewsList extends React.Component {
     return (
       <section className='NewsList-wrapper'>
         <h2 className='title'>What's Going On</h2>
-        <h3>Here are some articles that reference your representatives</h3>
+        <h3>Here are some articles that mention your representatives</h3>
         <ul className='NewsList'>
           {this.displayArticles(this.context.news)}
         </ul>
