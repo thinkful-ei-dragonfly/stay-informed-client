@@ -9,7 +9,6 @@ export default class TextContributions extends React.Component {
         contribHeader = 'Top Contributors'
         contribList = this.props.contributions.map((line,idx) => {
           const total = parseInt(line.total).toLocaleString();
-          console.log(total);
           if(idx<5){
           return (
             <p className='contributionItem' key={line.org_name}>
