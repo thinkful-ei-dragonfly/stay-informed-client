@@ -206,10 +206,10 @@ class UserRoute extends Component {
           <h2 className="title">Update your address</h2>
         </section>
         <form className="UpdateForm" onSubmit={this.handleSubmit}>
-          <div role="alert">{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
-          <div role="alert">{isCityValidErr && <p>{isCityValidErr}</p>}</div>
-          <div role="alert">{isStateValidErr && <p>{isStateValidErr}</p>}</div>
-          <div role="alert">{isZipValidErr && <p>{isZipValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isStreetValidErr && <p>{isStreetValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isCityValidErr && <p>{isCityValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isStateValidErr && <p>{isStateValidErr}</p>}</div>
+          <div role="alert" className='alert'>{isZipValidErr && <p>{isZipValidErr}</p>}</div>
 
           <section className="form-fields">
             <Label htmlFor="street">

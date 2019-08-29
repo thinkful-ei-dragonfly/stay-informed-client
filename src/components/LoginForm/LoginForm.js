@@ -49,7 +49,7 @@ class LoginForm extends Component {
         className='loginForm'
         onSubmit={this.handleSubmit}
       >
-        <div role='alert'>
+        <div role='alert' className='alert'>
           {error && <p>{error}</p>}
         </div>
         <section className='form-fields'>

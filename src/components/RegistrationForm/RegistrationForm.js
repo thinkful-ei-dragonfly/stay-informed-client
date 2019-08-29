@@ -193,7 +193,7 @@ class RegistrationForm extends Component {
     return (
       <>
         <form className="RegistrationForm" onSubmit={this.handleSubmit}>
-          <div role="alert">
+          <div role="alert" className='alert'>
             {isRegistrationValidErr && <p>{isRegistrationValidErr}</p>}
           </div>
           <div role="alert">{isNameValidErr && <p>{isNameValidErr}</p>}</div>
