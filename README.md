@@ -10,15 +10,15 @@ Use cases may include CHANGE
 
 
 INCLUDE SCREENSHOTS
-![screenshot](/screenshots/landing.png?raw=true)
+![screenshot](/src/screenshots/landing.png?raw=true)
 
-![screenshot](/screenshots/search.png?raw=true)
+![screenshot](/src/screenshots/search.png?raw=true)
 
-![screenshot](/screenshots/registration.png?raw=true)
+![screenshot](/src/screenshots/registration.png?raw=true)
 
-![screenshot](/screenshots/dashboard.png?raw=true)
+![screenshot](/src/screenshots/dashboard.png?raw=true)
 
-![screenshot](/screenshots/representatives.png?raw=true)
+![screenshot](/src/screenshots/representatives.png?raw=true)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and
