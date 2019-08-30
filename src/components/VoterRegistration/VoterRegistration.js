@@ -6,7 +6,6 @@ export default class VoterRegistration extends Component {
   render() {
     return (
       <div className="reg-vote">
-       <Link to="/dashboard" className="dash-link">Navigate back to dashboard</Link>
        <p class="loading">Loading...</p>
         <iframe
           title="Use this form to register to vote in your local, state, and national elections."
