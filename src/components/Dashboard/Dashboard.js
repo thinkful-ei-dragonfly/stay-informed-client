@@ -19,6 +19,7 @@ export default class Dashboard extends React.Component {
   static contextType = UserContext;
 
   componentDidMount() {
+  //  window.scrollTo(0, 0)
     if (this.context.user.address) {
       this.context.setFetching(true);
 
