@@ -10,13 +10,15 @@ Use cases may include CHANGE
 
 
 INCLUDE SCREENSHOTS
-![screenshot of home page]()
+![screenshot](/screenshots/landing.png?raw=true)
 
-![screenshot of dashboard]()
+![screenshot](/screenshots/search.png?raw=true)
 
-![screenshot of rep page]()
+![screenshot](/screenshots/registration.png?raw=true)
 
-![screenshot of search now]()
+![screenshot](/screenshots/dashboard.png?raw=true)
+
+![screenshot](/screenshots/representatives.png?raw=true)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and
