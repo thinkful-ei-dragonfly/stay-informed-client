@@ -110,6 +110,9 @@
       }
     }
     .repPage-section-image {
+      @media (min-width: 959px) {
+        padding: 10%;
+      }
       img {
         max-width: 100%;
         width: 100%;
