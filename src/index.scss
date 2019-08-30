@@ -1,10 +1,7 @@
 // Variables
-$blue: #0063C0;
-$red: #E9503E;
-$background: #FAFAF8;
+@import 'colors';
 
 // Fonts / Typography
-
 
 @font-face {
     font-family: 'JostRegular';
@@ -95,13 +92,20 @@ p {
 }
 
 h2.title {
-  font-size: 2.5em;
+  font-size: 1.25em;
+  @media (min-width: 959px) {
+    font-size: 2.5em;
+  }
+
   line-height: 1.25;
   font-weight: 500;
 }
 
 h3.subtitle {
-  font-size: 1.75em;
+  font-size: 1em;
+  @media (min-width: 959px) {
+    font-size: 1.75em;
+  }
 
 }
 
@@ -119,6 +123,21 @@ label.small,
 
 button.submit {
   border-radius: 10px;
-  padding: 15px;
-  font-size: 1.25em;
+  font-size: .85em;
+  padding: 10px;
+  @media (min-width: 959px) {
+    padding: 15px;
+    font-size: 1.25em;
+  }
+}
+
+.alert,
+.unfound-district-alert {
+  color: $red;
+}
+.unfound-district-alert {
+  button {
+    color: $background;
+    margin-bottom: 1em;
+  }
 }

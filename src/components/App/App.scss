@@ -1,10 +1,17 @@
 .App {
   padding: 0 25px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
 }
 .main-app {
+  margin-top: 1.5em;
   @media (min-width: 959px) {
-    padding-top: 100px;
+    padding: 10px 0;
+    margin-top: 0;
   }
 }
 

@@ -16,10 +16,10 @@ export default class NewsList extends React.Component {
     return (
       <section className='NewsList-wrapper'>
         <h2 className='title'>What's Going On</h2>
+        <h3 className='subtitle'>Here are some articles that mention your representatives</h3>
         <ul className='NewsList'>
           {this.displayArticles(this.context.news)}
         </ul>
-        <p className='NewsList-credit'>Credit NewsApi.org</p>
       </section>
     )
   }

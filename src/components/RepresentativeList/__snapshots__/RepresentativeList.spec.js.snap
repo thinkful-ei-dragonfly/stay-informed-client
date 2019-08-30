@@ -4,9 +4,6 @@ exports[`RepresentativeList component renders a form.RepresentativeList by defau
 <aside
   className="rep-pane"
 >
-  <h2>
-    Your Congress Representatives
-  </h2>
   <ul
     id="rep-list"
   />

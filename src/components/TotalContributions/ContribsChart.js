@@ -1,5 +1,6 @@
 import React from 'react';
 import { HorizontalBar } from 'react-chartjs-2';
+import '../../index.scss'
 
 class ContribsChart extends React.Component {
   donations = parseFloat(this.props.donations);
@@ -28,11 +29,13 @@ class ContribsChart extends React.Component {
   options = {
     title: {
       display: true,
-      text: 'Total Contributions in the Last Cycle',
+      text: 'Contributions vs. Spending in Last Cycle',
       fontSize: 25,
       fontColor: '#000000',
       padding: 20,
-      fontFamily: "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
+      responsive: true,
+      fontFamily: "'JostRegular', 'Source Sans Pro', 'Lato', sans-serif",
+      maintainAspectRation: false,
     },
     legend: {
       display: false,
@@ -63,6 +66,13 @@ class ContribsChart extends React.Component {
                 return '$' + value;
               }
             },
+          },
+        },
+      ],
+      yAxes: [
+        {
+          ticks: {
+            fontSize: 14,
           },
         },
       ],

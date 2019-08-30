@@ -5,7 +5,7 @@ exports[`App component renders a form.App by default 1`] = `
   className="App"
 >
   <Header />
-  <main
+  <div
     className="main-app"
   >
     <Switch>
@@ -51,6 +51,7 @@ exports[`App component renders a form.App by default 1`] = `
         component={[Function]}
       />
     </Switch>
-  </main>
+  </div>
+  <Footer />
 </div>
 `;

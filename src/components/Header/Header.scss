@@ -1,29 +1,61 @@
-$blue: #0063C0;
-$red: #E9503E;
-$background: #FAFAF8;
+@import '../../index.scss';
 
 .appHeader {
+  align-items: center;
   background-color: #fafaf8;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: space-between;
   position: sticky;
   position: -webkit-sticky;
   position: -moz-sticky;
   position: -ms-sticky;
   position: -o-sticky;
-  padding: 20px 0;
+  padding: 15px;
   background-color: $background;
   top: 0;
   z-index: 99999;
+  // border: 1px solid;
+  margin: 0 -25px;
+  border-bottom: 1px solid;
+  .mobile {
+    display: inline-block;
+  }
+  .full {
+    display: none;
+  }
 
+  .header-controls {
+    nav {
+      display: flex;
+      align-items: center;
+      .search-nav, .mobile
+       {
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .mobile {
+      display: none;
+    }
+    .full {
+      display: inline-block;
+    }
+    border-bottom: 0;
+    padding: 20px 0;
+    margin: 0;
+  }
   a {
     color: inherit;
     text-decoration: none;
   }
   .Header-Logo {
-    font-size: 1.25em;
-    margin-bottom: 0.5em;
+    font-size: 1.20em;
+    // margin-bottom: 0.5em;
     a {
       background: transparent;
       cursor: pointer;
@@ -39,26 +71,46 @@ $background: #FAFAF8;
         transition: color .25s ease, background .25s ease;
         border-radius: 10px;
       }
-
     }
     .login-link {
-      margin-left: 25px;
+      padding: 3px;
+      border: 1px solid;
+      border-radius: 5px;
+      margin-left: 10px;
+      font-size: 0.85em;
       &:hover {
         background: pink;
         color: $red;
       }
+      @media (min-width: 768px) {
+        border: 0px;
+        font-size: 1.20em;
+        margin-left: 15px;
+      }
     }
     .search-nav {
-      &:hover {
-        background: #BCD39C;
-        color: green;
+      @media (min-width: 768px) {
+        font-size: 1.20em;
+        &:hover {
+          background: $lightgreen;
+          color: $green;
+        }
       }
     }
     .register-link {
-      margin-left: 25px;
+      padding: 3px;
+      border: 1px solid;
+      border-radius: 5px;
+      margin-left: 10px;
+      font-size: 0.85em;
       &:hover {
         color: $blue;
-        background: lightblue;
+        background: $lightblue;
+      }
+      @media (min-width: 768px) {
+        border: 0px;
+        margin-left: 15px;
+        font-size: 1.20em;
       }
     }
 
@@ -68,32 +120,55 @@ $background: #FAFAF8;
     display: flex;
 
     nav {
-      margin-left: 25px;
+      margin-left: 5px;
+      @media (min-width: 768px) {
+        margin-left: 25px;
+      }
       .header-user-name,
       .search-nav,
       .logout {
-        padding: 10px;
-        transition: color .25s ease, background .25s ease;
-        border-radius: 10px;
+        padding: 3px;
+
+        @media (min-width: 768px) {
+          padding: 10px;
+          transition: color .25s ease, background .25s ease;
+          border-radius: 10px;
+        }
       }
       .header-user-name {
-        margin-left: 25px;
-        &:hover {
-          color: $blue;
-          background: lightblue;
+        @media (min-width: 768px) {
+          margin-left: 15px;
+          font-size: 1.20em;
+          &:hover {
+            color: $blue;
+            background: $lightblue;
+          }
         }
       }
       .search-nav {
-        &:hover {
-          background: #BCD39C;
-          color: green;
+        margin-left: 5px;
+        @media (min-width: 768px) {
+          margin-left: 15px;
+          &:hover {
+            background: $lightgreen;
+            color: $green;
+          }
         }
       }
       .logout {
-        margin-left: 25px;
+        border: 1px solid;
+        border-radius: 5px;
+        margin-left: 5px;
+        font-size: 0.85em;
+        
         &:hover {
-          background: pink;
+          background: $pink;
           color: $red;
+        }
+        @media (min-width: 768px) {
+          border: 0px;
+          font-size: 1.20em;
+          margin-left: 15px;
         }
       }
     }

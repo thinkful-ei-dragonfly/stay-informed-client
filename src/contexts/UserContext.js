@@ -22,19 +22,17 @@ const UserContext = React.createContext({
 
 export default UserContext;
 
-const initialUserState = {
-  user: {},
-  state: null,
-  district: null,
-  representatives: null,
-  error: null,
-  fetching: false
-};
-
 export class UserProvider extends Component {
   constructor(props) {
     super(props);
-    const state = initialUserState;
+    const state = {
+      user: {},
+      state: null,
+      district: null,
+      representatives: null,
+      error: null,
+      fetching: false
+    };
 
     const jwtPayload = TokenService.parseAuthToken();
 
@@ -94,6 +92,8 @@ export class UserProvider extends Component {
   };
 
   setFinancesOnRep = (finObj, idx) =>{
+    if (this.state.representatives) {
+
     const representatives = this.state.representatives.map((rep, i) =>{
       if(i === idx){
         return {...rep, ...finObj}
@@ -101,6 +101,7 @@ export class UserProvider extends Component {
       return rep;
     });
     this.setState({ representatives });
+  }
   }
 
   setNews = news => {
@@ -123,10 +124,15 @@ export class UserProvider extends Component {
   };
 
   processLogout = () => {
+    this.setUser({});
+    this.setUserState(null)
+    this.setState(null);
+    this.setUserDistrict(null); 
+    this.setRepresentatives(null);
+    this.setNews(null);
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
-    this.setState(initialUserState)
   };
 
   logoutBecauseIdle = () => {
@@ -134,7 +140,11 @@ export class UserProvider extends Component {
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
     this.setUser({ idle: true });
-    this.setState(initialUserState)
+    this.setUserState(null)
+    this.setState(null);
+    this.setUserDistrict(null); 
+    this.setRepresentatives(null);
+    this.setNews(null);
   };
 
   fetchRefreshToken = () => {
@@ -170,7 +180,7 @@ export class UserProvider extends Component {
       setFinancesOnRep: this.setFinancesOnRep,
       processLogin: this.processLogin,
       processLogout: this.processLogout
-    };
+     };
     return (
       <UserContext.Provider value={value}>
         {this.props.children}

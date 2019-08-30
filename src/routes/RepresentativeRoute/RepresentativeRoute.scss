@@ -1,38 +1,73 @@
+@import '../../index.scss';
 .representativePage {
 
   .repPage-section {
-    .back-nav {
-      text-decoration: none;
-      border-radius: 10px;
-      padding: 10px;
-      margin-top: 25px;
-      transition: opacity .25s ease;
-      cursor: pointer;
-      width: 130px;
-      opacity: 0.75;
-      text-align: center;
-      background: #BCD39C;
-      color: green;
-      &:hover {
-        opacity: 1;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .mobile-contributions {
+      margin-bottom: 2.5em;
+
+      h2 {
+        font-family: 'JostRegular', sans-serif;
+        margin-bottom: 1em;
+      }
+      .contributionItem {
+        display: flex;
+        padding: 10px 5%;
+        justify-content: space-between;
+        align-items: flex-start;
+        span.repPage-span {
+          padding-top: 5px;
+          display: block;
+          width: 50%;
+          min-width: 25%;
+          margin-right: 50px;
+          font-weight: 400;
+          font-size: 1rem;
+        }
+        font-size: 1.5em;
+
+      }
+
+      @media (min-width: 768px) {
+        display: none;
       }
     }
-    display: flex;
+    &#contact-info {
+      flex-direction: column-reverse;
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+
+    }
     .chartDesc {
-      font-size: 20px;
-      width: 25%;
-      padding: 120px 10px;
+      width: 100%;
+      font-size: 1em;
+      //display: none;
+      padding: 25px 0 50px;
+      @media (min-width: 768px) {
+        display: inherit;
+      }
+      @media (min-width: 959px) {
+        // display: inherit;
+        font-size: 1.15em;
+        width: 25%;
+        padding: 25px;
+      }
     }
     .repPage-section-text,
     .repPage-section-other {
-      width: 50%;
+      width: 100%;
+      @media (min-width: 768px) {
+        width: 50%;
+      }
     }
     .repPage-section-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 10%;
-
+      margin-bottom: 2em;
       h1,
       h2,
       h3,
@@ -43,6 +78,35 @@
         font-family: 'JostRegular', 'Futura', sans-serif;
         margin-bottom: 1rem;
         align-items: flex-end;
+      }
+      .back-nav {
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 25px;
+        transition: opacity .25s ease;
+        cursor: pointer;
+        width: 130px;
+        opacity: 0.75;
+        text-align: center;
+        background: $lightgreen;
+        color: $green;
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .socialIconsDiv {
+        display: flex;
+        flex-direction:row;
+        .social-icon {
+          color: $black;
+          margin: 0 40px 0 0;
+        }
+      }
+
+      @media (min-width: 959px) {
+        padding: 10%;
       }
     }
     .repPage-section-image {
@@ -57,12 +121,26 @@
     }
     #contributionChart {
       width: 100%;
-      display: flex;
-      
+      display: none;
+
       .contributionChart-text-div,
       canvas {
-        width: 50%;
+        width: 100%;
+      }
+      @media (min-width: 768px) {
+        display: flex;
+      }
+      @media (min-width: 959px) {
+        width: 75%;
+
+        height: auto;
       }
     }
+    @media (min-width: 959px) {
+      flex-direction: row;
+      padding: 50px 0;
+      justify-content: space-between;
+    }
   }
+
 }

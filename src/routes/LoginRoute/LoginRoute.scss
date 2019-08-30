@@ -1,21 +1,22 @@
-$blue: #0063C0;
-$red: #E9503E;
+@import '../../index.scss';
+
 .login-wrapper {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   .title,
   .loginForm {
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       width: 47.5%;
     }
   }
 
   .title {
-    font-size: 2em;
+    font-size: 1em;
     margin-bottom: 1em;
     @media (min-width: 768px) {
       margin-bottom: 0;
+      font-size: 2em;
     }
   }
 
@@ -65,7 +66,7 @@ $red: #E9503E;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     flex-direction: row;
   }
 }

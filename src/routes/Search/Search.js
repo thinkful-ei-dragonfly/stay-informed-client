@@ -29,10 +29,9 @@ class Search extends Component {
     this.context.clearError();
     const { street, city, state, zip } = ev.target;
 
-
     // Only render a lack of State selection or too short zip code error message
     // if the submit button has actually been clicked
-    if(zip.value.length < 5){
+    if (zip.value.length < 5) {
       this.setState({isZipValidErr: 'Zip code has too few digits - must be five digits.'})
     }
     else if(state.value === 'placeholder'){
@@ -119,7 +118,7 @@ class Search extends Component {
     let cityDefault = '';
     let stateDefault = '';
     let zipDefault = '';
-    let states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+    let states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
     'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
     'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
     let statesArray = states.map(state => {

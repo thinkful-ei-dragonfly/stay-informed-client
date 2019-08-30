@@ -55,6 +55,12 @@ const RepresentativeService = {
       ? res.json().then(e=>Promise.reject(e))
       : res.json()
     )
+  },
+
+  getFinancesForAll(repsArray) {
+    repsArray.forEach(rep => {
+      this.getFinances(rep.crp_id);
+    })
   }
 }
 
