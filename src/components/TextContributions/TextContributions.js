@@ -16,14 +16,14 @@ export default class TextContributions extends React.Component {
               <span className='contributionAmount'>${total}</span>
             </p>
           )}
-          return;
+          return '';
         })
       }
       else {
         contribHeader = 'Top Industries'
         contribList = this.props.contributions.map((line,idx) => {
           const total = parseInt(line.total).toLocaleString();
-          if(idx<5){
+          if (idx<5){
             if (line.industry_name === 'TV/Movies/Music') {
               return (
                 <p className='contributionItem' key={line.industry_name}>
@@ -38,7 +38,7 @@ export default class TextContributions extends React.Component {
                 <span className='contributionAmount'>${total}</span>
               </p>
             )}
-            return;
+            return '';
         })
       }
     } else if (this.props.contribs) {
