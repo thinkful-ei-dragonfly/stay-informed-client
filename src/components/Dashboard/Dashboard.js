@@ -76,9 +76,9 @@ export default class Dashboard extends React.Component {
               <span className="repPage-span">District</span> {this.context.district}
             </p>
             <p>
-              <Link to="/voter-registration" className='register-link'>
-                Not registered to vote? Register here.
-              </Link>
+                <button className='submit register-button' > <Link to="/voter-registration" className='register-link'> Not registered to vote? 
+                <br/>Register here.</Link> </button> 
+              
             </p>
           </div>
 
