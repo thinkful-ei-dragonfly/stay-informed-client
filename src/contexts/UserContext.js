@@ -49,6 +49,7 @@ export class UserProvider extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     if (TokenService.hasAuthToken()) {
       IdleService.regiserIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {

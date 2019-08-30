@@ -14,6 +14,7 @@ export default class RepresentativeRoute extends React.Component {
   static contextType = UserContext;
 
   componentDidMount() {
+    window.scrollTo(0,0);
     if (!this.context.representatives) {
       this.props.history.push('/');
     }
