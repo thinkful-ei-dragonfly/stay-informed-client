@@ -40,11 +40,6 @@ export default class App extends Component {
               path={'/'}
               component={LandingPage}
             />
-            <Route
-              exact
-              path={'/dashboard'}
-              component={Dashboard}
-              />
             <AllOtherRoute
               path={'/search'}
               component={Search}
