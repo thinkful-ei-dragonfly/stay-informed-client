@@ -33,7 +33,19 @@ exports[`Header component renders a form.Header by default 1`] = `
         className="search-nav"
         to="/search"
       >
-        Quick Search
+        <span
+          className="full"
+        >
+          Quick Search
+        </span>
+        <span
+          className="mobile"
+        >
+          <img
+            alt="Search"
+            src="search.svg"
+          />
+        </span>
       </Link>
       <Link
         className="login-link"
@@ -45,7 +57,16 @@ exports[`Header component renders a form.Header by default 1`] = `
         className="register-link"
         to="/register"
       >
-        Sign up
+        <span
+          className="full"
+        >
+          Sign up
+        </span>
+        <span
+          className="mobile"
+        >
+          Sign up
+        </span>
       </Link>
     </nav>
   </div>

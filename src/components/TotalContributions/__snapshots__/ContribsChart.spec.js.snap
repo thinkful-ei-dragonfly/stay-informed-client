@@ -46,14 +46,23 @@ exports[`ContribsChart component renders a form.ContribsChart by default 1`] = `
               },
             },
           ],
+          "yAxes": Array [
+            Object {
+              "ticks": Object {
+                "fontSize": 14,
+              },
+            },
+          ],
         },
         "title": Object {
           "display": true,
           "fontColor": "#000000",
-          "fontFamily": "'Open Sans', 'Source Sans Pro', 'Lato', sans-serif",
+          "fontFamily": "'JostRegular', 'Source Sans Pro', 'Lato', sans-serif",
           "fontSize": 25,
+          "maintainAspectRation": false,
           "padding": 20,
-          "text": "Total Contributions in the Last Cycle",
+          "responsive": true,
+          "text": "Contributions vs. Spending in Last Cycle",
         },
         "tooltips": Object {
           "callbacks": Object {

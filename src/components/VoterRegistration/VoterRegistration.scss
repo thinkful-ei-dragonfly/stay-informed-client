@@ -1,0 +1,25 @@
+@import '../../index.scss';
+.reg-vote{
+  position: relative;
+  iframe{
+    position: relative;
+    z-index: 10;
+  }
+  .dash-link{
+    background-color: $lightblue;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1em;
+      max-width: 15ch;
+      color: $blue;
+  }
+  .loading{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+}
+
