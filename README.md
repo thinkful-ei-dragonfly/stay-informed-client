@@ -9,15 +9,19 @@ Use cases may include CHANGE
 ### Live Demo: https://stayinformed.now.sh/
 
 
-INCLUDE SCREENSHOTS
+Home Page:
 ![screenshot](/src/screenshots/landing.png?raw=true)
 
+Search for you representatives:
 ![screenshot](/src/screenshots/search.png?raw=true)
 
+Register:
 ![screenshot](/src/screenshots/registration.png?raw=true)
 
+Your dashboard:
 ![screenshot](/src/screenshots/dashboard.png?raw=true)
 
+Your representatives info:
 ![screenshot](/src/screenshots/representatives.png?raw=true)
 
 ## Getting Started
