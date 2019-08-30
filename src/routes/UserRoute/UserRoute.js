@@ -184,7 +184,7 @@ class UserRoute extends Component {
       updateError,
     } = this.state;
 
-    const error = updateError || this.context.error;
+    const error = updateError;
     let isAllValid =
       !isStreetValidErr &&
       !isCityValidErr &&
