@@ -1,10 +1,6 @@
 # StayInformed
 
-The StayInformed web application grants users the CHANGE 
-
-Graphical bar graphs CHANGE
-
-Use cases may include CHANGE
+The StayInformed web application gives United States based users the ability to look up their congressional representatives, find all the ways to get in touch with them and see who the biggest donors are.  The app wants to bring a lot of publicly available information to one place.
 
 ### Live Demo: https://stayinformed.now.sh/
 
